@@ -70,7 +70,7 @@ Add notes about how to use the system. -->
 Add additional notes about how to deploy this on a live system. -->
 
 ## ⛏️ Built Using <a name = "built_using"></a>
- - [C#](https://dotnet.microsoft.com/en-us/languages/csharp/) - Back-end API
+ - [C#](https://dotnet.microsoft.com/en-us/languages/csharp/) - Back-end API  
 - [React Native](https://dotnet.microsoft.com/en-us/learn/aspnet/what-is-aspnet-core/) - App development
 
 
