@@ -17,7 +17,7 @@
 - [Authors](#authors)
 
 ## 🧐 About <a name = "about"></a>
-Work Adventure is a website allowing the ENSC students to share their internship experiences, by telling the company they were in and all the tasks they had to do.
+Work Adventure is a mobile application allowing the ENSC students to share their internship experiences, by telling the company they were in and all the tasks they had to do.
 
 This permits future students to have a concrete idea of what could be expected from them in a given internship.
 
@@ -29,25 +29,18 @@ These instructions will let you know how to launch the project on your local mac
 First and foremost, you need to make sure that you have dotnet and EntityFramework Core installed on your computer.
 
 ```
-dotnet tool install --global dotnet-ef
-dotnet add package Microsoft.EntityFrameworkCore.Design
-dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+
 ```
 
 ### Launch the app
 When on the programs directory, you need to launch the app using the method **run**.
 
 ```
-dotnet run  // You may also use “dotnet watch run”
 ```
 
 Once the command executed, the terminal will indicate that the software is listening on a certain port
 
 ```
-info: Microsoft.Hosting.Lifetime[14]
-      Now listening on: http://localhost:{port}
-info: Microsoft.Hosting.Lifetime[14]
-      Now listening on: https://localhost:{secondPort}
 ```
 If the navigator doesn't start automatically after **run** execution, you'll have to copy and paste the adress.
 
@@ -77,9 +70,10 @@ Add notes about how to use the system. -->
 Add additional notes about how to deploy this on a live system. -->
 
 ## ⛏️ Built Using <a name = "built_using"></a>
-- [C#](https://dotnet.microsoft.com/en-us/languages/csharp/) - Programming Language
-- [HTML | CSS | JavaScript](https://www.freecodecamp.org/news/html-css-and-javascript-explained-for-beginners/) - Web Language
-- [ASP.Net Core](https://dotnet.microsoft.com/en-us/learn/aspnet/what-is-aspnet-core/) - Web development framework
+ - [C#](https://dotnet.microsoft.com/en-us/languages/csharp/) - Back-end API
+<!--- [HTML | CSS | JavaScript](https://www.freecodecamp.org/news/html-css-and-javascript-explained-for-beginners/) - Web Language
+- [ASP.Net Core](https://dotnet.microsoft.com/en-us/learn/aspnet/what-is-aspnet-core/) - Web development framework-->
+- [React Native](https://dotnet.microsoft.com/en-us/learn/aspnet/what-is-aspnet-core/) - App development
 
 
 ## ✍️ Authors <a name = "authors"></a>
@@ -93,5 +87,5 @@ Add additional notes about how to deploy this on a live system. -->
 
 <br><br><br>
 <p align="center">
- <img  src="wwwroot/images/logo.min.white.png" width="15%" alt="Work Adventure logo">
+ <img  src="resources/images/logo.min.white.png" width="15%" alt="Work Adventure logo">
 </p>
