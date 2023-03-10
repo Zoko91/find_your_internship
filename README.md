@@ -71,8 +71,6 @@ Add additional notes about how to deploy this on a live system. -->
 
 ## ⛏️ Built Using <a name = "built_using"></a>
  - [C#](https://dotnet.microsoft.com/en-us/languages/csharp/) - Back-end API
-<!--- [HTML | CSS | JavaScript](https://www.freecodecamp.org/news/html-css-and-javascript-explained-for-beginners/) - Web Language
-- [ASP.Net Core](https://dotnet.microsoft.com/en-us/learn/aspnet/what-is-aspnet-core/) - Web development framework-->
 - [React Native](https://dotnet.microsoft.com/en-us/learn/aspnet/what-is-aspnet-core/) - App development
 
 
@@ -80,10 +78,7 @@ Add additional notes about how to deploy this on a live system. -->
 - [@tristangclvs](https://github.com/tristangclvs) - ENSC 2A / Groupe 1
 - [@Zoko91](https://github.com/Zoko91) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ENSC 2A / Groupe 1
 
-<!-- ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-- Hat tip to anyone whose code was used
-- Inspiration
-- References -->
+
 
 <br><br><br>
 <p align="center">
