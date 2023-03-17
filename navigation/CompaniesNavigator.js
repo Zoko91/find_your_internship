@@ -1,4 +1,5 @@
 import React from "react";
+import { screenOptions } from "../theme/style";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CompaniesPage from "../screens/CompaniesPage";
 
@@ -10,7 +11,7 @@ const CompaniesNavigator = () => {
       screenOptions={screenOptions}
     >
       <CompaniesStack.Screen
-        name="Companies"
+        name="Company"
         component={CompaniesPage}
         options={{ title: "Companies" }}
       />

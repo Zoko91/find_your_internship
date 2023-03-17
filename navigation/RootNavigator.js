@@ -21,15 +21,15 @@ const RootNavigator = () => {
             if (route.name === "Explore") {
               iconName = focused ? "search-sharp" : "search-outline";
             } else if (route.name === "Companies") {
-              iconName = focused ? "md-layers" : "md-layers-outline";
+              iconName = focused ? "md-business" : "md-business-outline";
             } else if (route.name === "Profile") {
-                iconName = focused ? "md-settings-sharp" : "md-settings-outline";
+                iconName = focused ? "ios-person-circle" : "ios-person-circle-outline";
               }
             // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: "#2B5453",
-          tabBarInactiveTintColor: "gray",
+          tabBarInactiveTintColor: "#808080",
           // Hiding tab navigator header to show only stack header
           headerShown: false,
         })}

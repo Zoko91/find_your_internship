@@ -1,4 +1,5 @@
 import React from "react";
+import { screenOptions } from "../theme/style";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ExplorePage from "../screens/ExplorePage";
 
@@ -10,7 +11,7 @@ const ExploreNavigator = () => {
       screenOptions={screenOptions}
     >
       <ExploreStack.Screen
-        name="Explore"
+        name="Exploration"
         component={ExplorePage}
         options={{ title: "Explore" }}
       />

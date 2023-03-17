@@ -1,4 +1,5 @@
 import React from "react";
+import { screenOptions } from "../theme/style";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ProfilePage from "../screens/ProfilePage";
 
@@ -10,7 +11,7 @@ const ProfileNavigator = () => {
       screenOptions={screenOptions}
     >
       <ProfileStack.Screen
-        name="Profile"
+        name="Account"
         component={ProfilePage}
         options={{ title: "Profile" }}
       />
