@@ -69,7 +69,7 @@ const ProfilePage = ({ navigation }) => {
 
   const AccountSettings = () => {
     return (
-      <View style={{ flex: 1, height: 100 }}>
+      <View style={{ flex: 1}}>
         <View style={styles.containerAccount}>
           <View style={styles.containerAccountInside}>
             <Image
