@@ -13,13 +13,13 @@ export class Company {
 
 class CompanyService {
 
-    
+
     async findCompanyById(id) {
         try {
-            root = rootEndpoint+'/'+id;
+            const root = rootEndpoint+'/'+id;
             const response = await fetch(root);
             const json = await response.json();
-            return createCompany(json);
+            return this.createCompany(json);
         } catch (error) {
             console.error(error);
             return error;
@@ -29,11 +29,9 @@ class CompanyService {
 
     async findCompanies() {
         try {
-            console.log("Here in findCompanies");
             const response = await fetch(rootEndpoint);
-            console.log("Here in response");
             const json = await response.json();
-            return this.createCompanies([json]);
+            return this.createCompanies(json);
         } catch (error) {
             console.error(error);
             return error;
