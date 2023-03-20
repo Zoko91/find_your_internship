@@ -16,7 +16,7 @@ class CompanyService {
 
     async findCompanyById(id) {
         try {
-            const root = rootEndpoint+'/'+id;
+            const root = rootEndpoint+id;
             const response = await fetch(root);
             const json = await response.json();
             return this.createCompany(json);
