@@ -39,13 +39,13 @@ class InternshipService {
     };
 
     // Create a Cocktail model object from a subset of data fields returned by API
-    createInternship(Internship) {
+    createInternship(internship) {
         return new Internship(
-            Internship.id,
-            Internship.name,
-            Internship.InternshipGrade,
-            Internship.logo,
-            Internship.website
+            internship.id,
+            internship.name,
+            internship.InternshipGrade,
+            internship.logo,
+            internship.website
         );
     }
 
