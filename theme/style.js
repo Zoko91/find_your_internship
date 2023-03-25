@@ -8,13 +8,13 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
     marginTop: 40,
     flexDirection: "row",
-    height: 100,
+    height:100
   },
   containerHeaderUser1: {},
   containerHeaderUser2: { marginTop: 20, marginLeft: 15 },
   containerHeaderUser3: { flex: 1, alignItems: "flex-end", marginTop: 27 },
-  nameUser: { color: "#000", fontSize: 20, fontFamily: "Manrope" },
-  showProfile: { color: "#808080", fontSize: 14, fontFamily: "Manrope" },
+  nameUser: { color: "#000", fontSize: 20 },
+  showProfile: { color: "#808080", fontSize: 14 },
   userProfilePicture: { width: 80, height: 80 },
   arrowUser: { width: 20, height: 20, marginLeft: 10 },
   fineLine: {

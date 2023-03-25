@@ -38,10 +38,12 @@ const ExplorePage = ({ navigation }) => {
     return (
       <TouchableOpacity style={styles.containerInternship}>
         <View style={styles.internshipLeftSide}>
+        <View style={styles.internshipLeftSideLogoContainer}>
           <Image
-            style={styles.internshipRightSideLogo}
+            style={styles.internshipLeftSideLogo}
             source={require("../resources/images/logo.min.white.png")}
           />
+          </View>
         </View>
         <View style={styles.internshipRightSide}>
           <Text style={styles.internshipRightSideCompanyName}>
@@ -113,7 +115,7 @@ const styles = StyleSheet.create({
     borderRadius: borderRadius,
   },
   internshipLeftSide: {
-    width: "10%",
+    width: "20%",
     height: "100%",
     backgroundColor: "#2B5453",
     borderRightWidth: 1,
@@ -127,11 +129,19 @@ const styles = StyleSheet.create({
     borderTopRightRadius: borderRadius,
     borderBottomRightRadius: borderRadius,
   },
-  internshipRightSideLogo: {
+  internshipLeftSideLogoContainer:{
+    backgroundColor: "#303030",   
+    padding: 5,
+    position: "absolute",
+    top: 50,
+    left: 40,
+  },
+  internshipLeftSideLogo: {
     width: 41,
     height: 41,
-    position: "absolute",
-    // top: internshipRightSide.height/2 - this.height,
+
+    objectFit: "contain",
+ 
   },
   internshipRightSideCompanyName: {
     fontSize: 20,

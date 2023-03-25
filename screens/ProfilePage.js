@@ -43,7 +43,7 @@ const ProfilePage = ({ navigation }) => {
 
   const UserHeader = () => {
     return (
-      <View style={{ flex: 1, height: 100 }}>
+      <View style={{ flex: 1 }}>
         <View style={styles.containerHeaderUser}>
           <View style={styles.containerHeaderUser1}>
             <Image
@@ -118,8 +118,9 @@ const ProfilePage = ({ navigation }) => {
 
   const UserPage = () => {
     return (
-      <View>
-        <AccountSettings />
+      <View style={{ flex: 1}}>
+        <UserHeader />
+        <AccountSettings style={{ marginTop: -50}}/>
       </View>
     );
   };
