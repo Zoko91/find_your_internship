@@ -33,16 +33,23 @@ const ExplorePage = ({ navigation }) => {
     }
   }, [internships]);
 
-  // Composant permettant d'afficher chaque Entreprise
+  // Composant permettant d'afficher chaque Stage
   const renderInternship = ({ item }) => {
     return (
       <TouchableOpacity style={styles.containerInternship}>
         <View style={styles.internshipLeftSide}>
-        <View style={styles.internshipLeftSideLogoContainer}>
-          <Image
-            style={styles.internshipLeftSideLogo}
-            source={require("../resources/images/logo.min.white.png")}
-          />
+          <View style={styles.internshipLeftSideLogoContainer}>
+            {item.illustration ? (
+              <Image
+                style={styles.internshipLeftSideLogo}
+                source={require("../resources/images/logo.min.white.png")}
+              />
+            ) : (
+              <Image
+                style={styles.internshipLeftSideLogo}
+                source={{ uri: item.illustration }}
+              />
+            )}
           </View>
         </View>
         <View style={styles.internshipRightSide}>
@@ -129,8 +136,8 @@ const styles = StyleSheet.create({
     borderTopRightRadius: borderRadius,
     borderBottomRightRadius: borderRadius,
   },
-  internshipLeftSideLogoContainer:{
-    backgroundColor: "#303030",   
+  internshipLeftSideLogoContainer: {
+    backgroundColor: "#303030",
     padding: 5,
     position: "absolute",
     top: 50,
@@ -141,7 +148,6 @@ const styles = StyleSheet.create({
     height: 41,
 
     objectFit: "contain",
- 
   },
   internshipRightSideCompanyName: {
     fontSize: 20,
