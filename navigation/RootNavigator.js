@@ -12,7 +12,7 @@ const Tab = createBottomTabNavigator();
 const RootNavigator = () => {
   return (
     <NavigationContainer>
-      <StatusBar barStyle="light-content" />
+      {/*<StatusBar barStyle="light-content" />*/}
       <Tab.Navigator
         screenOptions={({ route }) => ({
           // Icons will be different if the tab is focused
@@ -23,8 +23,10 @@ const RootNavigator = () => {
             } else if (route.name === "Companies") {
               iconName = focused ? "md-business" : "md-business-outline";
             } else if (route.name === "Profile") {
-                iconName = focused ? "ios-person-circle" : "ios-person-circle-outline";
-              }
+              iconName = focused
+                ? "ios-person-circle"
+                : "ios-person-circle-outline";
+            }
             // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
           },

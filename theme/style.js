@@ -38,6 +38,23 @@ const styles = StyleSheet.create({
   },
   containerArrowSetting: { flex: 1, alignItems: "flex-end", marginTop: 6 },
   arrowUserSetting: { width: 20, height: 20, marginLeft: 10 },
+  profilePicture: { width: 140, height: 140 },
+  containerProfile: {
+    marginTop: 50,
+    alignItems: "center",
+    position: "relative",
+    overflow: "hidden",
+  },
+  containerCamera: {
+    position: "absolute",
+    bottom: 0,
+    right: 110,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
 
 export default styles;

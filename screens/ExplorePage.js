@@ -35,7 +35,6 @@ const ExplorePage = ({ navigation }) => {
   useEffect(() => {
     if (internships.length === 0) {
       setIsLoading(false);
-      console.log(user);
     }
   }, [internships, user]);
 
@@ -80,15 +79,18 @@ const ExplorePage = ({ navigation }) => {
     return (
       <View>
         <Text style={styles.helloHeader}> Hi {user.username}</Text>
-        <ScrollView contentContainerStyle={styles.container}>
-          <View style={styles.listContainer}>
-            <FlatList
-              data={internships}
-              renderItem={renderInternship}
-              keyExtractor={(item) => item.id}
-            />
-          </View>
-        </ScrollView>
+        {/* 
+        <ScrollView contentContainerStyle={styles.container}>*/}
+        <View style={styles.listContainer}>
+          <FlatList
+            data={internships}
+            renderItem={renderInternship}
+            keyExtractor={(item) => item.id}
+            contentContainerStyle={{ flexGrow: 1 }}
+          />
+        </View>
+        {/*
+        </ScrollView> */}
       </View>
     );
   }

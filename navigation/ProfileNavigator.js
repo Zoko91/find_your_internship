@@ -6,6 +6,8 @@ import ProfileShow from "../screens/ProfileShow";
 import ProfileInformations from "../screens/ProfileInformations";
 import ProfileInternships from "../screens/ProfileInternships";
 import ProfileBookmarks from "../screens/ProfileBookmarks";
+import ProfilePrivacy from "../screens/ProfilePrivacy";
+import ProfileHelp from "../screens/ProfileHelp";
 
 const ProfileStack = createNativeStackNavigator();
 const ProfileNavigator = () => {
@@ -38,6 +40,16 @@ const ProfileNavigator = () => {
         name="Bookmarks"
         component={ProfileBookmarks}
         options={{ title: "Bookmarks" }}
+      />
+      <ProfileStack.Screen
+        name="Privacy"
+        component={ProfilePrivacy}
+        options={{ title: "Privacy" }}
+      />
+      <ProfileStack.Screen
+        name="Help"
+        component={ProfileHelp}
+        options={{ title: "Help" }}
       />
     </ProfileStack.Navigator>
   );

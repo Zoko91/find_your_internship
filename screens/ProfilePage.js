@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
   Text,
   View,
+  ScrollView,
   Image,
   TextInput,
   FlatList,
@@ -145,7 +146,12 @@ const ProfilePage = ({ navigation }) => {
       <View>
         <View style={styles.containerAccount}>
           <Text style={styles.headernameUser}>Support</Text>
-          <View style={styles.containerAccountInside}>
+          <TouchableOpacity
+            style={styles.containerAccountInside}
+            onPress={() => {
+              navigate("Privacy");
+            }}
+          >
             <Image
               style={styles.iconUser}
               source={require("../resources/images/files.png")}
@@ -157,8 +163,13 @@ const ProfilePage = ({ navigation }) => {
                 source={require("../resources/images/Chevron.png")}
               />
             </View>
-          </View>
-          <View style={styles.containerAccountInside}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.containerAccountInside}
+            onPress={() => {
+              navigate("Help");
+            }}
+          >
             <Image
               style={styles.iconUser}
               source={require("../resources/images/help.png")}
@@ -170,7 +181,7 @@ const ProfilePage = ({ navigation }) => {
                 source={require("../resources/images/Chevron.png")}
               />
             </View>
-          </View>
+          </TouchableOpacity>
         </View>
         {/* <View style={styles.fineLine}></View> */}
       </View>
@@ -179,11 +190,11 @@ const ProfilePage = ({ navigation }) => {
 
   const UserPage = () => {
     return (
-      <View style={{ flex: 1 }}>
+      <ScrollView style={{ flex: 1 }}>
         <UserHeader />
         <AccountSettings />
         <Support />
-      </View>
+      </ScrollView>
     );
   };
 
