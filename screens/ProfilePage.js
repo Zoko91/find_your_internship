@@ -23,6 +23,10 @@ const ProfilePage = ({ navigation }) => {
     }
   };
 
+  const navigate = (name) => {
+    navigation.navigate(name);
+  };
+
   useEffect(() => {
     getUser();
   }, []);
@@ -44,7 +48,12 @@ const ProfilePage = ({ navigation }) => {
   const UserHeader = () => {
     return (
       <View>
-        <View style={styles.containerHeaderUser}>
+        <TouchableOpacity
+          style={styles.containerHeaderUser}
+          onPress={() => {
+            navigate("Details");
+          }}
+        >
           <View style={styles.containerHeaderUser1}>
             <Image
               style={styles.userProfilePicture}
@@ -61,7 +70,7 @@ const ProfilePage = ({ navigation }) => {
               source={require("../resources/images/Chevron.png")}
             />
           </View>
-        </View>
+        </TouchableOpacity>
         <View style={styles.fineLine}></View>
       </View>
     );
@@ -72,7 +81,12 @@ const ProfilePage = ({ navigation }) => {
       <View>
         <View style={styles.containerAccount}>
           <Text style={styles.headernameUser}>Account Settings</Text>
-          <View style={styles.containerAccountInside}>
+          <TouchableOpacity
+            style={styles.containerAccountInside}
+            onPress={() => {
+              navigate("Informations");
+            }}
+          >
             <Image
               style={styles.iconUser}
               source={require("../resources/images/PersonIcon.png")}
@@ -84,8 +98,13 @@ const ProfilePage = ({ navigation }) => {
                 source={require("../resources/images/Chevron.png")}
               />
             </View>
-          </View>
-          <View style={styles.containerAccountInside}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.containerAccountInside}
+            onPress={() => {
+              navigate("Internships");
+            }}
+          >
             <Image
               style={styles.iconUser}
               source={require("../resources/images/InternPhoto.png")}
@@ -97,8 +116,13 @@ const ProfilePage = ({ navigation }) => {
                 source={require("../resources/images/Chevron.png")}
               />
             </View>
-          </View>
-          <View style={styles.containerAccountInside}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.containerAccountInside}
+            onPress={() => {
+              navigate("Bookmarks");
+            }}
+          >
             <Image
               style={styles.iconUser}
               source={require("../resources/images/Bookmark.png")}
@@ -110,7 +134,7 @@ const ProfilePage = ({ navigation }) => {
                 source={require("../resources/images/Chevron.png")}
               />
             </View>
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.fineLine}></View>
       </View>
@@ -148,7 +172,7 @@ const ProfilePage = ({ navigation }) => {
             </View>
           </View>
         </View>
-        <View style={styles.fineLine}></View>
+        {/* <View style={styles.fineLine}></View> */}
       </View>
     );
   };

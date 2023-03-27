@@ -7,31 +7,37 @@ import {
   FlatList,
   TouchableOpacity,
   StyleSheet,
+  ScrollView,
 } from "react-native";
 import InternshipsService from "../api/InternshipsService";
+import UsersService from "../api/UsersService";
 
 const ExplorePage = ({ navigation }) => {
   const [internships, setInternships] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState({});
 
-  const getInternships = async () => {
+  const getNeededInfos = async () => {
     try {
-      const response = await InternshipsService.findInternships();
-      setInternships(response);
+      const responseInternship = await InternshipsService.findInternships();
+      const responseUser = await UsersService.findUserById(1);
+      setUser(responseUser);
+      setInternships(responseInternship);
     } catch (error) {
       console.error(error);
     }
   };
 
   useEffect(() => {
-    getInternships();
+    getNeededInfos();
   }, []);
 
   useEffect(() => {
     if (internships.length === 0) {
       setIsLoading(false);
+      console.log(user);
     }
-  }, [internships]);
+  }, [internships, user]);
 
   // Composant permettant d'afficher chaque Stage
   const renderInternship = ({ item }) => {
@@ -73,8 +79,8 @@ const ExplorePage = ({ navigation }) => {
   } else {
     return (
       <View>
-        <Text style={styles.helloHeader}> Hi Giuseppe</Text>
-        <View style={styles.container}>
+        <Text style={styles.helloHeader}> Hi {user.username}</Text>
+        <ScrollView contentContainerStyle={styles.container}>
           <View style={styles.listContainer}>
             <FlatList
               data={internships}
@@ -82,7 +88,7 @@ const ExplorePage = ({ navigation }) => {
               keyExtractor={(item) => item.id}
             />
           </View>
-        </View>
+        </ScrollView>
       </View>
     );
   }
@@ -141,7 +147,7 @@ const styles = StyleSheet.create({
     padding: 5,
     position: "absolute",
     top: 50,
-    left: 40,
+    left: "58%",
   },
   internshipLeftSideLogo: {
     width: 41,
