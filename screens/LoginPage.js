@@ -15,6 +15,16 @@ import UsersService from "../api/UsersService";
 const LoginPage = ({ navigation }) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(false);
+
+  const handleEmailChange = (text) => {
+    setEmail(text);
+    // regular expression for email format checking
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    setIsEmailValid(emailRegex.test(text));
+  };
+
   return (
     <View>
       <Image
@@ -26,8 +36,19 @@ const LoginPage = ({ navigation }) => {
         <Text>Email</Text>
         <TextInput
           style={styles.input}
-          onChangeText={(text) => setEmail(text)}
+          onChangeText={handleEmailChange}
           value={""}
+          placeholder="placeholder"
+          keyboardType="numeric"
+        />
+      </View>
+      <View style={styles.inputContainer}>
+        <Text>Password</Text>
+        <TextInput
+          style={styles.input}
+          onChangeText={(text) => setPassword(text)}
+          value={""}
+          secureTextEntry={true}
           placeholder="placeholder"
           keyboardType="numeric"
         />

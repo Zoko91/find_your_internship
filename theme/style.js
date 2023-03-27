@@ -55,6 +55,20 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  hiMatt: { fontSize: 20, fontWeight: 300, marginTop: 20, textAlign: "center" },
+  descriptionShow: {
+    fontSize: 15,
+    fontWeight: 300,
+    marginTop: 20,
+    textAlign: "center",
+    lineHeight: 22,
+  },
+  recentPostHeader: {
+    marginLeft: 30,
+    fontWeight: 500,
+    fontSize: 22,
+    marginTop: 30,
+  },
 });
 
 export default styles;

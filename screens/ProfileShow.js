@@ -29,25 +29,8 @@ const ProfileShow = ({ navigation }) => {
             <Image source={require("../resources/images/camera.png")} />
           </View>
         </View>
-        <Text
-          style={{
-            fontSize: 20,
-            fontWeight: 300,
-            marginTop: 20,
-            textAlign: "center",
-          }}
-        >
-          Hi, I'm Matt
-        </Text>
-        <Text
-          style={{
-            fontSize: 15,
-            fontWeight: 300,
-            marginTop: 20,
-            textAlign: "center",
-            lineHeight: 22,
-          }}
-        >
+        <Text style={styles.hiMatt}>Hi, I'm Matt</Text>
+        <Text style={styles.descriptionShow}>
           Data scientist at IBM{"\n"}I’ve worked in various places and{"\n"}have
           experienced many hardships.
         </Text>
@@ -55,10 +38,23 @@ const ProfileShow = ({ navigation }) => {
     );
   };
 
+  const RecentPost = () => {
+    return (
+      <View>
+        <Text style={styles.recentPostHeader}>Most recent Post</Text>
+      </View>
+    );
+  };
+
+  const Post = () => {
+    return <View></View>;
+  };
+
   const UserShow = () => {
     return (
       <View style={{ flex: 1 }}>
         <Description />
+        <RecentPost />
       </View>
     );
   };
