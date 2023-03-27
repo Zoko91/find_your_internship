@@ -42,12 +42,12 @@ const ExplorePage = ({ navigation }) => {
             {item.illustration ? (
               <Image
                 style={styles.internshipLeftSideLogo}
-                source={require("../resources/images/logo.min.white.png")}
+                source={{ uri: item.illustration }}
               />
             ) : (
               <Image
                 style={styles.internshipLeftSideLogo}
-                source={{ uri: item.illustration }}
+                source={require("../resources/images/logo.min.white.png")}
               />
             )}
           </View>
@@ -153,8 +153,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 500,
     marginLeft: 10,
+    marginTop: 10,
   },
   internshipRightSideInternshipTitle: {
+    marginTop: 10,
+    maxWidth: "70%",
     fontSize: 16,
     fontWeight: 400,
     color: primaryColor,

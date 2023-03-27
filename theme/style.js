@@ -8,8 +8,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
     marginTop: 40,
     flexDirection: "row",
-    height:100
+    height: 100,
   },
+  headernameUser: { fontSize: 20, fontWeight: "bold", marginBottom: 20 },
   containerHeaderUser1: {},
   containerHeaderUser2: { marginTop: 20, marginLeft: 15 },
   containerHeaderUser3: { flex: 1, alignItems: "flex-end", marginTop: 27 },

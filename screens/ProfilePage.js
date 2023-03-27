@@ -43,7 +43,7 @@ const ProfilePage = ({ navigation }) => {
 
   const UserHeader = () => {
     return (
-      <View style={{ flex: 1 }}>
+      <View>
         <View style={styles.containerHeaderUser}>
           <View style={styles.containerHeaderUser1}>
             <Image
@@ -69,8 +69,9 @@ const ProfilePage = ({ navigation }) => {
 
   const AccountSettings = () => {
     return (
-      <View style={{ flex: 1}}>
+      <View>
         <View style={styles.containerAccount}>
+          <Text style={styles.headernameUser}>Account Settings</Text>
           <View style={styles.containerAccountInside}>
             <Image
               style={styles.iconUser}
@@ -115,12 +116,49 @@ const ProfilePage = ({ navigation }) => {
       </View>
     );
   };
+  const Support = () => {
+    return (
+      <View>
+        <View style={styles.containerAccount}>
+          <Text style={styles.headernameUser}>Support</Text>
+          <View style={styles.containerAccountInside}>
+            <Image
+              style={styles.iconUser}
+              source={require("../resources/images/files.png")}
+            />
+            <Text style={{ marginTop: 6 }}>Pivacy policy</Text>
+            <View style={styles.containerArrowSetting}>
+              <Image
+                style={styles.arrowUserSetting}
+                source={require("../resources/images/Chevron.png")}
+              />
+            </View>
+          </View>
+          <View style={styles.containerAccountInside}>
+            <Image
+              style={styles.iconUser}
+              source={require("../resources/images/help.png")}
+            />
+            <Text style={{ marginTop: 6 }}>Get help</Text>
+            <View style={styles.containerArrowSetting}>
+              <Image
+                style={styles.arrowUserSetting}
+                source={require("../resources/images/Chevron.png")}
+              />
+            </View>
+          </View>
+        </View>
+        <View style={styles.fineLine}></View>
+      </View>
+    );
+  };
 
   const UserPage = () => {
     return (
-      <View style={{ flex: 1}}>
+      <View style={{ flex: 1 }}>
         <UserHeader />
-        <AccountSettings style={{ marginTop: -50}}/>
+        <AccountSettings />
+        <Support />
       </View>
     );
   };
