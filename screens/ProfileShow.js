@@ -23,12 +23,34 @@ const ProfileShow = ({ navigation }) => {
         <View style={styles.containerProfile}>
           <Image
             style={styles.profilePicture}
-            source={require("../resources/images/PDP.png")}
+            source={require("../resources/images/PDP_2.png")}
           />
           <View style={styles.containerCamera}>
             <Image source={require("../resources/images/camera.png")} />
           </View>
         </View>
+        <Text
+          style={{
+            fontSize: 20,
+            fontWeight: 300,
+            marginTop: 20,
+            textAlign: "center",
+          }}
+        >
+          Hi, I'm Matt
+        </Text>
+        <Text
+          style={{
+            fontSize: 15,
+            fontWeight: 300,
+            marginTop: 20,
+            textAlign: "center",
+            lineHeight: 22,
+          }}
+        >
+          Data scientist at IBM{"\n"}I’ve worked in various places and{"\n"}have
+          experienced many hardships.
+        </Text>
       </View>
     );
   };

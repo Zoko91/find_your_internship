@@ -22,7 +22,7 @@ const LoginPage = ({ navigation }) => {
         source={require("../resources/images/logo_green.png")}
       />
       <Text>Login to WorkAdventure</Text>
-      <View>
+      <View style={styles.inputContainer}>
         <Text>Email</Text>
         <TextInput
           style={styles.input}
@@ -38,17 +38,20 @@ const LoginPage = ({ navigation }) => {
 
 export default LoginPage;
 
-const borderRadius = 10;
-const primaryColor = "#303030";
-const secondaryColor = "#2B5453";
 // Use StylesSheet flatten
 const styles = StyleSheet.create({
   container: {
     height: "100%",
     alignItems: "center",
   },
+  inputContainer: {
+    width: "80%",
+  },
   input: {
     padding: 10,
     height: 40,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#234F52",
   },
 });
