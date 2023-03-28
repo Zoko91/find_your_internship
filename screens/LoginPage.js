@@ -24,7 +24,43 @@ const LoginPage = ({ navigation }) => {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     setIsEmailValid(emailRegex.test(text));
   };
-
+  // const InputDisplay = ({ type }) => {
+  //   return type == "email" ? (
+  //     <View style={styles.inputContainer}>
+  //       <Text>Email</Text>
+  //       <View style={styles.inputSection}>
+  //         {/* <Image
+  //         style={{ width: 20, height: 20 }}
+  //         source={require("../resources/images/email.png")}
+  //       /> */}
+  //         <TextInput
+  //           style={styles.input}
+  //           onChangeText={handleEmailChange}
+  //           value={""}
+  //           placeholder="Enter your email address"
+  //           keyboardType="numeric"
+  //         />
+  //       </View>
+  //     </View>
+  //   ) : (
+  //     <View style={styles.inputContainer}>
+  //       <Text>Email</Text>
+  //       <View style={styles.inputSection}>
+  //         {/* <Image
+  //         style={{ width: 20, height: 20 }}
+  //         source={require("../resources/images/email.png")}
+  //       /> */}
+  //         <TextInput
+  //           style={styles.input}
+  //           onChangeText={handleEmailChange}
+  //           value={""}
+  //           placeholder="Enter your email address"
+  //           keyboardType="numeric"
+  //         />
+  //       </View>
+  //     </View>
+  //   );
+  // };
   return (
     <View>
       <Image
@@ -34,24 +70,32 @@ const LoginPage = ({ navigation }) => {
       <Text>Login to WorkAdventure</Text>
       <View style={styles.inputContainer}>
         <Text>Email</Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={handleEmailChange}
-          value={""}
-          placeholder="placeholder"
-          keyboardType="numeric"
-        />
+        <View style={styles.inputSection}>
+          {/* <Image
+            style={{ width: 20, height: 20 }}
+            source={require("../resources/images/email.png")}
+          /> */}
+          <TextInput
+            style={styles.input}
+            onChangeText={handleEmailChange}
+            value={""}
+            placeholder="Enter your email address"
+            keyboardType="numeric"
+          />
+        </View>
       </View>
       <View style={styles.inputContainer}>
         <Text>Password</Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={(text) => setPassword(text)}
-          value={""}
-          secureTextEntry={true}
-          placeholder="placeholder"
-          keyboardType="numeric"
-        />
+        <View style={styles.inputSection}>
+          <TextInput
+            style={styles.input}
+            onChangeText={(text) => setPassword(text)}
+            value={""}
+            secureTextEntry={true}
+            placeholder="Password"
+            keyboardType="numeric"
+          />
+        </View>
       </View>
     </View>
   );

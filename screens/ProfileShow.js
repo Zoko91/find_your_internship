@@ -47,7 +47,14 @@ const ProfileShow = ({ navigation }) => {
   };
 
   const Post = () => {
-    return <View></View>;
+    return (
+      <View style={styles.post}>
+        <Image
+          style={styles.iconCompany}
+          source={require("../resources/images/IBM.png")}
+        />
+      </View>
+    );
   };
 
   const UserShow = () => {
@@ -55,6 +62,7 @@ const ProfileShow = ({ navigation }) => {
       <View style={{ flex: 1 }}>
         <Description />
         <RecentPost />
+        <Post />
       </View>
     );
   };

@@ -68,7 +68,20 @@ const styles = StyleSheet.create({
     fontWeight: 500,
     fontSize: 22,
     marginTop: 30,
+    marginBottom: 40,
   },
+  post: {
+    width: width - 62,
+    alignSelf: "center",
+    borderColor: "#3B3B3B",
+    borderWidth: 1,
+    height: 60,
+    borderRadius: 10,
+    alignItems: "flex-start",
+    justifyContent: "center",
+    padding: 20,
+  },
+  iconCompany: { width: 50, height: 20 },
 });
 
 export default styles;
