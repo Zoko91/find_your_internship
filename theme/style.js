@@ -104,7 +104,30 @@ const styles = StyleSheet.create({
     height: 70,
     borderRadius: 8,
   },
-  placeholder: { color: "#878787", marginTop: 5, marginLeft: 5 },
+  placeholder: { color: "#878787", marginTop: 5, marginLeft: 10 },
+  fineLine2: {
+    marginTop: 50,
+    backgroundColor: "#DDDDDD",
+    height: 1,
+    width: width - 80,
+    alignSelf: "center",
+  },
+  preferences: { marginHorizontal: 40, marginTop: 40 },
+  viewcheckbox: {
+    flexDirection: "row",
+    marginTop: 40,
+    alignItems: "center",
+  },
+  checkbox: {
+    borderRadius: 2,
+    marginRight: 20,
+    marginLeft: 10,
+    height: 30,
+    width: 30,
+  },
+  mailingtext: { fontSize: 16, letterSpacing: 0.5 },
+  iconLens: { height: 30, width: 30 },
+  filters: { marginHorizontal: 40, borderWidth: 20, borderColor: "#DDDDDD" },
 });
 
 export default styles;

@@ -40,18 +40,34 @@ const ExplorePage = ({ navigation }) => {
 
   const renderInternshipInfos = ({ item }) => {
     return (
-      <View>
-        <Text>
-          <Image source={require("../resources/images/star.png")} />
+      <View style={styles.internshipInfosContainer}>
+        <Text style={styles.internshipInfosText}>
+          <Image
+            style={styles.internshipInfosIcons}
+            source={require("../resources/images/star.png")}
+          />
           {item.grade}
         </Text>
-        <Text>
-          <Image source={require("../resources/images/star.png")} />
+        <Text style={styles.internshipInfosText}>
+          <Image
+            style={styles.internshipInfosIcons}
+            source={require("../resources/images/location_outline.png")}
+          />
           {item.country}
         </Text>
-        <Text>
-          <Image source={require("../resources/images/star.png")} />
+        <Text style={styles.internshipInfosText}>
+          <Image
+            style={styles.internshipInfosIcons}
+            source={require("../resources/images/euros.png")}
+          />
           {item.compensation}
+        </Text>
+        <Text style={styles.internshipInfosText}>
+          <Image
+            style={styles.internshipInfosIcons}
+            source={require("../resources/images/clock.png")}
+          />
+          plHolder
         </Text>
       </View>
     );
@@ -84,9 +100,6 @@ const ExplorePage = ({ navigation }) => {
             {item.title}
           </Text>
           <View style={styles.internshipInfos}>
-            {/* <Text>{item.grade}</Text>
-            <Text>{item.country}</Text>
-            <Text>{item.compensation}</Text> */}
             <FlatList
               data={[item]}
               renderItem={renderInternshipInfos}
@@ -202,5 +215,34 @@ const styles = StyleSheet.create({
     color: primaryColor,
     alignSelf: "center",
   },
-  internshipInfos: {},
+  internshipInfos: {
+    borderWidth: 1,
+    borderColor: "black",
+    justifyContent: "center",
+    width: "60%",
+    flex: 1,
+    alignSelf: "center",
+  },
+  internshipInfosIcons: {
+    height: 20,
+    width: 20,
+  },
+  internshipInfosContainer: {
+    flex: 1,
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    flexBasis: "50%",
+    justifyContent: "space-around",
+  },
+  internshipInfosText: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    flexBasis: "50%",
+    textAlign: "center",
+    borderColor: "black",
+    borderWidth: 1,
+    marginBottom: 5,
+  },
 });
