@@ -53,6 +53,18 @@ const ProfileShow = ({ navigation }) => {
           style={styles.iconCompany}
           source={require("../resources/images/IBM.png")}
         />
+        <Text style={{ fontSize: 16 }}>CEO Intern</Text>
+        <View style={styles.grade}>
+          <Text style={{ fontSize: 16 }}>5.0</Text>
+          <Image
+            style={styles.iconStar}
+            source={require("../resources/images/star.png")}
+          />
+        </View>
+        <Image
+          style={styles.arrowUserSetting}
+          source={require("../resources/images/Chevron.png")}
+        />
       </View>
     );
   };

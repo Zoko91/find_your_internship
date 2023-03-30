@@ -38,6 +38,25 @@ const ExplorePage = ({ navigation }) => {
     }
   }, [internships, user]);
 
+  const renderInternshipInfos = ({ item }) => {
+    return (
+      <View>
+        <Text>
+          <Image source={require("../resources/images/star.png")} />
+          {item.grade}
+        </Text>
+        <Text>
+          <Image source={require("../resources/images/star.png")} />
+          {item.country}
+        </Text>
+        <Text>
+          <Image source={require("../resources/images/star.png")} />
+          {item.compensation}
+        </Text>
+      </View>
+    );
+  };
+
   // Composant permettant d'afficher chaque Stage
   const renderInternship = ({ item }) => {
     return (
@@ -64,6 +83,18 @@ const ExplorePage = ({ navigation }) => {
           <Text style={styles.internshipRightSideInternshipTitle}>
             {item.title}
           </Text>
+          <View style={styles.internshipInfos}>
+            {/* <Text>{item.grade}</Text>
+            <Text>{item.country}</Text>
+            <Text>{item.compensation}</Text> */}
+            <FlatList
+              data={[item]}
+              renderItem={renderInternshipInfos}
+              keyExtractor={(item) => item.id}
+              numColumns={2}
+              contentContainerStyle={{ flexGrow: 1 }}
+            />
+          </View>
         </View>
       </TouchableOpacity>
     );
@@ -171,4 +202,5 @@ const styles = StyleSheet.create({
     color: primaryColor,
     alignSelf: "center",
   },
+  internshipInfos: {},
 });

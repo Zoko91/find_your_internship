@@ -78,10 +78,33 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 10,
     alignItems: "flex-start",
-    justifyContent: "center",
+    justifyContent: "space-between",
     padding: 20,
+    flexDirection: "row",
   },
   iconCompany: { width: 50, height: 20 },
+  iconStar: { width: 25, height: 25, marginTop: -5, marginLeft: 5 },
+  grade: { flexDirection: "row" },
+  save: {
+    textDecorationLine: "underline",
+    textDecorationColor: "#3B3B3B",
+    fontSize: 16,
+  },
+  headerInformation: {
+    justifyContent: "space-between",
+    flexDirection: "row",
+    marginHorizontal: 40,
+    marginTop: 40,
+  },
+  bloc: {
+    borderColor: "#8D8D8D",
+    borderWidth: 1,
+    marginHorizontal: 40,
+    marginTop: 40,
+    height: 70,
+    borderRadius: 8,
+  },
+  placeholder: { color: "#878787", marginTop: 5, marginLeft: 5 },
 });
 
 export default styles;

@@ -29,7 +29,7 @@ const ProfileNavigator = () => {
       <ProfileStack.Screen
         name="Informations"
         component={ProfileInformations}
-        options={{ title: "Informations" }}
+        options={{ title: "" }}
       />
       <ProfileStack.Screen
         name="Internships"
