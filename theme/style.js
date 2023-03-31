@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   internshipStyle: {
-    marginVertical: 20,
+    marginVertical: 15,
     borderWidth: 1,
     borderRadius: 10,
     borderColor: "#DDDDDD",
@@ -162,9 +162,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   borderinternship: {
-    backgroundColor: "red",
+    backgroundColor: "rgba(150,30,30,0.4)",
     width: 20,
     borderRadius: 10,
+  },
+  containerintern: {
+    width: 170,
+    marginLeft: 10,
+    marginTop: 10,
+  },
+  inputSearch: {
+    width: width - 140,
   },
 });
 
