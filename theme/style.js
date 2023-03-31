@@ -126,8 +126,20 @@ const styles = StyleSheet.create({
     width: 30,
   },
   mailingtext: { fontSize: 16, letterSpacing: 0.5 },
-  iconLens: { height: 30, width: 30 },
-  filters: { marginHorizontal: 40, borderWidth: 20, borderColor: "#DDDDDD" },
+  iconLens: { height: 30, width: 30, marginRight: 10 },
+  filters: {
+    marginHorizontal: 40,
+    borderWidth: 1,
+    borderColor: "#DDDDDD",
+    padding: 5,
+    borderRadius: 8,
+    flexDirection: "row",
+  },
+  resarchintern: {
+    marginTop: 30,
+    marginLeft: 40,
+    marginBottom: 10,
+  },
 });
 
 export default styles;

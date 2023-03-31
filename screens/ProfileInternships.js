@@ -17,13 +17,25 @@ const ProfileInternships = ({ navigation }) => {
   const Filters = () => {
     return (
       <View>
+        <View style={styles.resarchintern}>
+          <Text style={{ fontSize: 16 }}>Research your internship</Text>
+        </View>
         <View style={styles.filters}>
           <Image
             style={styles.iconLens}
             source={require("../resources/images/lens.png")}
           />
+          <TextInput style={styles.input} placeholder="Search by title" />
         </View>
-        <View></View>
+        {/* Ajouter un tri ordre récent ou vieux */}
+      </View>
+    );
+  };
+
+  const MyInternships = () => {
+    return (
+      <View>
+        <Text>My internships</Text>
       </View>
     );
   };
@@ -32,6 +44,7 @@ const ProfileInternships = ({ navigation }) => {
     return (
       <View style={{ flex: 1 }}>
         <Filters />
+        <MyInternships />
       </View>
     );
   };

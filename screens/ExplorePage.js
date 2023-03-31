@@ -123,18 +123,23 @@ const ExplorePage = ({ navigation }) => {
     return (
       <View>
         <Text style={styles.helloHeader}> Hi {user.username}</Text>
-        {/* 
+        <View style={{ alignItems: "center" }}>
+          <View style={styles.searchBar}>
+            <TextInput placeholder="Search" />
+          </View>
+          {/* 
         <ScrollView contentContainerStyle={styles.container}>*/}
-        <View style={styles.listContainer}>
-          <FlatList
-            data={internships}
-            renderItem={renderInternship}
-            keyExtractor={(item) => item.id}
-            contentContainerStyle={{ flexGrow: 1 }}
-          />
-        </View>
-        {/*
+          <View style={styles.listContainer}>
+            <FlatList
+              data={internships}
+              renderItem={renderInternship}
+              keyExtractor={(item) => item.id}
+              contentContainerStyle={{ flexGrow: 1 }}
+            />
+          </View>
+          {/*
         </ScrollView> */}
+        </View>
       </View>
     );
   }
@@ -159,8 +164,25 @@ const styles = StyleSheet.create({
     color: "#2B5453",
     fontWeight: 500,
   },
+  searchBar: {
+    justifyContent: "center",
+    fontSize: 16,
+    borderRadius: 50,
+    borderwidth: 1,
+    width: "80%",
+    height: 50,
+    backgroundColor: "#F5F5F5",
+    marginBottom: 10,
+    padding: 10,
+    paddingLeft: 25,
+    elevation: 2,
+    shadowColor: "#2B5453",
+    shadowOpacity: 0.27,
+    shadowRadius: 15,
+  },
   listContainer: {
     width: "80%",
+    height: "100%",
   },
   containerInternship: {
     flex: 1,
