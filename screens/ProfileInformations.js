@@ -31,7 +31,7 @@ const ProfileInformations = ({ navigation }) => {
     return (
       <View style={styles.bloc}>
         <Text style={styles.placeholder}>{placeholder}</Text>
-        <TextInput></TextInput>
+        <TextInput style={styles.personalinput}></TextInput>
       </View>
     );
   };

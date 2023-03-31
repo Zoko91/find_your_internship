@@ -28,14 +28,24 @@ const ProfileInternships = ({ navigation }) => {
           <TextInput style={styles.input} placeholder="Search by title" />
         </View>
         {/* Ajouter un tri ordre récent ou vieux */}
+        <View style={styles.fineLine3}></View>
       </View>
     );
   };
 
   const MyInternships = () => {
     return (
-      <View>
-        <Text>My internships</Text>
+      <View style={styles.myinternships}>
+        <Text style={{ fontSize: 16, marginLeft: 40 }}>My internships</Text>
+        <Internship></Internship>
+      </View>
+    );
+  };
+
+  const Internship = () => {
+    return (
+      <View style={styles.internshipStyle}>
+        <View style={styles.borderinternship}></View>
       </View>
     );
   };

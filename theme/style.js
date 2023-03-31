@@ -140,6 +140,32 @@ const styles = StyleSheet.create({
     marginLeft: 40,
     marginBottom: 10,
   },
+  personalinput: {
+    marginTop: 10,
+    marginHorizontal: 10,
+  },
+  myinternships: { marginTop: 30 },
+  fineLine3: {
+    marginTop: 30,
+    backgroundColor: "#DDDDDD",
+    height: 1,
+    width: width - 80,
+    alignSelf: "center",
+  },
+  internshipStyle: {
+    marginVertical: 20,
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: "#DDDDDD",
+    height: 80,
+    marginHorizontal: 40,
+    flexDirection: "row",
+  },
+  borderinternship: {
+    backgroundColor: "red",
+    width: 20,
+    borderRadius: 10,
+  },
 });
 
 export default styles;
