@@ -174,6 +174,35 @@ const styles = StyleSheet.create({
   inputSearch: {
     width: width - 140,
   },
+  halfIntern: {
+    flex: 2,
+    padding: 20,
+  },
+  halfCompany: { flex: 2, padding: 20 },
+  styleCompany: {
+    height: 50,
+    borderColor: "#DDDDDD",
+    borderWidth: 1,
+    marginVertical: 10,
+    borderRadius: 8,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  styleInternship: {
+    height: 50,
+    borderColor: "#DDDDDD",
+    borderWidth: 1,
+    marginVertical: 10,
+    borderRadius: 8,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  arrowgif: {
+    justifyContent: "center",
+    alignSelf: "center",
+    height: 30,
+    width: 30,
+  },
 });
 
 export default styles;
