@@ -205,9 +205,22 @@ const styles = StyleSheet.create({
   },
   privacyTitle: {
     marginHorizontal: 25,
-    marginVertical: 30,
+    marginTop: 40,
+    marginBottom: 50,
     fontSize: 25,
     fontWeight: "500",
+  },
+  fineLinePrivacy: {
+    marginTop: 30,
+    backgroundColor: "#DDDDDD",
+    height: 1,
+    width: width - 40,
+    alignSelf: "center",
+  },
+  workingOn: {
+    backgroundColor: "rgba(250,70,90,0.6)",
+    height: 15,
+    alignItems: "center",
   },
 });
 
