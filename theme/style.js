@@ -203,6 +203,12 @@ const styles = StyleSheet.create({
     height: 30,
     width: 30,
   },
+  privacyTitle: {
+    marginHorizontal: 25,
+    marginVertical: 30,
+    fontSize: 25,
+    fontWeight: "500",
+  },
 });
 
 export default styles;

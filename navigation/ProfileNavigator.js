@@ -44,7 +44,7 @@ const ProfileNavigator = () => {
       <ProfileStack.Screen
         name="Privacy"
         component={ProfilePrivacy}
-        options={{ title: "Privacy" }}
+        options={{ title: "" }}
       />
       <ProfileStack.Screen
         name="Help"
