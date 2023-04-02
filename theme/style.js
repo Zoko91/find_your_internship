@@ -210,6 +210,31 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "500",
   },
+  privacyTitle2: {
+    marginHorizontal: 25,
+    marginTop: 40,
+    fontSize: 25,
+    fontWeight: "500",
+  },
+  privacyTitle3: {
+    marginHorizontal: 25,
+    fontSize: 25,
+    fontWeight: "500",
+  },
+  privacyTitle4: {
+    marginHorizontal: 25,
+    fontSize: 20,
+    fontWeight: "500",
+    color: "white",
+    marginVertical: 20,
+  },
+  privacyTitle5: {
+    fontSize: 20,
+    fontWeight: "400",
+    color: "black",
+    alignSelf: "center",
+    justifyContent: "center",
+  },
   fineLinePrivacy: {
     marginTop: 30,
     backgroundColor: "#DDDDDD",
@@ -222,6 +247,32 @@ const styles = StyleSheet.create({
     height: 15,
     alignItems: "center",
   },
+  textWorkInProgress: {
+    marginHorizontal: 10,
+    fontSize: 12,
+    fontWeight: "bold",
+    color: "white",
+  },
+  searchHelp: {
+    marginHorizontal: 25,
+    marginTop: 30,
+    height: 50,
+    borderColor: "rgba(200,200,200,0.2)",
+    backgroundColor: "rgba(200,200,200,0.1)",
+    borderRadius: 20,
+    borderWidth: 2,
+  },
+  blackbox: { flex: 2, backgroundColor: "#000000" },
+  contactus: {
+    marginHorizontal: 25,
+    height: 50,
+    backgroundColor: "white",
+    borderRadius: 10,
+    borderWidth: 2,
+    justifyContent: "center",
+  },
+  descHelp: { marginHorizontal: 25, marginTop: 50 },
+  descHelp2: { marginHorizontal: 25 },
 });
 
 export default styles;

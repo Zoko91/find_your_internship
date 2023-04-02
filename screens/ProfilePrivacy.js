@@ -63,14 +63,7 @@ const ProfilePrivacy = ({ navigation }) => {
     return (
       <View style={{ flex: 1 }}>
         <View style={styles.workingOn}>
-          <Text
-            style={{
-              marginHorizontal: 10,
-              fontSize: 12,
-              fontWeight: "bold",
-              color: "white",
-            }}
-          >
+          <Text style={styles.textWorkInProgress}>
             Work in progress. A/B page
           </Text>
         </View>
