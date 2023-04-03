@@ -201,8 +201,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#2B5453",
     borderRightWidth: 1,
     borderColor: "black",
-    borderTopLeftRadius: borderRadius,
-    borderBottomLeftRadius: borderRadius,
+    borderTopLeftRadius: 9,
+    borderBottomLeftRadius: 9,
   },
   internshipRightSide: {
     width: "90%",
@@ -220,7 +220,6 @@ const styles = StyleSheet.create({
   internshipLeftSideLogo: {
     width: 41,
     height: 41,
-
     objectFit: "contain",
   },
   internshipRightSideCompanyName: {
@@ -238,7 +237,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   internshipInfos: {
-    borderWidth: 1,
     borderColor: "black",
     justifyContent: "center",
     width: "60%",
@@ -261,8 +259,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    flexBasis: "50%",
     textAlign: "center",
+    flexBasis: "50%",
     borderColor: "black",
     borderWidth: 1,
     marginBottom: 5,
