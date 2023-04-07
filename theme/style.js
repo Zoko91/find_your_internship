@@ -321,8 +321,23 @@ export const stylesLogin = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  loginButtonDisabled: {
+    borderColor: "#827F7F",
+    borderWidth: 1,
+    padding: 10,
+    marginTop: 30,
+    borderRadius: 10,
+    width: "80%",
+    height: 60,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   loginButtonText: {
     color: "white",
+    fontSize: 25,
+  },
+  loginButtonTextDisabled: {
+    color: "#827F7F",
     fontSize: 25,
   },
   separatorContainer: {

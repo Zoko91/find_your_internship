@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
+  Alert,
 } from "react-native";
 import InternshipsService from "../api/InternshipsService";
 import UsersService from "../api/UsersService";
@@ -20,6 +21,7 @@ const LoginPage = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
+  const [isConnectionValid, setIsConnectionValid] = useState(true);
   const endpoint = "https://jbeasse-workadventure.azurewebsites.net/";
 
   const handleEmailChange = (text) => {
@@ -33,6 +35,21 @@ const LoginPage = ({ navigation }) => {
     console.log(text);
     setPassword(text);
   };
+  const buttonStyle =
+    isEmailValid && password.length > 0
+      ? stylesLogin.loginButton
+      : stylesLogin.loginButtonDisabled;
+  const buttonTextStyle =
+    isEmailValid && password.length > 0
+      ? stylesLogin.loginButtonText
+      : stylesLogin.loginButtonTextDisabled;
+  useEffect(() => {
+    console.log("USEEEEEEEEEEEEE EFFECT");
+    if (!isConnectionValid) {
+      Alert.alert("Email or password incorrect.");
+      setIsConnectionValid(true);
+    }
+  }, [isConnectionValid]);
 
   const login = async () => {
     console.log(password);
@@ -49,16 +66,17 @@ const LoginPage = ({ navigation }) => {
           body: JSON.stringify({ Email: email, Password: password }),
         }
       ).then(async (response) => {
-        const responseData = await response.json().then((data) => {
-          console.log(data);
-        });
         if (!response.ok) {
-          throw new Error(
-            `Erreur lors de la connexion : ${response.status} - ${response.statusText}`
-          );
+          setIsConnectionValid(false);
+          // throw new Error(
+          //   `Erreur lors de la connexion : ${response.status} - ${response.statusText}`
+          // );
+        } else {
+          const responseData = await response.json().then((data) => {
+            console.log(data);
+          });
         }
       });
-      console.log("Out of the function");
     } catch (error) {
       console.error(`Erreur lors de la connexion: ${error.message}`);
     }
@@ -77,11 +95,12 @@ const LoginPage = ({ navigation }) => {
       <InputDisplay type={"password"} handler={handlePasswordChange} />
       <TouchableOpacity
         disabled={!isEmailValid}
-        style={stylesLogin.loginButton}
+        style={buttonStyle}
         onPress={login}
       >
-        <Text style={stylesLogin.loginButtonText}>Log In</Text>
+        <Text style={buttonTextStyle}>Log In</Text>
       </TouchableOpacity>
+
       <View style={stylesLogin.separatorContainer}>
         <View style={stylesLogin.horizontalBar}></View>
         <Text style={stylesLogin.horizontalBarText}>Or login with</Text>
