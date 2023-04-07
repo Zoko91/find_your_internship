@@ -287,3 +287,70 @@ export const screenOptions = {
     fontWeight: "bold",
   },
 };
+
+// Use StylesSheet flatten
+export const stylesLogin = StyleSheet.create({
+  container: {
+    marginTop: 50,
+    height: "100%",
+    alignItems: "center",
+  },
+  titleLogIn: {
+    fontSize: 30,
+    marginBottom: 20,
+  },
+  inputContainer: {
+    width: "80%",
+    marginBottom: 20,
+    marginTop: 20,
+  },
+  input: {
+    padding: 10,
+    height: 40,
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: "#234F52",
+  },
+  loginButton: {
+    backgroundColor: "#234F52",
+    padding: 10,
+    marginTop: 30,
+    borderRadius: 10,
+    width: "80%",
+    height: 60,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  loginButtonText: {
+    color: "white",
+    fontSize: 25,
+  },
+  separatorContainer: {
+    position: "relative",
+    flexDirection: "row",
+  },
+  horizontalBar: {
+    width: "25%",
+    height: 1,
+    backgroundColor: "#234F52",
+    marginTop: 40,
+  },
+
+  horizontalBarText: {
+    top: 30,
+    justifyContent: "center",
+    color: "#234F52",
+    marginHorizontal: 10,
+  },
+  signUpContainer: {
+    position: "absolute",
+    bottom: 100,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  signUpLink: {
+    color: "#00B4AF",
+    fontSize: 20,
+    fontWeight: "500",
+  },
+});
