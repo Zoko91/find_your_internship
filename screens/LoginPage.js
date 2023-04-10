@@ -16,7 +16,6 @@ import { InputDisplay } from "../components/InputDisplay";
 import { stylesLogin } from "../theme/style.js";
 
 const LoginPage = ({ navigation }) => {
-  console.log("refresh");
   const [loggedIn, setLoggedIn] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -48,7 +47,6 @@ const LoginPage = ({ navigation }) => {
       ? stylesLogin.loginButtonText
       : stylesLogin.loginButtonTextDisabled;
   useEffect(() => {
-    //console.log("USEEEEEEEEEEEEE EFFECT");
     if (!isConnectionValid) {
       Alert.alert("Email or password incorrect.");
       setIsConnectionValid(true);
@@ -56,10 +54,7 @@ const LoginPage = ({ navigation }) => {
   }, [isConnectionValid]);
 
   const login = async () => {
-    console.log(password);
-    console.log(email);
     try {
-      console.log("Try to login");
       const response = await fetch(
         "https://jbeasse-workadventure.azurewebsites.net/api/UserApi/authenticate",
         {
@@ -77,7 +72,6 @@ const LoginPage = ({ navigation }) => {
           // );
         } else {
           const responseData = await response.json().then((data) => {
-            console.log(data);
             navigate("Root", data);
           });
         }
