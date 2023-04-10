@@ -25,19 +25,17 @@ const LoginPage = ({ navigation }) => {
   const endpoint = "https://jbeasse-workadventure.azurewebsites.net/";
 
   const handleEmailChange = (text) => {
-    console.log(email);
+    //console.log(email);
     setEmail(text);
     // regular expression for email format checking
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     setIsEmailValid(emailRegex.test(text));
   };
   const handlePasswordChange = (text) => {
-    console.log(text);
+    //console.log(text);
     setPassword(text);
   };
   const navigate = (name, user) => {
-    console.log("Je suis dans navigate");
-    console.log(user);
     navigation.navigate(name, { usertest: user });
   };
 
@@ -50,7 +48,7 @@ const LoginPage = ({ navigation }) => {
       ? stylesLogin.loginButtonText
       : stylesLogin.loginButtonTextDisabled;
   useEffect(() => {
-    console.log("USEEEEEEEEEEEEE EFFECT");
+    //console.log("USEEEEEEEEEEEEE EFFECT");
     if (!isConnectionValid) {
       Alert.alert("Email or password incorrect.");
       setIsConnectionValid(true);

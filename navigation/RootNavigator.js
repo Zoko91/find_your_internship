@@ -9,7 +9,11 @@ import ProfileNavigator from "./ProfileNavigator";
 
 const Root = createBottomTabNavigator();
 
-const RootNavigator = () => {
+const RootNavigator = ({ route }) => {
+  const { usertest } = route.params;
+  console.log("Here in RootNavigator");
+  console.log(usertest);
+
   return (
     //<NavigationContainer>
     //{/*<StatusBar barStyle="light-content" />*/}
@@ -36,9 +40,21 @@ const RootNavigator = () => {
         headerShown: false,
       })}
     >
-      <Root.Screen name="Explore" component={ExploreNavigator} />
-      <Root.Screen name="Companies" component={CompaniesNavigator} />
-      <Root.Screen name="Profile" component={ProfileNavigator} />
+      <Root.Screen
+        name="Explore"
+        component={ExploreNavigator}
+        initialParams={{ usertest: usertest }}
+      />
+      <Root.Screen
+        name="Companies"
+        component={CompaniesNavigator}
+        initialParams={{ usertest: usertest }}
+      />
+      <Root.Screen
+        name="Profile"
+        component={ProfileNavigator}
+        initialParams={{ usertest: usertest }}
+      />
     </Root.Navigator>
     //</NavigationContainer>
   );

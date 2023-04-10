@@ -16,13 +16,11 @@ const ExplorePage = ({ navigation, route }) => {
   const [internships, setInternships] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState({});
-  const { usertest } = route.params;
-  console.log("USER TEST :");
-  console.log(usertest);
 
   const getNeededInfos = async () => {
     try {
       const responseInternship = await InternshipsService.findInternships();
+      setUser(route.params.usertest);
       setInternships(responseInternship);
     } catch (error) {
       console.error(error);

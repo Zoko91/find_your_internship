@@ -5,7 +5,10 @@ import ExplorePage from "../screens/ExplorePage";
 import LoginPage from "../screens/LoginPage";
 
 const ExploreStack = createNativeStackNavigator();
-const ExploreNavigator = () => {
+const ExploreNavigator = ({ route }) => {
+  console.log("Here in ExploreNavigator");
+  console.log(route);
+  const { usertest } = route.params;
   return (
     <ExploreStack.Navigator
       initialRouteName="Exploration"
@@ -15,6 +18,7 @@ const ExploreNavigator = () => {
         name="Exploration"
         component={ExplorePage}
         options={{ title: "Explore" }}
+        initialParams={{ usertest: usertest }}
       />
     </ExploreStack.Navigator>
   );
