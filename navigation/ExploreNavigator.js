@@ -8,18 +8,13 @@ const ExploreStack = createNativeStackNavigator();
 const ExploreNavigator = () => {
   return (
     <ExploreStack.Navigator
-      initialRouteName="Login"
+      initialRouteName="Exploration"
       screenOptions={screenOptions}
     >
       <ExploreStack.Screen
         name="Exploration"
         component={ExplorePage}
         options={{ title: "Explore" }}
-      />
-      <ExploreStack.Screen
-        name="Login"
-        component={LoginPage}
-        options={{ title: "" }}
       />
     </ExploreStack.Navigator>
   );

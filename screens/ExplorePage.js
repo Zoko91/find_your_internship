@@ -16,9 +16,9 @@ const ExplorePage = ({ navigation, route }) => {
   const [internships, setInternships] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState({});
-  const { usertest } = route.params;
+  //const { usertest } = route.params;
   console.log("USER TEST :");
-  console.log(usertest);
+  //console.log(usertest);
 
   const getNeededInfos = async () => {
     try {
