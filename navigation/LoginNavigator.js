@@ -3,6 +3,7 @@ import { screenOptions } from "../theme/style";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import LoginPage from "../screens/LoginPage";
+import RootNavigator from "./RootNavigator";
 
 const LoginStack = createNativeStackNavigator();
 const LoginNavigator = () => {
@@ -10,13 +11,13 @@ const LoginNavigator = () => {
     <NavigationContainer>
       <LoginStack.Navigator
         initialRouteName="Login"
-        screenOptions={screenOptions}
+        screenOptions={{
+          headerShown: false,
+          headerLeft: null,
+        }}
       >
-        <LoginStack.Screen
-          name="Login"
-          component={LoginPage}
-          options={{ title: "", headerShown: false, tabBarVisible: false }}
-        />
+        <LoginStack.Screen name="Login" component={LoginPage} />
+        <LoginStack.Screen name="Root" component={RootNavigator} />
       </LoginStack.Navigator>
     </NavigationContainer>
   );

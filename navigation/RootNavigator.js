@@ -7,13 +7,13 @@ import ExploreNavigator from "./ExploreNavigator";
 import CompaniesNavigator from "./CompaniesNavigator";
 import ProfileNavigator from "./ProfileNavigator";
 
-const Tab = createBottomTabNavigator();
+const Root = createBottomTabNavigator();
 
 const RootNavigator = () => {
   return (
     //<NavigationContainer>
     //{/*<StatusBar barStyle="light-content" />*/}
-    <Tab.Navigator
+    <Root.Navigator
       screenOptions={({ route }) => ({
         // Icons will be different if the tab is focused
         tabBarIcon: ({ focused, color, size }) => {
@@ -36,10 +36,10 @@ const RootNavigator = () => {
         headerShown: false,
       })}
     >
-      <Tab.Screen name="Explore" component={ExploreNavigator} />
-      <Tab.Screen name="Companies" component={CompaniesNavigator} />
-      <Tab.Screen name="Profile" component={ProfileNavigator} />
-    </Tab.Navigator>
+      <Root.Screen name="Explore" component={ExploreNavigator} />
+      <Root.Screen name="Companies" component={CompaniesNavigator} />
+      <Root.Screen name="Profile" component={ProfileNavigator} />
+    </Root.Navigator>
     //</NavigationContainer>
   );
 };

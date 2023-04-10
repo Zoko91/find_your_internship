@@ -80,7 +80,7 @@ const LoginPage = ({ navigation }) => {
         } else {
           const responseData = await response.json().then((data) => {
             console.log(data);
-            navigate("Exploration", data);
+            navigate("Root", data);
           });
         }
       });
