@@ -12,10 +12,13 @@ import {
 import InternshipsService from "../api/InternshipsService";
 import UsersService from "../api/UsersService";
 
-const ExplorePage = ({ navigation }) => {
+const ExplorePage = ({ navigation, route }) => {
   const [internships, setInternships] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState({});
+  const { usertest } = route.params;
+  console.log("USER TEST :");
+  console.log(usertest);
 
   const getNeededInfos = async () => {
     try {

@@ -35,6 +35,12 @@ const LoginPage = ({ navigation }) => {
     console.log(text);
     setPassword(text);
   };
+  const navigate = (name, user) => {
+    console.log("Je suis dans navigate");
+    console.log(user);
+    navigation.navigate(name, { usertest: user });
+  };
+
   const buttonStyle =
     isEmailValid && password.length > 0
       ? stylesLogin.loginButton
@@ -74,6 +80,7 @@ const LoginPage = ({ navigation }) => {
         } else {
           const responseData = await response.json().then((data) => {
             console.log(data);
+            navigate("Exploration", data);
           });
         }
       });
