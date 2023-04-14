@@ -4,7 +4,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CompaniesPage from "../screens/CompaniesPage";
 
 const CompaniesStack = createNativeStackNavigator();
-const CompaniesNavigator = () => {
+const CompaniesNavigator = ({ route }) => {
+  console.log("Here in CompaniesNavigator");
+  console.log(route);
+  const { usertest } = route.params;
   return (
     <CompaniesStack.Navigator
       initialRouteName="Companies"
@@ -14,6 +17,7 @@ const CompaniesNavigator = () => {
         name="Company"
         component={CompaniesPage}
         options={{ title: "Companies" }}
+        initialParams={{ usertest: usertest }}
       />
     </CompaniesStack.Navigator>
   );

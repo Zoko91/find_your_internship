@@ -74,8 +74,15 @@ const ExplorePage = ({ navigation, route }) => {
 
   // Composant permettant d'afficher chaque Stage
   const renderInternship = ({ item }) => {
+    // console.log("item");
+    // console.log(item);
     return (
-      <TouchableOpacity style={styles.containerInternship}>
+      <TouchableOpacity
+        style={styles.containerInternship}
+        onPress={() => {
+          navigation.navigate("InternshipPage", { internship: item });
+        }}
+      >
         <View style={styles.internshipLeftSide}>
           <View style={styles.internshipLeftSideLogoContainer}>
             {item.illustration ? (
@@ -98,6 +105,7 @@ const ExplorePage = ({ navigation, route }) => {
           <Text style={styles.internshipRightSideInternshipTitle}>
             {item.title}
           </Text>
+          {/* Commentaire: Scroll view Nécéssaire */}
           <View style={styles.internshipInfos}>
             <FlatList
               data={[item]}
@@ -126,18 +134,17 @@ const ExplorePage = ({ navigation, route }) => {
           <View style={styles.searchBar}>
             <TextInput placeholder="Search" />
           </View>
-          {/* 
-        <ScrollView contentContainerStyle={styles.container}>*/}
-          <View style={styles.listContainer}>
-            <FlatList
-              data={internships}
-              renderItem={renderInternship}
-              keyExtractor={(item) => item.id}
-              contentContainerStyle={{ flexGrow: 1 }}
-            />
-          </View>
-          {/*
-        </ScrollView> */}
+
+          <ScrollView>
+            <View style={styles.listContainer}>
+              <FlatList
+                data={internships}
+                renderItem={renderInternship}
+                keyExtractor={(item) => item.id}
+                contentContainerStyle={{ flexGrow: 1 }}
+              />
+            </View>
+          </ScrollView>
         </View>
       </View>
     );
@@ -156,7 +163,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   helloHeader: {
-    marginTop: 60,
+    marginTop: 100,
     marginLeft: 16,
     marginBottom: 30,
     fontSize: 36,

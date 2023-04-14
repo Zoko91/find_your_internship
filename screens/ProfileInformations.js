@@ -11,11 +11,44 @@ import Checkbox from "expo-checkbox";
 import UsersService from "../api/UsersService";
 import styles from "../theme/style.js";
 
-const ProfileInformations = ({ navigation }) => {
+const ProfileInformations = ({ navigation, route }) => {
   //Use the user that exists in the previous page here...
-  const [user, setUser] = useState([]);
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isSetMailUpdates, setMailUpdates] = useState(false);
   const [isSetPromoMail, setPromoMail] = useState(false);
+  console.log("Here in ProfileInformations: ", route.params.usertest.email);
+
+  const SaveInformations = async () => {
+    try {
+      const response = await fetch(
+        "https://jbeasse-workadventure.azurewebsites.net/api/UserApi/" +
+          route.params.usertest.id,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(),
+        }
+      ).then(async (response) => {
+        if (!response.ok) {
+          setIsConnectionValid(false);
+          // throw new Error(
+          //   `Erreur lors de la connexion : ${response.status} - ${response.statusText}`
+          // );
+        } else {
+          const responseData = await response.json().then((data) => {
+            navigate("Root", data);
+          });
+        }
+      });
+    } catch (error) {
+      console.error(`Erreur lors de la connexion: ${error.message}`);
+    }
+  };
+
   const HeaderInformation = () => {
     return (
       <View style={styles.headerInformation}>

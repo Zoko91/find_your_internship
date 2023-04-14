@@ -10,7 +10,10 @@ import ProfilePrivacy from "../screens/ProfilePrivacy";
 import ProfileHelp from "../screens/ProfileHelp";
 
 const ProfileStack = createNativeStackNavigator();
-const ProfileNavigator = () => {
+const ProfileNavigator = ({ route }) => {
+  console.log("Here in ProfileNavigator");
+  console.log(route);
+  const { usertest } = route.params;
   return (
     <ProfileStack.Navigator
       initialRouteName="Profile"
@@ -20,36 +23,43 @@ const ProfileNavigator = () => {
         name="Account"
         component={ProfilePage}
         options={{ title: "Profile" }}
+        initialParams={{ usertest: usertest }}
       />
       <ProfileStack.Screen
         name="Details"
         component={ProfileShow}
         options={{ title: "Details" }}
+        initialParams={{ usertest: usertest }}
       />
       <ProfileStack.Screen
         name="Informations"
         component={ProfileInformations}
         options={{ title: "" }}
+        initialParams={{ usertest: usertest }}
       />
       <ProfileStack.Screen
         name="Internships"
         component={ProfileInternships}
         options={{ title: "Internships" }}
+        initialParams={{ usertest: usertest }}
       />
       <ProfileStack.Screen
         name="Bookmarks"
         component={ProfileBookmarks}
         options={{ title: "Bookmarks" }}
+        initialParams={{ usertest: usertest }}
       />
       <ProfileStack.Screen
         name="Privacy"
         component={ProfilePrivacy}
         options={{ title: "" }}
+        initialParams={{ usertest: usertest }}
       />
       <ProfileStack.Screen
         name="Help"
         component={ProfileHelp}
         options={{ title: "Help" }}
+        initialParams={{ usertest: usertest }}
       />
     </ProfileStack.Navigator>
   );

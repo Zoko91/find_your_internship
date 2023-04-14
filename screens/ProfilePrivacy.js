@@ -10,9 +10,10 @@ import {
 import UsersService from "../api/UsersService";
 import styles from "../theme/style.js";
 
-const ProfilePrivacy = ({ navigation }) => {
+const ProfilePrivacy = ({ navigation,route}) => {
   //Use the user that exists in the previous page here...
   const [user, setUser] = useState([]);
+  console.log("Here in ProfilePrivacy: ", route.params.usertest.email);
 
   const ComponentPrivacy = ({ title, description }) => {
     return (

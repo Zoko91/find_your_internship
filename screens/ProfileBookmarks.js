@@ -11,9 +11,10 @@ import {
 import UsersService from "../api/UsersService";
 import styles from "../theme/style.js";
 
-const ProfileBookmarks = ({ navigation }) => {
+const ProfileBookmarks = ({ navigation, route }) => {
   //Use the user that exists in the previous page here...
   const [user, setUser] = useState([]);
+  console.log("Here in ProfileBookmarks: ", route.params.usertest.email);
 
   const Internship = ({ title, company, username }) => {
     return (

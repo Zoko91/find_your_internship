@@ -9,9 +9,10 @@ import {
 } from "react-native";
 import CompanyService from "../api/CompaniesService";
 
-const CompaniesPage = ({ navigation }) => {
+const CompaniesPage = ({ navigation, route }) => {
   const [companies, setCompanies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  console.log("Here in CompaniesPage: ", route.params.usertest.email);
 
   const getCompanies = async () => {
     try {

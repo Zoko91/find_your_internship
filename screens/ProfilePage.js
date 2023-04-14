@@ -11,9 +11,10 @@ import {
 import UsersService from "../api/UsersService";
 import styles from "../theme/style.js";
 
-const ProfilePage = ({ navigation }) => {
+const ProfilePage = ({ navigation, route }) => {
   const [user, setUser] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  console.log("Here in ProfilePage: ", route.params.usertest.email);
 
   const getUser = async () => {
     try {
@@ -22,6 +23,23 @@ const ProfilePage = ({ navigation }) => {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const ProfilePicture = ({ profilePic }) => {
+    console.log("profilePic: ", profilePic);
+    return profilePic === null ? (
+      <Image
+        style={styles.userProfilePicture}
+        source={require("../resources/images/PDP.png")}
+      />
+    ) : (
+      <Image
+        style={styles.userProfilePicture}
+        source={{
+          uri: profilePic,
+        }}
+      />
+    );
   };
 
   const navigate = (name) => {
@@ -56,10 +74,7 @@ const ProfilePage = ({ navigation }) => {
           }}
         >
           <View style={styles.containerHeaderUser1}>
-            <Image
-              style={styles.userProfilePicture}
-              source={require("../resources/images/PDP.png")}
-            />
+            <ProfilePicture profilePic={user.avatar} />
           </View>
           <View style={styles.containerHeaderUser2}>
             <Text style={styles.nameUser}>{user.username}</Text>

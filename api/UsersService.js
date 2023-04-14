@@ -1,4 +1,5 @@
-const rootEndpoint = "https://workadventureapi.azurewebsites.net/api/UserApi/";
+const rootEndpoint =
+  "https://jbeasse-workadventure.azurewebsites.net/api/UserApi/";
 
 // Model class for a company
 export class User {
@@ -9,7 +10,9 @@ export class User {
     admin = false,
     email,
     internship = null,
-    avatar = null
+    avatar = null,
+    promoMail = false,
+    mailUpdate = false
   ) {
     this.id = id;
     this.username = username;
@@ -18,6 +21,8 @@ export class User {
     this.email = email;
     this.internship = internship;
     this.avatar = avatar;
+    this.promoMail = promoMail;
+    this.mailUpdate = mailUpdate;
   }
 }
 
@@ -54,7 +59,9 @@ class UserService {
       user.admin,
       user.email,
       user.internship,
-      user.avatar
+      user.avatar,
+      user.promoMail,
+      user.mailUpdate
     );
   }
 

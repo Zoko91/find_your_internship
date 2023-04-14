@@ -1,7 +1,7 @@
 // Non terminée
 
 const rootEndpoint =
-  "https://workadventureapi.azurewebsites.net/api/InternshipApi/";
+  "https://jbeasse-workadventure.azurewebsites.net/api/InternshipApi/";
 
 // Model class for a Internship
 export class Internship {
@@ -20,6 +20,8 @@ export class Internship {
     skills = null,
     userId,
     user = null,
+    duration,
+    year,
     companyId,
     company = null
   ) {
@@ -37,6 +39,8 @@ export class Internship {
     this.skills = skills;
     this.userId = userId;
     this.user = user;
+    this.duration = duration;
+    this.year = year;
     this.companyId = companyId;
     this.company = company;
   }
@@ -54,7 +58,17 @@ class InternshipService {
       return error;
     }
   }
-
+  async findInternshipByUserId(id) {
+    try {
+      const root = rootEndpoint + "/user/" + id;
+      const response = await fetch(root);
+      const json = await response.json();
+      return this.createInternships(json);
+    } catch (error) {
+      console.error(error);
+      return error;
+    }
+  }
   async findInternships() {
     try {
       const response = await fetch(rootEndpoint);
@@ -83,6 +97,8 @@ class InternshipService {
       internship.skills,
       internship.userId,
       internship.user,
+      internship.duration,
+      internship.year,
       internship.companyId,
       internship.company
     );

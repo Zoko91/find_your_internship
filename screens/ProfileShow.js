@@ -13,9 +13,10 @@ import styles from "../theme/style.js";
 // Description of the page:
 // This page is used to show the user's profile, his most recent post and to change his profile picture as well.
 
-const ProfileShow = ({ navigation }) => {
+const ProfileShow = ({ navigation, route }) => {
   //Use the user that exists in the previous page here...
   const [user, setUser] = useState([]);
+  console.log("Here in ProfileShow: ", route.params.usertest.email);
 
   const Description = () => {
     return (
@@ -29,10 +30,11 @@ const ProfileShow = ({ navigation }) => {
             <Image source={require("../resources/images/camera.png")} />
           </View>
         </View>
-        <Text style={styles.hiMatt}>Hi, I'm Matt</Text>
+        <Text style={styles.hiMatt}>
+          Hi, I'm {route.params.usertest.username}
+        </Text>
         <Text style={styles.descriptionShow}>
-          Data scientist at IBM{"\n"}I’ve worked in various places and{"\n"}have
-          experienced many hardships.
+          {route.params.usertest.description}
         </Text>
       </View>
     );
