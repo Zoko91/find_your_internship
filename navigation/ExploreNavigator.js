@@ -7,8 +7,6 @@ import LoginPage from "../screens/LoginPage";
 
 const ExploreStack = createNativeStackNavigator();
 const ExploreNavigator = ({ route }) => {
-  console.log("Here in ExploreNavigator");
-  console.log(route);
   const { usertest } = route.params;
   return (
     <ExploreStack.Navigator
@@ -25,13 +23,20 @@ const ExploreNavigator = ({ route }) => {
         options={{ title: "Explore" }}
         initialParams={{ usertest: usertest }}
       />
+
       <ExploreStack.Screen
         name="InternshipPage"
         component={InternshipDetailPage}
         options={{
           title: "Internship",
           headerShown: true,
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
         }}
+        
+
       />
     </ExploreStack.Navigator>
   );

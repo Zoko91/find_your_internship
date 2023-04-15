@@ -75,16 +75,20 @@ const ExplorePage = ({ navigation, route }) => {
 
   // Composant permettant d'afficher chaque Stage
   const renderInternship = ({ item }) => {
+    const backgroundColor = item.id % 2 === 0 ? "#234F52" : "#A029B4";
     // console.log("item");
     // console.log(item);
     return (
       <TouchableOpacity
         style={styles.containerInternship}
         onPress={() => {
-          navigation.navigate("InternshipPage", { internship: item });
+          navigation.navigate("InternshipPage", { 
+            internship: item, 
+            topBarColor: backgroundColor 
+          });
         }}
       >
-        <View style={styles.internshipLeftSide}>
+        <View style={styles.internshipLeftSide({backgroundColor})}>
           <View style={styles.internshipLeftSideLogoContainer}>
             {item.illustration ? (
               <Image
@@ -201,15 +205,15 @@ const styles = StyleSheet.create({
     padding: 0,
     borderRadius: borderRadius,
   },
-  internshipLeftSide: {
+  internshipLeftSide: (props) => ({
     width: "20%",
     height: "100%",
-    backgroundColor: "#2B5453",
+    backgroundColor: props.backgroundColor,
     borderRightWidth: 1,
     borderColor: "black",
     borderTopLeftRadius: 9,
     borderBottomLeftRadius: 9,
-  },
+  }),
   internshipRightSide: {
     width: "90%",
     height: "100%",

@@ -12,7 +12,12 @@ import {
 import InternshipsService from "../api/InternshipsService";
 
 const InternshipDetailPage = ({ navigation, route }) => {
-  console.log(route.params.internship);
+  useEffect(() => {
+    navigation.setOptions({
+      headerStyle: { backgroundColor: route.params.topBarColor },
+    });
+  }, [navigation]);
+
   return (
     <View style={styles.container}>
       <Text>{route.params.internship.title}</Text>
