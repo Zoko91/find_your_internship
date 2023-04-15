@@ -17,6 +17,7 @@ const ExploreNavigator = ({ route }) => {
         headerShown: false,
         headerLeft: null,
       }}
+      
     >
       <ExploreStack.Screen
         name="Exploration"

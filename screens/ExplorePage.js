@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
+  SafeAreaView,
 } from "react-native";
 import InternshipsService from "../api/InternshipsService";
 import UsersService from "../api/UsersService";
@@ -128,25 +129,25 @@ const ExplorePage = ({ navigation, route }) => {
     );
   } else {
     return (
-      <View>
+      <SafeAreaView style={{flex: 1}}>
         <Text style={styles.helloHeader}> Hi {user.username}</Text>
-        <View style={{ alignItems: "center" }}>
+        <SafeAreaView style={{ alignItems: "center", flex:1 }}>
           <View style={styles.searchBar}>
             <TextInput placeholder="Search" />
           </View>
-
-          <ScrollView>
-            <View style={styles.listContainer}>
               <FlatList
                 data={internships}
-                renderItem={renderInternship}
+                renderItem={({item}) => renderInternship({item})}
+                showsVerticalScrollIndicator={false}
                 keyExtractor={(item) => item.id}
-                contentContainerStyle={{ flexGrow: 1 }}
+                contentContainerStyle={{ flexGrow: 1}}
+                style={styles.listContainer}
+                contentInsetAdjustmentBehavior="automatic"
+                contentInset={{ top:15, bottom: 50 }}
+                contentOffset={{ y: -15 }}                
               />
-            </View>
-          </ScrollView>
-        </View>
-      </View>
+        </SafeAreaView>
+      </SafeAreaView>
     );
   }
 };
@@ -187,8 +188,7 @@ const styles = StyleSheet.create({
     shadowRadius: 15,
   },
   listContainer: {
-    width: "80%",
-    height: "100%",
+    width: "80%",     
   },
   containerInternship: {
     flex: 1,

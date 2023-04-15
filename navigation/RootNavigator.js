@@ -24,6 +24,7 @@ const RootNavigator = ({ route }) => {
           let iconName;
           if (route.name === "Explore") {
             iconName = focused ? "search-sharp" : "search-outline";
+            
           } else if (route.name === "Companies") {
             iconName = focused ? "md-business" : "md-business-outline";
           } else if (route.name === "Profile") {
