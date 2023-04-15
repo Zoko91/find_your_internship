@@ -11,8 +11,7 @@ const Root = createBottomTabNavigator();
 
 const RootNavigator = ({ route }) => {
   const { usertest } = route.params;
-  console.log("Here in RootNavigator");
-  console.log(usertest);
+
 
   return (
     //<NavigationContainer>
