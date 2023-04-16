@@ -14,7 +14,10 @@ import styles from "../theme/style.js";
 const ProfileInternships = ({ navigation, route }) => {
   //Use the user that exists in the previous page here...
   const [internships, setInternships] = useState([]);
+  const [searchText, setSearchText] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+
+  const [filteredInternships, setFilteredInternships] = useState([]);
   const colors = [
     "rgba(150,30,30,0.4)",
     "rgba(220,70,70,0.5)",
@@ -28,6 +31,7 @@ const ProfileInternships = ({ navigation, route }) => {
           route.params.usertest.id
         );
       setInternships(responseInternship);
+      setFilteredInternships(responseInternship);
     } catch (error) {
       console.error(error);
     }
@@ -42,7 +46,24 @@ const ProfileInternships = ({ navigation, route }) => {
     }
   }, [internships]);
 
+  useEffect(() => {
+    console.log(
+      "Here are the setFilteredInternships BEFORE: ",
+      filteredInternships
+    );
+    setFilteredInternships(
+      internships.filter((item) =>
+        item.title.toLowerCase().includes(searchText.toLowerCase())
+      )
+    );
+    console.log(
+      "Here are the setFilteredInternships AFTER: ",
+      filteredInternships
+    );
+  }, [searchText]);
+
   const Filters = () => {
+    const [inputValue, setInputValue] = useState("");
     return (
       <View>
         <View style={styles.resarchintern}>
@@ -53,7 +74,13 @@ const ProfileInternships = ({ navigation, route }) => {
             style={styles.iconLens}
             source={require("../resources/images/lens.png")}
           />
-          <TextInput style={styles.inputSearch} placeholder="Search by title" />
+          <TextInput
+            value={inputValue}
+            onChangeText={(text) => setInputValue(text)}
+            style={styles.inputSearch}
+            onSubmitEditing={() => setSearchText(inputValue)}
+            placeholder="Search by title"
+          />
         </View>
         {/* Ajouter un tri ordre récent ou vieux */}
         <View style={styles.fineLine3}></View>
@@ -68,7 +95,7 @@ const ProfileInternships = ({ navigation, route }) => {
           My internships
         </Text>
         <FlatList
-          data={internships}
+          data={filteredInternships}
           renderItem={({ item, index }) => (
             <Internship
               item={item}
