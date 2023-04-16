@@ -61,7 +61,7 @@ const SignUpPage = ({ navigation }) => {
   };
 
   return (
-<View style={stylesLogin.container}>
+    <View style={stylesLogin.container}>
       <Image
         style={{ width: 100, height: 100, marginTop: vh(1), objectFit: "contain" }}
         source={require("../resources/images/logo_green.png")}
