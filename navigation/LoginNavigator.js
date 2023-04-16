@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import LoginPage from "../screens/LoginPage";
 import RootNavigator from "./RootNavigator";
+import SignUpPage from "../screens/SignUpPage";
 
 const LoginStack = createNativeStackNavigator();
 const LoginNavigator = () => {
@@ -17,6 +18,10 @@ const LoginNavigator = () => {
         }}
       >
         <LoginStack.Screen name="Login" component={LoginPage} />
+        <LoginStack.Screen name="SignUp"
+          component={ SignUpPage } 
+          options={{headerShown: true}}
+        />
         <LoginStack.Screen name="Root" component={RootNavigator} />
       </LoginStack.Navigator>
     </NavigationContainer>

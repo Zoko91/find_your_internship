@@ -13,9 +13,10 @@ import {
 import InternshipsService from "../api/InternshipsService";
 import UsersService from "../api/UsersService";
 import { InputDisplay } from "../components/InputDisplay";
-import { stylesLogin } from "../theme/style.js";
+import { stylesLogin, vh } from "../theme/style.js";
 
-const LoginPage = ({ navigation }) => {
+
+const SignUpPage = ({ navigation }) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,9 +34,7 @@ const LoginPage = ({ navigation }) => {
     //console.log(text);
     setPassword(text);
   };
-  const navigate = (name, user) => {
-    navigation.navigate(name, { usertest: user });
-  };
+
 
   const buttonStyle =
     isEmailValid && password.length > 0
@@ -53,41 +52,21 @@ const LoginPage = ({ navigation }) => {
     }
   }, [isConnectionValid]);
 
-  const login = async () => {
+  const signUp = async () => {
     try {
-      const response = await fetch(
-        "https://jbeasse-workadventure.azurewebsites.net/api/UserApi/authenticate",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ Email: email, Password: password }),
-        }
-      ).then(async (response) => {
-        if (!response.ok) {
-          setIsConnectionValid(false);
-          // throw new Error(
-          //   `Erreur lors de la connexion : ${response.status} - ${response.statusText}`
-          // );
-        } else {
-          const responseData = await response.json().then((data) => {
-            navigate("Root", data);
-          });
-        }
-      });
+        
     } catch (error) {
-      console.error(`Erreur lors de la connexion: ${error.message}`);
+      console.error(`Erreur lors de l'inscription: ${error.message}`);
     }
   };
 
   return (
-    <View style={stylesLogin.container}>
+<View style={stylesLogin.container}>
       <Image
-        style={{ width: 100, height: 100, marginTop: 50, objectFit: "contain" }}
+        style={{ width: 100, height: 100, marginTop: vh(1), objectFit: "contain" }}
         source={require("../resources/images/logo_green.png")}
       />
-      <Text style={stylesLogin.titleLogIn}>Login to WorkAdventure</Text>
+      <Text style={stylesLogin.titleLogIn}>Sign Up</Text>
 
       <InputDisplay type={"email"} handler={handleEmailChange} />
 
@@ -96,24 +75,18 @@ const LoginPage = ({ navigation }) => {
         <TouchableOpacity
           disabled={!isEmailValid}
           style={buttonStyle}
-          onPress={login} >
-          <Text style={buttonTextStyle}>Log In</Text>          
+          onPress={signUp} >
+          <Text style={buttonTextStyle}>Sign Up</Text>          
         </TouchableOpacity>
 
-      <View style={stylesLogin.separatorContainer}>
-        <View style={stylesLogin.horizontalBar}></View>
-        <Text style={stylesLogin.horizontalBarText}>Or login with</Text>
-        <View style={stylesLogin.horizontalBar}></View>
-      </View>
-
       <View style={stylesLogin.signUpContainer}>
-        <Text>Don't have an account yet ?</Text>
-        <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-          <Text style={stylesLogin.signUpLink}>Sign Up</Text>
+        <Text>Already have an account ?</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+          <Text style={stylesLogin.signUpLink}>Log In</Text>
         </TouchableOpacity>
       </View>
     </View>
   );
 };
 
-export default LoginPage;
+export default SignUpPage;
