@@ -63,7 +63,7 @@ const CompaniesPage = ({ navigation, route }) => {
           keyExtractor={(item) => item.id}
           snapToInterval={BLOCK_SIZE + 60} // add 10 for margin
           decelerationRate="fast"
-          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
         />
       </View>
     );
