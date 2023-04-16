@@ -449,3 +449,124 @@ export const stylesInternshipDetail= StyleSheet.create({
     marginBottom: 10,
   },
 });
+
+
+
+const borderRadius = 10;
+const primaryColor = "#303030";
+const secondaryColor = "#2B5453";
+// Use StylesSheet flatten
+export const stylesExplorePage = StyleSheet.create({
+  container: {
+    height: "100%",
+    alignItems: "center",
+  },
+  helloHeader: {
+    marginTop: 100,
+    marginLeft: 16,
+    marginBottom: 30,
+    fontSize: 36,
+    color: "#2B5453",
+    fontWeight: 500,
+  },
+  searchBar: {
+    justifyContent: "center",
+    fontSize: 16,
+    borderRadius: 50,
+    borderwidth: 1,
+    width: "80%",
+    height: 50,
+    backgroundColor: "#F5F5F5",
+    marginBottom: 10,
+    padding: 10,
+    paddingLeft: 25,
+    elevation: 2,
+    shadowColor: "#2B5453",
+    shadowOpacity: 0.27,
+    shadowRadius: 15,
+  },
+  listContainer: {
+    width: "80%",     
+  },
+  containerInternship: {
+    flex: 1,
+    flexDirection: "row",
+    width: "100%",
+    minHeight: 155,
+    borderColor: "black",
+    borderWidth: 1,
+    marginBottom: 10,
+    padding: 0,
+    borderRadius: borderRadius,
+  },
+  internshipLeftSide: (props) => ({
+    width: "20%",
+    height: "100%",
+    backgroundColor: props.backgroundColor,
+    borderRightWidth: 1,
+    borderColor: "black",
+    borderTopLeftRadius: 9,
+    borderBottomLeftRadius: 9,
+  }),
+  internshipRightSide: {
+    width: "90%",
+    height: "100%",
+    borderTopRightRadius: borderRadius,
+    borderBottomRightRadius: borderRadius,
+  },
+  internshipLeftSideLogoContainer: {
+    backgroundColor: "#303030",
+    padding: 5,
+    position: "absolute",
+    top: 50,
+    left: "58%",
+  },
+  internshipLeftSideLogo: {
+    width: 41,
+    height: 41,
+    objectFit: "contain",
+  },
+  internshipRightSideCompanyName: {
+    fontSize: 20,
+    fontWeight: 500,
+    marginLeft: 10,
+    marginTop: 10,
+  },
+  internshipRightSideInternshipTitle: {
+    marginTop: 10,
+    maxWidth: "70%",
+    fontSize: 16,
+    fontWeight: 400,
+    color: primaryColor,
+    alignSelf: "center",
+  },
+  internshipInfos: {
+    borderColor: "black",
+    justifyContent: "center",
+    width: "60%",
+    flex: 1,
+    alignSelf: "center",
+  },
+  internshipInfosIcons: {
+    height: 20,
+    width: 20,
+  },
+  internshipInfosContainer: {
+    flex: 1,
+    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    flexBasis: "50%",
+    justifyContent: "space-around",
+  },
+  internshipInfosText: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    flexBasis: "50%",
+    borderColor: "black",
+    borderWidth: 1,
+    marginBottom: 5,
+  },
+});

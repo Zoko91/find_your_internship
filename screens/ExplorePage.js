@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import InternshipsService from "../api/InternshipsService";
 import UsersService from "../api/UsersService";
+import {stylesExplorePage} from "../theme/style.js";
 
 const ExplorePage = ({ navigation, route }) => {
   const [internships, setInternships] = useState([]);
@@ -40,31 +41,31 @@ const ExplorePage = ({ navigation, route }) => {
 
   const renderInternshipInfos = ({ item }) => {
     return (
-      <View style={styles.internshipInfosContainer}>
-        <Text style={styles.internshipInfosText}>
+      <View style={stylesExplorePage.internshipInfosContainer}>
+        <Text style={stylesExplorePage.internshipInfosText}>
           <Image
-            style={styles.internshipInfosIcons}
+            style={stylesExplorePage.internshipInfosIcons}
             source={require("../resources/images/star.png")}
           />
           {item.grade}
         </Text>
-        <Text style={styles.internshipInfosText}>
+        <Text style={stylesExplorePage.internshipInfosText}>
           <Image
-            style={styles.internshipInfosIcons}
+            style={stylesExplorePage.internshipInfosIcons}
             source={require("../resources/images/location_outline.png")}
           />
           {item.country}
         </Text>
-        <Text style={styles.internshipInfosText}>
+        <Text style={stylesExplorePage.internshipInfosText}>
           <Image
-            style={styles.internshipInfosIcons}
+            style={stylesExplorePage.internshipInfosIcons}
             source={require("../resources/images/euros.png")}
           />
           {item.compensation}
         </Text>
-        <Text style={styles.internshipInfosText}>
+        <Text style={stylesExplorePage.internshipInfosText}>
           <Image
-            style={styles.internshipInfosIcons}
+            style={stylesExplorePage.internshipInfosIcons}
             source={require("../resources/images/clock.png")}
           />
           plHolder
@@ -80,7 +81,7 @@ const ExplorePage = ({ navigation, route }) => {
     // console.log(item);
     return (
       <TouchableOpacity
-        style={styles.containerInternship}
+        style={stylesExplorePage.containerInternship}
         onPress={() => {
           navigation.navigate("InternshipPage", { 
             internship: item, 
@@ -88,30 +89,30 @@ const ExplorePage = ({ navigation, route }) => {
           });
         }}
       >
-        <View style={styles.internshipLeftSide({backgroundColor})}>
-          <View style={styles.internshipLeftSideLogoContainer}>
+        <View style={stylesExplorePage.internshipLeftSide({backgroundColor})}>
+          <View style={stylesExplorePage.internshipLeftSideLogoContainer}>
             {item.illustration ? (
               <Image
-                style={styles.internshipLeftSideLogo}
+                style={stylesExplorePage.internshipLeftSideLogo}
                 source={{ uri: item.illustration }}
               />
             ) : (
               <Image
-                style={styles.internshipLeftSideLogo}
+                style={stylesExplorePage.internshipLeftSideLogo}
                 source={require("../resources/images/logo.min.white.png")}
               />
             )}
           </View>
         </View>
-        <View style={styles.internshipRightSide}>
-          <Text style={styles.internshipRightSideCompanyName}>
+        <View style={stylesExplorePage.internshipRightSide}>
+          <Text style={stylesExplorePage.internshipRightSideCompanyName}>
             {item.company.name}
           </Text>
-          <Text style={styles.internshipRightSideInternshipTitle}>
+          <Text style={stylesExplorePage.internshipRightSideInternshipTitle}>
             {item.title}
           </Text>
           {/* Commentaire: Scroll view Nécéssaire */}
-          <View style={styles.internshipInfos}>
+          <View style={stylesExplorePage.internshipInfos}>
             <FlatList
               data={[item]}
               renderItem={renderInternshipInfos}
@@ -134,9 +135,9 @@ const ExplorePage = ({ navigation, route }) => {
   } else {
     return (
       <SafeAreaView style={{flex: 1}}>
-        <Text style={styles.helloHeader}> Hi {user.username}</Text>
+        <Text style={stylesExplorePage.helloHeader}> Hi {user.username}</Text>
         <SafeAreaView style={{ alignItems: "center", flex:1 }}>
-          <View style={styles.searchBar}>
+          <View style={stylesExplorePage.searchBar}>
             <TextInput placeholder="Search" />
           </View>
               <FlatList
@@ -145,7 +146,7 @@ const ExplorePage = ({ navigation, route }) => {
                 showsVerticalScrollIndicator={false}
                 keyExtractor={(item) => item.id}
                 contentContainerStyle={{ flexGrow: 1}}
-                style={styles.listContainer}
+                style={stylesExplorePage.listContainer}
                 contentInsetAdjustmentBehavior="automatic"
                 contentInset={{ top:15, bottom: 50 }}
                 contentOffset={{ y: -15 }}                
@@ -157,122 +158,3 @@ const ExplorePage = ({ navigation, route }) => {
 };
 
 export default ExplorePage;
-
-const borderRadius = 10;
-const primaryColor = "#303030";
-const secondaryColor = "#2B5453";
-// Use StylesSheet flatten
-const styles = StyleSheet.create({
-  container: {
-    height: "100%",
-    alignItems: "center",
-  },
-  helloHeader: {
-    marginTop: 100,
-    marginLeft: 16,
-    marginBottom: 30,
-    fontSize: 36,
-    color: "#2B5453",
-    fontWeight: 500,
-  },
-  searchBar: {
-    justifyContent: "center",
-    fontSize: 16,
-    borderRadius: 50,
-    borderwidth: 1,
-    width: "80%",
-    height: 50,
-    backgroundColor: "#F5F5F5",
-    marginBottom: 10,
-    padding: 10,
-    paddingLeft: 25,
-    elevation: 2,
-    shadowColor: "#2B5453",
-    shadowOpacity: 0.27,
-    shadowRadius: 15,
-  },
-  listContainer: {
-    width: "80%",     
-  },
-  containerInternship: {
-    flex: 1,
-    flexDirection: "row",
-    width: "100%",
-    minHeight: 155,
-    borderColor: "black",
-    borderWidth: 1,
-    marginBottom: 10,
-    padding: 0,
-    borderRadius: borderRadius,
-  },
-  internshipLeftSide: (props) => ({
-    width: "20%",
-    height: "100%",
-    backgroundColor: props.backgroundColor,
-    borderRightWidth: 1,
-    borderColor: "black",
-    borderTopLeftRadius: 9,
-    borderBottomLeftRadius: 9,
-  }),
-  internshipRightSide: {
-    width: "90%",
-    height: "100%",
-    borderTopRightRadius: borderRadius,
-    borderBottomRightRadius: borderRadius,
-  },
-  internshipLeftSideLogoContainer: {
-    backgroundColor: "#303030",
-    padding: 5,
-    position: "absolute",
-    top: 50,
-    left: "58%",
-  },
-  internshipLeftSideLogo: {
-    width: 41,
-    height: 41,
-    objectFit: "contain",
-  },
-  internshipRightSideCompanyName: {
-    fontSize: 20,
-    fontWeight: 500,
-    marginLeft: 10,
-    marginTop: 10,
-  },
-  internshipRightSideInternshipTitle: {
-    marginTop: 10,
-    maxWidth: "70%",
-    fontSize: 16,
-    fontWeight: 400,
-    color: primaryColor,
-    alignSelf: "center",
-  },
-  internshipInfos: {
-    borderColor: "black",
-    justifyContent: "center",
-    width: "60%",
-    flex: 1,
-    alignSelf: "center",
-  },
-  internshipInfosIcons: {
-    height: 20,
-    width: 20,
-  },
-  internshipInfosContainer: {
-    flex: 1,
-    alignItems: "center",
-    flexDirection: "row",
-    flexWrap: "wrap",
-    flexBasis: "50%",
-    justifyContent: "space-around",
-  },
-  internshipInfosText: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    textAlign: "center",
-    flexBasis: "50%",
-    borderColor: "black",
-    borderWidth: 1,
-    marginBottom: 5,
-  },
-});
