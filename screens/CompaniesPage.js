@@ -44,15 +44,6 @@ const CompaniesPage = ({ navigation, route }) => {
     }
   }, [companies]);
 
-  // Composant permettant d'afficher chaque Entreprise
-  const renderCompany = ({ item }) => {
-    return (
-      <TouchableOpacity>
-        <Text>{item.name}</Text>
-      </TouchableOpacity>
-    );
-  };
-
   const TopCompanies = () => {
     return (
       <View style={styles.container}>
@@ -89,11 +80,6 @@ const CompaniesPage = ({ navigation, route }) => {
   } else {
     return (
       <View>
-        <FlatList
-          data={companies}
-          renderItem={renderCompany}
-          keyExtractor={(item) => item.id}
-        />
         <TopCompanies />
       </View>
     );
