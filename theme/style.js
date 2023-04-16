@@ -373,3 +373,79 @@ export const stylesLogin = StyleSheet.create({
     fontWeight: "500",
   },
 });
+
+export const stylesInternshipDetail= StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
+  centerize: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  internshipCompanyContainer: {
+    maxHeight: vh(40),
+  },
+  internshipCompanyLogoContainer: {
+    backgroundColor: "#303030",
+    position: "absolute",
+    // top: 35,
+    top: vh(10),
+    padding: 5,
+  },
+  internshipCompanyLogo: {
+    width: 80,
+    height: 80,
+    objectFit: "contain",
+  },
+  companyName: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "#2B5453",
+    marginTop: vh(6),
+  },
+  internshipInfosContainer: {
+    marginTop: -vh(10),
+    alignSelf: "center",
+    width: "90%",
+    padding: 10,
+  },
+  internshipTitle: {
+    fontSize: 25,
+    fontWeight: "500",
+    color: "#2B5453",
+    marginBottom: vh(3),
+  },
+  internshipDescription: {
+    fontSize: 20,
+    marginBottom: vh(3),
+    width: "90%",
+    alignSelf: "center",
+  },
+  internshipDetailsInfosContainer: {
+    flex: 1,
+    alignItems: "center",
+    paddingTop: vh(4),
+    flexDirection: "row",
+    flexWrap: "wrap",
+    flexBasis: "50%",
+    justifyContent: "space-around",
+  },
+  internshipDetailsInfosBox: {
+    flex: 1,
+    marginVertical: 15,
+    fontSize: 15,
+    
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    flexBasis: "50%",
+  },
+  postedBy:{
+    fontSize: 15,
+    color: "gray",
+    alignSelf: "flex-end",
+    fontStyle: "italic",
+    marginBottom: 10,
+  },
+});
