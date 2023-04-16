@@ -2,7 +2,9 @@ import { StyleSheet, Dimensions } from "react-native";
 
 const height = Dimensions.get("window").height;
 export const vh = (distance) => distance * (height / 100);
+
 const width = Dimensions.get("window").width;
+export const vw = (distance) => distance * (width / 100);
 
 const styles = StyleSheet.create({
   container: { flex: 1, alignItems: "center" },
