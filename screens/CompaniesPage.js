@@ -9,9 +9,17 @@ import {
   StyleSheet,
 } from "react-native";
 import CompanyService from "../api/CompaniesService";
+import { stylesExplorePage } from "../theme/style";
 
 const BLOCK_SIZE = 80;
-
+const companiesPhotos = {
+  "Au Père Louis": require("../resources/images/companies/AuPereLouis.jpg"),
+  Banana: require("../resources/images/companies/Banana.jpg"),
+  Google: require("../resources/images/companies/google.jpeg"),
+  I2C: require("../resources/images/companies/junior-i2C.png"),
+  "Mars Explorer": require("../resources/images/companies/mars-explorer.png"),
+  Quechua: require("../resources/images/companies/Quechua.jpg"),
+};
 const CompaniesPage = ({ navigation, route }) => {
   const [companies, setCompanies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -55,6 +63,7 @@ const CompaniesPage = ({ navigation, route }) => {
           keyExtractor={(item) => item.id}
           snapToInterval={BLOCK_SIZE + 60} // add 10 for margin
           decelerationRate="fast"
+          showsVerticalScrollIndicator={false}
         />
       </View>
     );
@@ -63,7 +72,10 @@ const CompaniesPage = ({ navigation, route }) => {
   const renderTopCompany = ({ item }) => {
     return (
       <View style={styles.companyTopBlock}>
-        <Text>{item.name}</Text>
+        <Image
+          style={styles.photoCompany}
+          source={companiesPhotos[item.name]}
+        />
       </View>
     );
   };
@@ -110,5 +122,11 @@ const styles = StyleSheet.create({
     width: 100,
     marginHorizontal: 20,
     marginVertical: 10,
+  },
+  photoCompany: {
+    height: 80,
+    width: 80,
+    marginHorizontal: 10,
+    marginTop: 5,
   },
 });
