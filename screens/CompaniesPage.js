@@ -61,7 +61,7 @@ const CompaniesPage = ({ navigation, route }) => {
         </View>
     );
   };
-  const companiesList = ({ item }) => {
+  const companyItem = ({ item }) => {
     //console.log("item: ", item);
     const img = item.logo !== null ? { uri: item.logo } : require("../resources/images/companies/AuPereLouis.jpg") ;
     return (
@@ -101,7 +101,7 @@ const CompaniesPage = ({ navigation, route }) => {
             <FlatList
                 data={sortedCompanies}
                 style={stylesExplorePage.listContainer}
-                renderItem={companiesList}
+                renderItem={companyItem}
                 contentInsetAdjustmentBehavior="automatic"
                 contentInset={{ top:15, bottom: 50 }}
                 contentOffset={{ y: -15 }}
@@ -124,7 +124,6 @@ const CompaniesPage = ({ navigation, route }) => {
     return (
         <SafeAreaView style={{flex: 1}}>
           <TopCompanies/>
-
           <ListCompanies/>
         </SafeAreaView>
     );
