@@ -47,85 +47,92 @@ const CompaniesPage = ({ navigation, route }) => {
 
   const TopCompanies = () => {
     return (
-        <View style={styles.container}>
-          <Text style={styles.companiesTitle}>Top Companies</Text>
-          <FlatList
-              data={companies}
-              horizontal={true}
-              renderItem={renderTopCompany}
-              keyExtractor={(item) => item.id}
-              snapToInterval={2*BLOCK_SIZE + 60} // add 10 for margin
-              decelerationRate="fast"
-              showsHorizontalScrollIndicator={false}
-          />
-        </View>
+      <View style={styles.container}>
+        <Text style={styles.companiesTitle}>Top Companies</Text>
+        <FlatList
+          data={companies}
+          horizontal={true}
+          renderItem={renderTopCompany}
+          keyExtractor={(item) => item.id}
+          snapToInterval={2 * BLOCK_SIZE + 60} // add 10 for margin
+          decelerationRate="fast"
+          showsHorizontalScrollIndicator={false}
+        />
+      </View>
     );
   };
   const companyItem = ({ item }) => {
     //console.log("item: ", item);
-    const img = item.logo !== null ? { uri: item.logo } : require("../resources/images/companies/AuPereLouis.jpg") ;
+    const img =
+      item.logo !== null ? { uri: item.logo } : companiesPhotos[item.name];
     return (
-        <View style={styles.singleCompany}>
-          <Image style={styles.singleCompanyLogo} source={img}></Image>
-          <View style={styles.singleCompanyRightSide}>
-            <Text style={[styles.singleCompanyText, styles.singleCompanyTitle]}>{item.name}</Text>
-            <Text style={styles.singleCompanyText}> Company Grade : {item.companyGrade}</Text>
-          </View>
+      <View style={styles.singleCompany}>
+        <Image
+          style={styles.singleCompanyLogo}
+          source={companiesPhotos[item.name]}
+        ></Image>
+        <View style={styles.singleCompanyRightSide}>
+          <Text style={[styles.singleCompanyText, styles.singleCompanyTitle]}>
+            {item.name}
+          </Text>
+          <Text style={styles.singleCompanyText}>
+            {" "}
+            Company Grade : {item.companyGrade}
+          </Text>
         </View>
-    )
-  }
-  const sortedCompanies = companies.sort((c1,c2)=>c2.companyGrade - c1.companyGrade);
+      </View>
+    );
+  };
+  const sortedCompanies = companies.sort(
+    (c1, c2) => c2.companyGrade - c1.companyGrade
+  );
   const renderTopCompany = ({ item }) => {
     //console.log("item: ", item);
     return (
-        <TouchableOpacity style={styles.companyTopBlock}>
-          <Image
-              style={styles.photoCompany}
-              source={companiesPhotos[item.name]}
-          />
-          <Text style={styles.companyName}>{item.name}</Text>
-          <Text style={styles.companyName}>{item.companyGrade}</Text>
-        </TouchableOpacity>
+      <TouchableOpacity style={styles.companyTopBlock}>
+        <Image
+          style={styles.photoCompany}
+          source={companiesPhotos[item.name]}
+        />
+        <Text style={styles.companyName}>{item.name}</Text>
+        <Text style={styles.companyName}>{item.companyGrade}</Text>
+      </TouchableOpacity>
     );
   };
-
 
   const ListCompanies = () => {
     //companies.sort(c=> c.name);
     return (
-        <SafeAreaView style={{ flex:1, marginTop: vh(8) }}>
-          <Text style={styles.companiesTitle}>
-            Companies
-          </Text>
-          <View style={{alignItems: "center"}}>
-            <FlatList
-                data={sortedCompanies}
-                style={stylesExplorePage.listContainer}
-                renderItem={companyItem}
-                contentInsetAdjustmentBehavior="automatic"
-                contentInset={{ top:15, bottom: 50 }}
-                contentOffset={{ y: -15 }}
-                showsVerticalScrollIndicator={false}
-                keyExtractor={(item) => item.id}
-                contentContainerStyle={{ flexGrow: 1}}
-            >
-            </FlatList>
-          </View>
-        </SafeAreaView>
+      <SafeAreaView style={{ flex: 1, marginTop: vh(8) }}>
+        <Text style={styles.companiesTitle}>Companies</Text>
+        <View style={{ alignItems: "center" }}>
+          <FlatList
+            data={sortedCompanies}
+            style={stylesExplorePage.listContainer}
+            renderItem={companyItem}
+            contentInsetAdjustmentBehavior="automatic"
+            contentInset={{ top: 15, bottom: 50 }}
+            contentOffset={{ y: -15 }}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={(item) => item.id}
+            contentContainerStyle={{ flexGrow: 1 }}
+          ></FlatList>
+        </View>
+      </SafeAreaView>
     );
-  }
+  };
   if (isLoading) {
     return (
-        <View>
-          <Text>Loading...</Text>
-        </View>
+      <View>
+        <Text>Loading...</Text>
+      </View>
     );
   } else {
     return (
-        <SafeAreaView style={{flex: 1}}>
-          <TopCompanies/>
-          <ListCompanies/>
-        </SafeAreaView>
+      <SafeAreaView style={{ flex: 1 }}>
+        <TopCompanies />
+        <ListCompanies />
+      </SafeAreaView>
     );
   }
 };
@@ -145,10 +152,10 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   companyTopBlock: {
-    alignItems:"center",
-    justifyContent:"center",
-//    borderWidth: 1,
-//    borderColor: "blue",
+    alignItems: "center",
+    justifyContent: "center",
+    //    borderWidth: 1,
+    //    borderColor: "blue",
     minHeight: 100,
     width: vw(26), // 100
     marginHorizontal: 20,
@@ -174,14 +181,13 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     flexDirection: "row",
     justifyContent: "space-between",
-
   },
   singleCompanyLogo: {
     height: "100%",
     width: "50%",
   },
   companiesTitle: {
-    marginLeft:5,
+    marginLeft: 5,
     fontSize: 30,
   },
   singleCompanyRightSide: {
@@ -196,6 +202,5 @@ const styles = StyleSheet.create({
   singleCompanyTitle: {
     fontSize: 20,
     fontWeight: "bold",
-
-  }
+  },
 });
