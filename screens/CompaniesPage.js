@@ -14,7 +14,8 @@ import { stylesExplorePage, vh, vw } from "../theme/style";
 import InternshipsService from "../api/InternshipsService";
 
 // Constants
-const rootEndpoint = "https://jbeasse-workadventure.azurewebsites.net/api/InternshipApi/";
+const rootEndpoint =
+  "https://jbeasse-workadventure.azurewebsites.net/api/InternshipApi/";
 const BLOCK_SIZE = 80;
 const companiesPhotos = {
   "Au Père Louis": require("../resources/images/companies/AuPereLouis.jpg"),
@@ -29,22 +30,36 @@ const CompaniesPage = ({ navigation, route }) => {
   const [companies, setCompanies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [internshipCounts, setInternshipCounts] = useState({});
+  const [companyAverageCompensation, setCompanyAverageCompensation] = useState(
+    {}
+  );
   //console.log("Here in CompaniesPage: ", route.params.usertest.email);
 
-  const getNumberOfInternships = async (companyId) => {
+  const getIntenshipsInfosForCompany = async (companyId) => {
     try {
       const root = rootEndpoint;
       const response = await fetch(root);
       const json = await response.json();
       const internships = await json.filter(
-          (internship) => internship.companyId === companyId
+        (internship) => internship.companyId === companyId
       );
-      return internships.length;
+      let total = 0;
+      internships.forEach((internship) => {
+        compensation = JSON.parse(internship.compensation);
+        total = total + compensation;
+      });
+
+      let average = total / internships.length;
+      return {
+        count: internships.length,
+        average: average,
+      };
     } catch (error) {
       console.error(error);
       return error;
     }
-  }
+  };
+
   const getCompanies = async () => {
     try {
       const response = await CompanyService.findCompanies();
@@ -70,107 +85,135 @@ const CompaniesPage = ({ navigation, route }) => {
   // Call the async function to get the number of internships for each company
   const fetchData = async () => {
     const counts = {};
+    const averages = {};
     for (const company of sortedCompanies) {
-      const nb = await getNumberOfInternships(company.id);
-      counts[company.id] = nb;
+      const infos = await getIntenshipsInfosForCompany(company.id);
+      counts[company.id] = infos.count;
+      averages[company.id] = infos.average;
     }
     setInternshipCounts(counts);
+    setCompanyAverageCompensation(averages);
   };
 
   const TopCompanies = () => {
+    const slicedCompanies = companies.slice(1, 6); // Only display 5 companies
     return (
-        <View style={styles.container}>
-          <Text style={styles.companiesTitle}>Top Companies</Text>
-          <FlatList
-              data={companies}
-              horizontal={true}
-              renderItem={renderTopCompany}
-              keyExtractor={(item) => item.id}
-              snapToInterval={2 * BLOCK_SIZE + 60} // add 10 for margin
-              decelerationRate="fast"
-              showsHorizontalScrollIndicator={false}
-          />
-        </View>
+      <View style={styles.container}>
+        <Text style={styles.companiesTitle}>Top Companies</Text>
+        <FlatList
+          data={slicedCompanies}
+          horizontal={true}
+          renderItem={renderTopCompany}
+          keyExtractor={(item) => item.id}
+          snapToInterval={2 * (BLOCK_SIZE + 60)} // add 60 for margin right and left
+          decelerationRate="fast"
+          showsHorizontalScrollIndicator={false}
+        />
+      </View>
     );
   };
 
-  const companyItem =  ({ item }) => {
+  const companyItem = ({ item }) => {
     //console.log("item: ", item);
-    console.log("counts:",internshipCounts[item.id]);
-    const img = item.logo === null ? companiesPhotos[item.name]: { uri: item.logo }  ;
+    const img =
+      item.logo === null ? companiesPhotos[item.name] : { uri: item.logo };
     return (
-        <View style={styles.singleCompany}>
-          <Image
-              style={styles.singleCompanyLogo}
-              source={companiesPhotos[item.name]}
-          />
-          <View style={styles.singleCompanyRightSide}>
-            <Text style={[styles.singleCompanyText, styles.singleCompanyTitle]}>
-              {item.name}
-            </Text>
-            <Text style={styles.singleCompanyText}>Internships : {internshipCounts[item.id]} </Text>
-
-            <Text style={styles.singleCompanyText}>
-              Company Grade : {item.companyGrade}
-            </Text>
-          </View>
+      <View style={styles.singleCompany}>
+        <Image
+          style={styles.singleCompanyLogo}
+          source={companiesPhotos[item.name]}
+        />
+        <View style={styles.singleCompanyRightSide}>
+          <Text style={[styles.singleCompanyText, styles.singleCompanyTitle]}>
+            {item.name}
+          </Text>
+          <Text style={styles.singleCompanyText}>
+            Internships : {internshipCounts[item.id]}
+          </Text>
+          <Text style={styles.singleCompanyText}>
+            Company Grade : {item.companyGrade}
+          </Text>
+          <Text style={styles.singleCompanyText}>
+            Average pay : {companyAverageCompensation[item.id]}€
+          </Text>
         </View>
+      </View>
     );
   };
 
   const sortedCompanies = companies.sort(
-      (c1, c2) => c2.companyGrade - c1.companyGrade
+    (c1, c2) => c2.companyGrade - c1.companyGrade
   );
 
   const renderTopCompany = ({ item }) => {
+    const textInfo = {
+      4: "Best rated",
+      1: "Most eco-friendly",
+      5: "Most internships",
+      2: "Most popular",
+      6: "Highest paid",
+    };
     //console.log("item: ", item);
     return (
-        <TouchableOpacity style={styles.companyTopBlock}>
-          <Image
-              style={styles.photoCompany}
-              source={companiesPhotos[item.name]}
-          />
-          <Text style={styles.companyName}>{item.name}</Text>
-          <Text style={styles.companyName}>{item.companyGrade}</Text>
-        </TouchableOpacity>
+      <TouchableOpacity style={styles.companyTopBlock}>
+        <Image
+          style={styles.photoCompany}
+          source={companiesPhotos[item.name]}
+        />
+
+        <Text style={styles.companyName}>{item.name}</Text>
+        <Text
+          style={[
+            {
+              marginTop: 0,
+              fontWeight: 300,
+              fontSize: 12,
+            },
+          ]}
+        >
+          {textInfo[item.id]}
+        </Text>
+      </TouchableOpacity>
     );
   };
 
-  const ListCompanies =  () => {
-    //companies.sort(c=> c.name);
+  const ListCompanies = () => {
     return (
-        <SafeAreaView style={{ flex: 1, marginTop: vh(4) }}>
-          <Text style={styles.companiesTitle}>Companies</Text>
-          <View style={{ alignItems: "center" }}>
-            <FlatList
-                data={sortedCompanies}
-                style={stylesExplorePage.listContainer}
-                renderItem={companyItem}
-                contentInsetAdjustmentBehavior="automatic"
-                contentInset={{ top: 15, bottom: 50 }}
-                contentOffset={{ y: -15 }}
-                showsVerticalScrollIndicator={false}
-                keyExtractor={(item) => item.id}
-                contentContainerStyle={{ flexGrow: 1 }}
-            />
-          </View>
-        </SafeAreaView>
+      <SafeAreaView style={[styles.container, { flex: 1, marginTop: vh(0) }]}>
+        <Text style={styles.companiesTitle}>Companies</Text>
+        <View style={{ alignItems: "center" }}>
+          <FlatList
+            data={sortedCompanies}
+            style={stylesExplorePage.listContainer}
+            renderItem={companyItem}
+            contentInsetAdjustmentBehavior="automatic"
+            contentInset={{ top: 15, bottom: 50 }}
+            contentOffset={{ y: -15 }}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={(item) => item.id}
+            contentContainerStyle={{ flexGrow: 1 }}
+          />
+        </View>
+      </SafeAreaView>
     );
   };
 
   // Final return of screen
   if (isLoading) {
     return (
-        <View>
-          <Text>Loading...</Text>
-        </View>
+      <View>
+        <Text>Loading...</Text>
+      </View>
     );
   } else {
     return (
-        <SafeAreaView style={{ flex: 1 }}>
-          <TopCompanies />
-          <ListCompanies />
-        </SafeAreaView>
+      <SafeAreaView style={{ flex: 1 }}>
+        <Text style={[stylesExplorePage.helloHeader, { marginBottom: -vh(2) }]}>
+          Companies
+        </Text>
+        <TopCompanies />
+        <ListCompanies />
+      </SafeAreaView>
     );
   }
 };
@@ -194,14 +237,16 @@ const styles = StyleSheet.create({
     //    borderWidth: 1,
     //    borderColor: "blue",
     minHeight: 100,
-    width: vw(26), // 100
+    minWidth: vw(26), // 100
+
+    borderColor: "rgba(10,10,10,0.2)",
     marginHorizontal: 20,
     marginVertical: 10,
   },
   photoCompany: {
     height: vh(12),
     width: vh(12),
-    marginHorizontal: 10,
+    //marginHorizontal: 10,
     marginTop: 5,
   },
   companyName: {
@@ -209,32 +254,34 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "bold",
     textAlign: "center",
+    marginHorizontal: -5,
   },
   singleCompany: {
-    borderWidth: 1,
-    borderColor: "black",
-    minHeight: 150,
+    minHeight: 100,
     textAlign: "right",
-    marginVertical: 10,
+    marginVertical: 15,
     flexDirection: "row",
     justifyContent: "space-between",
+
+    borderWidth: 1,
+    borderColor: "rgba(10,10,10,0.2)",
+    borderStyle: "dotted",
   },
   singleCompanyLogo: {
-    objectFit: "fill",
+    objectFit: "cover",
     height: "100%",
     width: "50%",
   },
   companiesTitle: {
     marginLeft: 5,
-    borderWidth: 1,
-    borderColor: "black",
-    fontSize: 30,
+    paddingBottom: 10,
+    fontSize: 25,
   },
   singleCompanyRightSide: {
     width: "50%",
     paddingRight: 10,
     paddingTop: 10,
-    justifyContent: "center",
+    justifyContent: "top",
     alignItems: "flex-end",
   },
   singleCompanyText: {

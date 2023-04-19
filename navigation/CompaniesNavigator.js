@@ -16,8 +16,11 @@ const CompaniesNavigator = ({ route }) => {
       <CompaniesStack.Screen
         name="Company"
         component={CompaniesPage}
-        options={{ title: "Companies" }}
         initialParams={{ usertest: usertest }}
+        options={{
+          title: "Companies",
+          headerShown: false,
+        }}
       />
     </CompaniesStack.Navigator>
   );

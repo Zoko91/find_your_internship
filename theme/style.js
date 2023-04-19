@@ -374,7 +374,7 @@ export const stylesLogin = StyleSheet.create({
   },
 });
 
-export const stylesInternshipDetail= StyleSheet.create({
+export const stylesInternshipDetail = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
@@ -435,13 +435,13 @@ export const stylesInternshipDetail= StyleSheet.create({
     flex: 1,
     marginVertical: 15,
     fontSize: 15,
-    
+
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
     flexBasis: "50%",
   },
-  postedBy:{
+  postedBy: {
     fontSize: 15,
     color: "gray",
     alignSelf: "flex-end",
@@ -449,8 +449,6 @@ export const stylesInternshipDetail= StyleSheet.create({
     marginBottom: 10,
   },
 });
-
-
 
 const borderRadius = 10;
 const primaryColor = "#303030";
@@ -462,7 +460,7 @@ export const stylesExplorePage = StyleSheet.create({
     alignItems: "center",
   },
   helloHeader: {
-    marginTop: 100,
+    marginTop: vh(7),
     marginLeft: 16,
     marginBottom: 30,
     fontSize: 36,
@@ -486,7 +484,7 @@ export const stylesExplorePage = StyleSheet.create({
     shadowRadius: 15,
   },
   listContainer: {
-    width: "80%",     
+    width: "90%",
   },
   containerInternship: {
     flex: 1,
