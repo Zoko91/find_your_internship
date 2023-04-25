@@ -60,34 +60,42 @@ const ExplorePage = ({ navigation, route }) => {
   const renderInternshipInfos = ({ item }) => {
     return (
       <View style={stylesExplorePage.internshipInfosContainer}>
-        <Text style={stylesExplorePage.internshipInfosText}>
+        <View style={{flexDirection:"row", width:"50%"}}>
           <Image
-            style={stylesExplorePage.internshipInfosIcons}
-            source={require("../resources/images/star.png")}
-          />
-          {item.grade}
-        </Text>
-        <Text style={stylesExplorePage.internshipInfosText}>
-          <Image
+              style={stylesExplorePage.internshipInfosIcons}
+              source={require("../resources/images/star.png")}
+            />
+          <Text style={stylesExplorePage.internshipInfosText}>
+            {item.grade}
+          </Text>
+        </View>
+        <View style={{flexDirection:"row", width:"50%"}}>
+        <Image
             style={stylesExplorePage.internshipInfosIcons}
             source={require("../resources/images/location_outline.png")}
           />
+        <Text style={stylesExplorePage.internshipInfosText}>
           {item.country}
         </Text>
-        <Text style={stylesExplorePage.internshipInfosText}>
+        </View>
+        <View style={{flexDirection:"row", width:"50%"}}>
           <Image
-            style={stylesExplorePage.internshipInfosIcons}
-            source={require("../resources/images/euros.png")}
-          />
-          {item.compensation}
-        </Text>
-        <Text style={stylesExplorePage.internshipInfosText}>
-          <Image
+              style={stylesExplorePage.internshipInfosIcons}
+              source={require("../resources/images/euros.png")}
+            />
+          <Text style={stylesExplorePage.internshipInfosText}>
+            {item.compensation}
+          </Text>
+        </View>
+        <View style={{flexDirection:"row", width:"50%"}}>
+        <Image
             style={stylesExplorePage.internshipInfosIcons}
             source={require("../resources/images/clock.png")}
           />
-          plHolder
+        <Text style={stylesExplorePage.internshipInfosText}>
+          {item.duration}
         </Text>
+        </View>
       </View>
     );
   };

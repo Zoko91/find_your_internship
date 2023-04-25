@@ -545,25 +545,25 @@ export const stylesExplorePage = StyleSheet.create({
     flex: 1,
     alignSelf: "center",
   },
-  internshipInfosIcons: {
-    paddingTop: 19,
-    height: 20,
-    width: 20,
-  },
+
   internshipInfosContainer: {
     flex: 1,
     alignItems: "center",
     flexDirection: "row",
     flexWrap: "wrap",
     flexBasis: "50%",
-    justifyContent: "space-around",
+    // justifyContent: "space-around",
+  },
+  internshipInfosIcons: {
+    height: 20,
+    width: 20,
   },
   internshipInfosText: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    textAlign: "center",
-    flexBasis: "50%",
+    paddingTop: 2,
+    paddingLeft: vw(2),
+    verticalAlign: "middle",
+    height: 20,
     marginBottom: 5,
   },
 });
