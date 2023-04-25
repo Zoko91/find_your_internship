@@ -14,6 +14,7 @@ import InternshipsService from "../api/InternshipsService";
 import UsersService from "../api/UsersService";
 import styles, { stylesExplorePage } from "../theme/style.js";
 import LoadingPage from "./LoadingPage.js";
+import Filters from "../components/Filters.js";
 
 const ExplorePage = ({ navigation, route }) => {
   const [internships, setInternships] = useState([]);
@@ -143,29 +144,7 @@ const ExplorePage = ({ navigation, route }) => {
     );
   };
 
-  const Filters = ({ prompt }) => {
-    const [inputValue, setInputValue] = useState("");
-    return (
-      <View>
-        <View style={stylesExplorePage.searchBar}>
-          <TextInput
-            value={inputValue}
-            onChangeText={(text) => setInputValue(text)}
-            style={styles.inputSearch}
-            onSubmitEditing={() => {
-              if (prompt === "by Title") {
-                setSearchTextTitle(inputValue);
-              } else if (prompt === "by Company") {
-                setSearchTextCompany(inputValue);
-              }
-            }}
-            placeholder={`Search Interships ${prompt}`}
-          />
-        </View>
-        {/* Ajouter un tri ordre récent ou vieux */}
-      </View>
-    );
-  };
+  
 
   if (isLoading) {
     return <LoadingPage />;
@@ -174,8 +153,10 @@ const ExplorePage = ({ navigation, route }) => {
       <SafeAreaView style={{ flex: 1 }}>
         <Text style={stylesExplorePage.helloHeader}> Hi {user.username}</Text>
         <SafeAreaView style={{ alignItems: "center", flex: 1 }}>
-          <Filters prompt="by Title" />
-          <Filters prompt="by Company" />
+          <View style={{flexDirection:"row", justifyContent:"space-evenly", width: "100%"}}>
+            <Filters prompt="Title" handler={setSearchTextTitle}/>
+            <Filters prompt="Company" handler={setSearchTextCompany}/>
+          </View>
           <FlatList
             data={filteredInternships}
             renderItem={({ item }) => renderInternship({ item })}

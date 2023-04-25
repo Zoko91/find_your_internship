@@ -67,9 +67,6 @@ const LoginPage = ({ navigation }) => {
       ).then(async (response) => {
         if (!response.ok) {
           setIsConnectionValid(false);
-          // throw new Error(
-          //   `Erreur lors de la connexion : ${response.status} - ${response.statusText}`
-          // );
         } else {
           const responseData = await response.json().then((data) => {
             navigate("Root", data);

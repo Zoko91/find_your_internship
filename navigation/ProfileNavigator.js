@@ -11,8 +11,6 @@ import ProfileHelp from "../screens/ProfileHelp";
 
 const ProfileStack = createNativeStackNavigator();
 const ProfileNavigator = ({ route }) => {
-  console.log("Here in ProfileNavigator");
-  console.log(route);
   const { usertest } = route.params;
   return (
     <ProfileStack.Navigator

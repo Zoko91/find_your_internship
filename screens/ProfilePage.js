@@ -15,7 +15,6 @@ import LoadingPage from "./LoadingPage";
 const ProfilePage = ({ navigation, route }) => {
   const [user, setUser] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  console.log("Here in ProfilePage: ", route.params.usertest.email);
 
   const getUser = async () => {
     try {
@@ -57,13 +56,7 @@ const ProfilePage = ({ navigation, route }) => {
     }
   }, [user]);
 
-  const LoadingComponent = () => {
-    return (
-      <TouchableOpacity>
-        <Text>Loading ...</Text>
-      </TouchableOpacity>
-    );
-  };
+
 
   const UserHeader = () => {
     return (

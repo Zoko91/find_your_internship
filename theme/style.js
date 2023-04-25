@@ -472,7 +472,7 @@ export const stylesExplorePage = StyleSheet.create({
     fontSize: 16,
     borderRadius: 50,
     borderwidth: 1,
-    width: "80%",
+    width: "40%",
     height: 50,
     backgroundColor: "#F5F5F5",
     marginBottom: 10,
