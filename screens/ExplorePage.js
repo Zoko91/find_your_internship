@@ -13,6 +13,7 @@ import {
 import InternshipsService from "../api/InternshipsService";
 import UsersService from "../api/UsersService";
 import styles, { stylesExplorePage } from "../theme/style.js";
+import LoadingPage from "./LoadingPage.js";
 
 const ExplorePage = ({ navigation, route }) => {
   const [internships, setInternships] = useState([]);
@@ -45,10 +46,12 @@ const ExplorePage = ({ navigation, route }) => {
   }, [internships, user]);
   useEffect(() => {
     setFilteredInternships(
-      internships.filter((item) =>
-        item.title.toLowerCase().includes(searchTextTitle.toLowerCase())
-        && 
-        item.company.name.toLowerCase().includes(searchTextCompany.toLowerCase())
+      internships.filter(
+        (item) =>
+          item.title.toLowerCase().includes(searchTextTitle.toLowerCase()) &&
+          item.company.name
+            .toLowerCase()
+            .includes(searchTextCompany.toLowerCase())
       )
     );
   }, [searchTextTitle, searchTextCompany]);
@@ -165,11 +168,7 @@ const ExplorePage = ({ navigation, route }) => {
   };
 
   if (isLoading) {
-    return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
-    );
+    return <LoadingPage />;
   } else {
     return (
       <SafeAreaView style={{ flex: 1 }}>

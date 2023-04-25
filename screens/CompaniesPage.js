@@ -12,6 +12,7 @@ import {
 import CompanyService from "../api/CompaniesService";
 import { stylesExplorePage, vh, vw } from "../theme/style";
 import InternshipsService from "../api/InternshipsService";
+import LoadingPage from "./LoadingPage.js";
 
 // Constants
 const rootEndpoint =
@@ -200,11 +201,7 @@ const CompaniesPage = ({ navigation, route }) => {
 
   // Final return of screen
   if (isLoading) {
-    return (
-      <View style={{ height: 100, left: 30 }}>
-        <Text>Loading...</Text>
-      </View>
-    );
+    return <LoadingPage />;
   } else {
     return (
       <SafeAreaView style={{ flex: 1 }}>

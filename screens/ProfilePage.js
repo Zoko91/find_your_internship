@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import UsersService from "../api/UsersService";
 import styles from "../theme/style.js";
+import LoadingPage from "./LoadingPage";
 
 const ProfilePage = ({ navigation, route }) => {
   const [user, setUser] = useState([]);
@@ -213,7 +214,7 @@ const ProfilePage = ({ navigation, route }) => {
     );
   };
 
-  return isLoading ? <LoadingComponent /> : <UserPage />;
+  return isLoading ? <LoadingPage /> : <UserPage />;
 };
 
 export default ProfilePage;

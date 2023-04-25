@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import RNRestart from "react-native-restart"; // Import package from node modules
 import {
   Text,
   View,
@@ -7,29 +8,55 @@ import {
   Alert,
   FlatList,
   TouchableOpacity,
+  NativeModules,
 } from "react-native";
 import Checkbox from "expo-checkbox";
 import UsersService from "../api/UsersService";
 import styles from "../theme/style.js";
+import InputBloc from "../components/InputBloc";
 
 const ProfileInformations = ({ navigation, route }) => {
   //Use the user that exists in the previous page here...
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isSetMailUpdates, setMailUpdates] = useState(false);
-  const [isSetPromoMail, setPromoMail] = useState(false);
-  console.log("Here in ProfileInformations: ", route.params.usertest.email);
-  console.log(route.params.usertest);
+  const [isSetMailUpdates, setIsSetMailUpdates] = useState(
+    route.params.usertest.mailUpdate
+  );
+  const [isSetPromoMail, setIsSetPromoMail] = useState(
+    route.params.usertest.promoMail
+  );
+  const handleUsername = (text) => {
+    setUsername(text);
+  };
+
+  // console.log("Here in ProfileInformations: ", route.params.usertest.email);
+  // console.log(route.params.usertest);
+
   const SaveInformations = async () => {
     const updatedUser = {
-      ...route.params.usertest,
-      email: email,
-      username: username,
-      password: password,
+      id: route.params.usertest.id,
+      username: route.params.usertest.username,
+      email: route.params.usertest.email,
+      password: route.params.usertest.password,
       promoMail: isSetPromoMail,
+      description: route.params.usertest.description,
       mailUpdate: isSetMailUpdates,
+      promoMail: isSetPromoMail,
     };
+
+    if (username !== "") {
+      updatedUser.username = username;
+    }
+    if (email !== "") {
+      updatedUser.email = email;
+    }
+    if (password !== "") {
+      updatedUser.password = password;
+    }
+    // updatedUser.internships.forEach((internship) => {
+    //   internship.user = updatedUser;
+    // });
     try {
       const response = await fetch(
         "https://jbeasse-workadventure.azurewebsites.net/api/UserApi/" +
@@ -42,14 +69,23 @@ const ProfileInformations = ({ navigation, route }) => {
           body: JSON.stringify(updatedUser),
         }
       ).then(async (response) => {
-        if (!response.ok) {
+        if (response.ok) {
           Alert.alert(
-            "There was a problem with the update of the credentials !"
+            "Validé !",
+            "Les changements ont bien été pris en compte. Vous allez être déconnecté.",
+            [
+              {
+                text: "OK",
+                onPress: () => {
+                  NativeModules.DevSettings.reload();
+                },
+              },
+            ]
           );
         }
       });
     } catch (error) {
-      console.error(`Erreur lors de la connexion: ${error.message}`);
+      console.error(`Erreur lors de l'envoi de données: ${error.message}`);
     }
   };
 
@@ -59,19 +95,9 @@ const ProfileInformations = ({ navigation, route }) => {
         <Text style={{ fontSize: 20, fontWeight: "bold" }}>
           Edit personal info
         </Text>
-        <Text style={styles.save}>Save</Text>
-      </View>
-    );
-  };
-
-  const Bloc = ({ placeholder, setfunction }) => {
-    return (
-      <View style={styles.bloc}>
-        <Text style={styles.placeholder}>{placeholder}</Text>
-        <TextInput
-          onChangeText={(text) => setfunction(text)}
-          style={styles.personalinput}
-        ></TextInput>
+        <TouchableOpacity onPress={SaveInformations}>
+          <Text style={styles.save}>Save</Text>
+        </TouchableOpacity>
       </View>
     );
   };
@@ -84,7 +110,7 @@ const ProfileInformations = ({ navigation, route }) => {
           <Checkbox
             style={styles.checkbox}
             value={isSetMailUpdates}
-            onValueChange={setMailUpdates}
+            onValueChange={setIsSetMailUpdates}
             color={isSetMailUpdates ? "#428A42" : undefined}
           />
           <Text style={styles.mailingtext}>Agree to receive mail updates</Text>
@@ -93,7 +119,7 @@ const ProfileInformations = ({ navigation, route }) => {
           <Checkbox
             style={styles.checkbox}
             value={isSetPromoMail}
-            onValueChange={setPromoMail}
+            onValueChange={setIsSetPromoMail}
             color={isSetPromoMail ? "#428A42" : undefined}
           />
           <Text style={styles.mailingtext}>Promotional mailing list</Text>
@@ -102,20 +128,16 @@ const ProfileInformations = ({ navigation, route }) => {
     );
   };
 
-  const UserInformations = () => {
-    return (
-      <View style={{ flex: 1 }}>
-        <HeaderInformation />
-        <Bloc placeholder="Username" setfunction={setUsername} />
-        <Bloc placeholder="Email" setfunction={setEmail} />
-        <Bloc placeholder="Password" setfunction={setPassword} />
-        <View style={styles.fineLine2}></View>
-        <Preferences />
-      </View>
-    );
-  };
-
-  return <UserInformations />;
+  return (
+    <View style={{ flex: 1 }}>
+      <HeaderInformation />
+      <InputBloc placeholder={"Username"} handler={handleUsername} />
+      <InputBloc placeholder={"Email"} handler={setEmail} />
+      <InputBloc placeholder={"Password"} handler={setPassword} />
+      <View style={styles.fineLine2}></View>
+      <Preferences />
+    </View>
+  );
 };
 
 export default ProfileInformations;
