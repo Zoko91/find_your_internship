@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from "react";
-import RNRestart from "react-native-restart"; // Import package from node modules
+import React, { useState } from "react";
 import {
   Text,
   View,
-  Image,
-  TextInput,
   Alert,
-  FlatList,
   TouchableOpacity,
   NativeModules,
 } from "react-native";
 import Checkbox from "expo-checkbox";
-import UsersService from "../api/UsersService";
 import styles from "../theme/style.js";
 import InputBloc from "../components/InputBloc";
 
@@ -39,7 +34,6 @@ const ProfileInformations = ({ navigation, route }) => {
       username: route.params.usertest.username,
       email: route.params.usertest.email,
       password: route.params.usertest.password,
-      promoMail: isSetPromoMail,
       description: route.params.usertest.description,
       mailUpdate: isSetMailUpdates,
       promoMail: isSetPromoMail,

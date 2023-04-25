@@ -25,19 +25,19 @@ const ProfileShow = ({ navigation, route }) => {
     return (
       <View>
         <View style={styles.containerProfile}>
-          {image === null ? (
+          {route.params.usertest.avatar === null ? (
             <Image
               style={styles.profilePicture}
               source={require("../resources/images/PDP_2.png")}
             />
           ) : (
             <Image
-              source={{ uri: image }}
+              source={{ uri: route.params.usertest.avatar }}
               style={{ width: 200, height: 200, borderRadius: 200 / 2 }}
             />
           )}
 
-          <PickerImage handler={setImage} />
+          <PickerImage handler={setImage} user={route.params.usertest} />
         </View>
         <Text style={styles.hiMatt}>
           Hi, I'm {route.params.usertest.username}
