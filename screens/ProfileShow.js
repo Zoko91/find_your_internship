@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import UsersService from "../api/UsersService";
 import styles from "../theme/style.js";
+import PickerImage from "../components/PickerImage";
 
 // Description of the page:
 // This page is used to show the user's profile, his most recent post and to change his profile picture as well.
@@ -16,19 +17,27 @@ import styles from "../theme/style.js";
 const ProfileShow = ({ navigation, route }) => {
   //Use the user that exists in the previous page here...
   const [user, setUser] = useState([]);
-  console.log("Here in ProfileShow: ", route.params.usertest.email);
+  const [image, setImage] = useState(null);
 
+  console.log("Here in ProfileShow: ", route.params.usertest.email);
+  console.log("Image : ", image);
   const Description = () => {
     return (
       <View>
         <View style={styles.containerProfile}>
-          <Image
-            style={styles.profilePicture}
-            source={require("../resources/images/PDP_2.png")}
-          />
-          <View style={styles.containerCamera}>
-            <Image source={require("../resources/images/camera.png")} />
-          </View>
+          {image === null ? (
+            <Image
+              style={styles.profilePicture}
+              source={require("../resources/images/PDP_2.png")}
+            />
+          ) : (
+            <Image
+              source={{ uri: image }}
+              style={{ width: 200, height: 200, borderRadius: 200 / 2 }}
+            />
+          )}
+
+          <PickerImage handler={setImage} />
         </View>
         <Text style={styles.hiMatt}>
           Hi, I'm {route.params.usertest.username}
