@@ -47,9 +47,11 @@ const ExplorePage = ({ navigation, route }) => {
     setFilteredInternships(
       internships.filter((item) =>
         item.title.toLowerCase().includes(searchTextTitle.toLowerCase())
+        && 
+        item.company.name.toLowerCase().includes(searchTextCompany.toLowerCase())
       )
     );
-  }, [searchTextTitle]);
+  }, [searchTextTitle, searchTextCompany]);
 
   const renderInternshipInfos = ({ item }) => {
     return (
