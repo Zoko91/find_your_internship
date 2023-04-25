@@ -546,6 +546,7 @@ export const stylesExplorePage = StyleSheet.create({
     alignSelf: "center",
   },
   internshipInfosIcons: {
+    paddingTop: 19,
     height: 20,
     width: 20,
   },
@@ -563,8 +564,6 @@ export const stylesExplorePage = StyleSheet.create({
     justifyContent: "center",
     textAlign: "center",
     flexBasis: "50%",
-    borderColor: "black",
-    borderWidth: 1,
     marginBottom: 5,
   },
 });

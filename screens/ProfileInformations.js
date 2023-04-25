@@ -4,6 +4,7 @@ import {
   View,
   Image,
   TextInput,
+  Alert,
   FlatList,
   TouchableOpacity,
 } from "react-native";
@@ -19,8 +20,16 @@ const ProfileInformations = ({ navigation, route }) => {
   const [isSetMailUpdates, setMailUpdates] = useState(false);
   const [isSetPromoMail, setPromoMail] = useState(false);
   console.log("Here in ProfileInformations: ", route.params.usertest.email);
-
+  console.log(route.params.usertest);
   const SaveInformations = async () => {
+    const updatedUser = {
+      ...route.params.usertest,
+      email: email,
+      username: username,
+      password: password,
+      promoMail: isSetPromoMail,
+      mailUpdate: isSetMailUpdates,
+    };
     try {
       const response = await fetch(
         "https://jbeasse-workadventure.azurewebsites.net/api/UserApi/" +
@@ -30,18 +39,13 @@ const ProfileInformations = ({ navigation, route }) => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(),
+          body: JSON.stringify(updatedUser),
         }
       ).then(async (response) => {
         if (!response.ok) {
-          setIsConnectionValid(false);
-          // throw new Error(
-          //   `Erreur lors de la connexion : ${response.status} - ${response.statusText}`
-          // );
-        } else {
-          const responseData = await response.json().then((data) => {
-            navigate("Root", data);
-          });
+          Alert.alert(
+            "There was a problem with the update of the credentials !"
+          );
         }
       });
     } catch (error) {
@@ -60,11 +64,14 @@ const ProfileInformations = ({ navigation, route }) => {
     );
   };
 
-  const Bloc = ({ placeholder }) => {
+  const Bloc = ({ placeholder, setfunction }) => {
     return (
       <View style={styles.bloc}>
         <Text style={styles.placeholder}>{placeholder}</Text>
-        <TextInput style={styles.personalinput}></TextInput>
+        <TextInput
+          onChangeText={(text) => setfunction(text)}
+          style={styles.personalinput}
+        ></TextInput>
       </View>
     );
   };
@@ -99,9 +106,9 @@ const ProfileInformations = ({ navigation, route }) => {
     return (
       <View style={{ flex: 1 }}>
         <HeaderInformation />
-        <Bloc placeholder="Username" />
-        <Bloc placeholder="Email" />
-        <Bloc placeholder="Password" />
+        <Bloc placeholder="Username" setfunction={setUsername} />
+        <Bloc placeholder="Email" setfunction={setEmail} />
+        <Bloc placeholder="Password" setfunction={setPassword} />
         <View style={styles.fineLine2}></View>
         <Preferences />
       </View>

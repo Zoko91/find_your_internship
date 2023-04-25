@@ -201,7 +201,7 @@ const CompaniesPage = ({ navigation, route }) => {
   // Final return of screen
   if (isLoading) {
     return (
-      <View>
+      <View style={{ height: 100, left: 30 }}>
         <Text>Loading...</Text>
       </View>
     );
