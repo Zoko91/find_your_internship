@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   containerHeaderUser3: { flex: 1, alignItems: "flex-end", marginTop: 27 },
   nameUser: { color: "#000", fontSize: 20 },
   showProfile: { color: "#808080", fontSize: 14 },
-  userProfilePicture: { width: 80, height: 80 },
+  userProfilePicture: { width: 80, height: 80, borderRadius: 40 },
   arrowUser: { width: 20, height: 20, marginLeft: 10 },
   fineLine: {
     backgroundColor: "#DDDDDD",

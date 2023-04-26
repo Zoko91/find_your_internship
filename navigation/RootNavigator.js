@@ -6,16 +6,14 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ExploreNavigator from "./ExploreNavigator";
 import CompaniesNavigator from "./CompaniesNavigator";
 import ProfileNavigator from "./ProfileNavigator";
+import { loadUser } from "../utils/localStorage";
 
 const Root = createBottomTabNavigator();
 
-const RootNavigator = ({ route }) => {
+const RootNavigator = ({ route, user }) => {
   const { usertest } = route.params;
 
-
   return (
-    //<NavigationContainer>
-    //{/*<StatusBar barStyle="light-content" />*/}
     <Root.Navigator
       screenOptions={({ route }) => ({
         // Icons will be different if the tab is focused
@@ -23,7 +21,6 @@ const RootNavigator = ({ route }) => {
           let iconName;
           if (route.name === "Explore") {
             iconName = focused ? "search-sharp" : "search-outline";
-            
           } else if (route.name === "Companies") {
             iconName = focused ? "md-business" : "md-business-outline";
           } else if (route.name === "Profile") {
@@ -54,9 +51,9 @@ const RootNavigator = ({ route }) => {
         name="Profile"
         component={ProfileNavigator}
         initialParams={{ usertest: usertest }}
+        options={{ unmountOnBlur: true }}
       />
     </Root.Navigator>
-    //</NavigationContainer>
   );
 };
 

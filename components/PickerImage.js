@@ -14,16 +14,27 @@ import {
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import styles from "../theme/style";
+import { saveUser } from "../utils/localStorage";
 
 const PickerImage = ({ user, handler }) => {
   const SaveImageToProfile = async (lienImage) => {
+    const newPic =
+      "https://jbeasse-workadventure.azurewebsites.net/images/" +
+      user.id +
+      "_" +
+      lienImage.split("/").pop();
+
     const updatedUser = {
       id: user.id,
       username: user.username,
       email: user.email,
       password: user.password,
       description: user.description,
-      avatar: lienImage,
+      avatar:
+        "https://jbeasse-workadventure.azurewebsites.net/images/" +
+        user.id +
+        "_" +
+        lienImage.split("/").pop(),
     };
     try {
       const response = await fetch(
@@ -36,8 +47,11 @@ const PickerImage = ({ user, handler }) => {
           },
           body: JSON.stringify(updatedUser),
         }
-      ).then(async (response) => {
-        if (response.ok) {
+      ).then(async (resp) => {
+        user.avatar = newPic;
+        // saveUser(user);
+
+        if (resp.ok) {
           console.log("Image enregistrée");
         }
       });
@@ -45,6 +59,34 @@ const PickerImage = ({ user, handler }) => {
       console.error(`Erreur lors de l'upload de l'image: ${error.message}`);
     }
   };
+
+  const UploadImage = async (uri) => {
+    let formData = new FormData();
+    formData.append("userId", user.id);
+    formData.append("image", {
+      uri,
+      type: "image/jpeg",
+      name: uri.split("/").pop(),
+    });
+
+    try {
+      let response = await fetch(
+        "https://jbeasse-workadventure.azurewebsites.net/api/UserApi/upload-image",
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      let data = await response.text();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -57,6 +99,7 @@ const PickerImage = ({ user, handler }) => {
     if (!result.canceled) {
       SaveImageToProfile(result.assets[0].uri);
       handler(result.assets[0].uri);
+      UploadImage(result.assets[0].uri);
     }
   };
 

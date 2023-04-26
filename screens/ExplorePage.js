@@ -20,6 +20,8 @@ const ExplorePage = ({ navigation, route }) => {
   const [internships, setInternships] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState({});
+  console.log(route.params.usertest);
+  // const user = route.params.usertest;
 
   const [searchTextTitle, setSearchTextTitle] = useState("");
   const [searchTextCompany, setSearchTextCompany] = useState("");
@@ -60,41 +62,41 @@ const ExplorePage = ({ navigation, route }) => {
   const renderInternshipInfos = ({ item }) => {
     return (
       <View style={stylesExplorePage.internshipInfosContainer}>
-        <View style={{flexDirection:"row", width:"50%"}}>
+        <View style={{ flexDirection: "row", width: "50%" }}>
           <Image
-              style={stylesExplorePage.internshipInfosIcons}
-              source={require("../resources/images/star.png")}
-            />
+            style={stylesExplorePage.internshipInfosIcons}
+            source={require("../resources/images/star.png")}
+          />
           <Text style={stylesExplorePage.internshipInfosText}>
             {item.grade}
           </Text>
         </View>
-        <View style={{flexDirection:"row", width:"50%"}}>
-        <Image
+        <View style={{ flexDirection: "row", width: "50%" }}>
+          <Image
             style={stylesExplorePage.internshipInfosIcons}
             source={require("../resources/images/location_outline.png")}
           />
-        <Text style={stylesExplorePage.internshipInfosText}>
-          {item.country}
-        </Text>
+          <Text style={stylesExplorePage.internshipInfosText}>
+            {item.country}
+          </Text>
         </View>
-        <View style={{flexDirection:"row", width:"50%"}}>
+        <View style={{ flexDirection: "row", width: "50%" }}>
           <Image
-              style={stylesExplorePage.internshipInfosIcons}
-              source={require("../resources/images/euros.png")}
-            />
+            style={stylesExplorePage.internshipInfosIcons}
+            source={require("../resources/images/euros.png")}
+          />
           <Text style={stylesExplorePage.internshipInfosText}>
             {item.compensation}
           </Text>
         </View>
-        <View style={{flexDirection:"row", width:"50%"}}>
-        <Image
+        <View style={{ flexDirection: "row", width: "50%" }}>
+          <Image
             style={stylesExplorePage.internshipInfosIcons}
             source={require("../resources/images/clock.png")}
           />
-        <Text style={stylesExplorePage.internshipInfosText}>
-          {item.duration}
-        </Text>
+          <Text style={stylesExplorePage.internshipInfosText}>
+            {item.duration}
+          </Text>
         </View>
       </View>
     );
@@ -152,8 +154,6 @@ const ExplorePage = ({ navigation, route }) => {
     );
   };
 
-  
-
   if (isLoading) {
     return <LoadingPage />;
   } else {
@@ -161,9 +161,15 @@ const ExplorePage = ({ navigation, route }) => {
       <SafeAreaView style={{ flex: 1 }}>
         <Text style={stylesExplorePage.helloHeader}> Hi {user.username}</Text>
         <SafeAreaView style={{ alignItems: "center", flex: 1 }}>
-          <View style={{flexDirection:"row", justifyContent:"space-evenly", width: "100%"}}>
-            <Filters prompt="Title" handler={setSearchTextTitle}/>
-            <Filters prompt="Company" handler={setSearchTextCompany}/>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+              width: "100%",
+            }}
+          >
+            <Filters prompt="Title" handler={setSearchTextTitle} />
+            <Filters prompt="Company" handler={setSearchTextCompany} />
           </View>
           <FlatList
             data={filteredInternships}

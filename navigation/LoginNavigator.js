@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import LoginPage from "../screens/LoginPage";
 import RootNavigator from "./RootNavigator";
 import SignUpPage from "../screens/SignUpPage";
+import { saveUser } from "../utils/localStorage";
 
 const LoginStack = createNativeStackNavigator();
 const LoginNavigator = () => {

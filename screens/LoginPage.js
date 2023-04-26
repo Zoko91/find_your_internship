@@ -14,6 +14,7 @@ import InternshipsService from "../api/InternshipsService";
 import UsersService from "../api/UsersService";
 import { InputDisplay } from "../components/InputDisplay";
 import { stylesLogin } from "../theme/style.js";
+import { loadUser, saveUser } from "../utils/localStorage";
 
 const LoginPage = ({ navigation }) => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -41,7 +42,7 @@ const LoginPage = ({ navigation }) => {
     isEmailValid && password.length > 0
       ? stylesLogin.loginButton
       : stylesLogin.loginButtonDisabled;
-  
+
   const buttonTextStyle =
     isEmailValid && password.length > 0
       ? stylesLogin.loginButtonText
@@ -90,12 +91,13 @@ const LoginPage = ({ navigation }) => {
 
       <InputDisplay type={"password"} handler={handlePasswordChange} />
 
-        <TouchableOpacity
-          disabled={!isEmailValid}
-          style={buttonStyle}
-          onPress={login} >
-          <Text style={buttonTextStyle}>Log In</Text>          
-        </TouchableOpacity>
+      <TouchableOpacity
+        disabled={!isEmailValid}
+        style={buttonStyle}
+        onPress={login}
+      >
+        <Text style={buttonTextStyle}>Log In</Text>
+      </TouchableOpacity>
 
       <View style={stylesLogin.separatorContainer}>
         <View style={stylesLogin.horizontalBar}></View>

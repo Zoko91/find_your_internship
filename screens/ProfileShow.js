@@ -16,28 +16,29 @@ import PickerImage from "../components/PickerImage";
 
 const ProfileShow = ({ navigation, route }) => {
   //Use the user that exists in the previous page here...
-  const [user, setUser] = useState([]);
-  const [image, setImage] = useState(null);
+  const user = route.params.usertest;
+  // console.log("=====================================");
+  // console.log(user);
+  console.log("Profile show avatar = " + user.avatar);
+  const [image, setImage] = useState(user.avatar === null ? null : user.avatar);
 
-  console.log("Here in ProfileShow: ", route.params.usertest.email);
-  console.log("Image : ", image);
   const Description = () => {
     return (
       <View>
         <View style={styles.containerProfile}>
-          {route.params.usertest.avatar === null ? (
+          {user.avatar === null ? (
             <Image
               style={styles.profilePicture}
               source={require("../resources/images/PDP_2.png")}
             />
           ) : (
             <Image
-              source={{ uri: route.params.usertest.avatar }}
+              source={{ uri: image }}
               style={{ width: 200, height: 200, borderRadius: 200 / 2 }}
             />
           )}
 
-          <PickerImage handler={setImage} user={route.params.usertest} />
+          <PickerImage handler={setImage} user={user} />
         </View>
         <Text style={styles.hiMatt}>
           Hi, I'm {route.params.usertest.username}

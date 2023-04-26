@@ -9,18 +9,16 @@ import {
 import Checkbox from "expo-checkbox";
 import styles from "../theme/style.js";
 import InputBloc from "../components/InputBloc";
+import { saveUser } from "../utils/localStorage";
 
 const ProfileInformations = ({ navigation, route }) => {
   //Use the user that exists in the previous page here...
+  user = route.params.usertest;
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isSetMailUpdates, setIsSetMailUpdates] = useState(
-    route.params.usertest.mailUpdate
-  );
-  const [isSetPromoMail, setIsSetPromoMail] = useState(
-    route.params.usertest.promoMail
-  );
+  const [isSetMailUpdates, setIsSetMailUpdates] = useState(user.mailUpdate);
+  const [isSetPromoMail, setIsSetPromoMail] = useState(user.promoMail);
   const handleUsername = (text) => {
     setUsername(text);
   };
@@ -30,11 +28,11 @@ const ProfileInformations = ({ navigation, route }) => {
 
   const SaveInformations = async () => {
     const updatedUser = {
-      id: route.params.usertest.id,
-      username: route.params.usertest.username,
-      email: route.params.usertest.email,
-      password: route.params.usertest.password,
-      description: route.params.usertest.description,
+      id: user.id,
+      username: user.username,
+      email: user.email,
+      password: user.password,
+      description: user.description,
       mailUpdate: isSetMailUpdates,
       promoMail: isSetPromoMail,
     };
@@ -64,6 +62,12 @@ const ProfileInformations = ({ navigation, route }) => {
         }
       ).then(async (response) => {
         if (response.ok) {
+          // user.username = updatedUser.username;
+          // user.email = updatedUser.email;
+          // user.password = updatedUser.password;
+          // user.mailUpdate = updatedUser.mailUpdate;
+          // user.promoMail = updatedUser.promoMail;
+          // await saveUser(user);
           Alert.alert(
             "Validé !",
             "Les changements ont bien été pris en compte. Vous allez être déconnecté.",

@@ -8,6 +8,9 @@ import LoginPage from "../screens/LoginPage";
 const ExploreStack = createNativeStackNavigator();
 const ExploreNavigator = ({ route }) => {
   const { usertest } = route.params;
+
+  console.log("Route: " + route.params);
+
   return (
     <ExploreStack.Navigator
       initialRouteName="Exploration"
@@ -15,7 +18,6 @@ const ExploreNavigator = ({ route }) => {
         headerShown: false,
         headerLeft: null,
       }}
-      
     >
       <ExploreStack.Screen
         name="Exploration"
@@ -35,8 +37,6 @@ const ExploreNavigator = ({ route }) => {
             fontWeight: "bold",
           },
         }}
-        
-
       />
     </ExploreStack.Navigator>
   );
