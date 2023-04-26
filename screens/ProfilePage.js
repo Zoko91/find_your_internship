@@ -183,24 +183,6 @@ const ProfilePage = ({ navigation, route }) => {
               />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.containerAccountInside}
-            onPress={() => {
-              navigate("Help");
-            }}
-          >
-            <Image
-              style={styles.iconUser}
-              source={require("../resources/images/help.png")}
-            />
-            <Text style={{ marginTop: 6 }}>Get help</Text>
-            <View style={styles.containerArrowSetting}>
-              <Image
-                style={styles.arrowUserSetting}
-                source={require("../resources/images/Chevron.png")}
-              />
-            </View>
-          </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.containerAccountInside}
