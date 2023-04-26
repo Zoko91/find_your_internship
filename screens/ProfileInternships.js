@@ -18,12 +18,14 @@ const ProfileInternships = ({ navigation, route }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const [filteredInternships, setFilteredInternships] = useState([]);
+
   const colors = [
     "rgba(150,30,30,0.4)",
     "rgba(220,70,70,0.5)",
     "rgba(250,120,30,0.4)",
   ];
   console.log("Here in Internships: ", route.params.usertest.email);
+
   const getNeededInfos = async () => {
     try {
       const responseInternship =
@@ -51,11 +53,13 @@ const ProfileInternships = ({ navigation, route }) => {
       "Here are the setFilteredInternships BEFORE: ",
       filteredInternships
     );
+
     setFilteredInternships(
       internships.filter((item) =>
         item.title.toLowerCase().includes(searchText.toLowerCase())
       )
     );
+
     console.log(
       "Here are the setFilteredInternships AFTER: ",
       filteredInternships

@@ -14,11 +14,13 @@ import { saveUser } from "../utils/localStorage";
 const ProfileInformations = ({ navigation, route }) => {
   //Use the user that exists in the previous page here...
   user = route.params.usertest;
+  console.log("Here in ProfileInformations: ", user);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSetMailUpdates, setIsSetMailUpdates] = useState(user.mailUpdate);
   const [isSetPromoMail, setIsSetPromoMail] = useState(user.promoMail);
+
   const handleUsername = (text) => {
     setUsername(text);
   };
@@ -33,6 +35,7 @@ const ProfileInformations = ({ navigation, route }) => {
       email: user.email,
       password: user.password,
       description: user.description,
+      avatar: user.avatar,
       mailUpdate: isSetMailUpdates,
       promoMail: isSetPromoMail,
     };

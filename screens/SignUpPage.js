@@ -14,7 +14,7 @@ import InternshipsService from "../api/InternshipsService";
 import UsersService from "../api/UsersService";
 import { InputDisplay } from "../components/InputDisplay";
 import { stylesLogin, vh } from "../theme/style.js";
-
+import styles from "../theme/style.js";
 
 const SignUpPage = ({ navigation }) => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -35,12 +35,11 @@ const SignUpPage = ({ navigation }) => {
     setPassword(text);
   };
 
-
   const buttonStyle =
     isEmailValid && password.length > 0
       ? stylesLogin.loginButton
       : stylesLogin.loginButtonDisabled;
-  
+
   const buttonTextStyle =
     isEmailValid && password.length > 0
       ? stylesLogin.loginButtonText
@@ -54,7 +53,6 @@ const SignUpPage = ({ navigation }) => {
 
   const signUp = async () => {
     try {
-        
     } catch (error) {
       console.error(`Erreur lors de l'inscription: ${error.message}`);
     }
@@ -62,8 +60,18 @@ const SignUpPage = ({ navigation }) => {
 
   return (
     <View style={stylesLogin.container}>
+      <View style={styles.workingOn}>
+        <Text style={styles.textWorkInProgress}>
+          Work in progress. A/B page
+        </Text>
+      </View>
       <Image
-        style={{ width: 100, height: 100, marginTop: vh(1), objectFit: "contain" }}
+        style={{
+          width: 100,
+          height: 100,
+          marginTop: vh(1),
+          objectFit: "contain",
+        }}
         source={require("../resources/images/logo_green.png")}
       />
       <Text style={stylesLogin.titleLogIn}>Sign Up</Text>
@@ -72,12 +80,13 @@ const SignUpPage = ({ navigation }) => {
 
       <InputDisplay type={"password"} handler={handlePasswordChange} />
 
-        <TouchableOpacity
-          disabled={!isEmailValid}
-          style={buttonStyle}
-          onPress={signUp} >
-          <Text style={buttonTextStyle}>Sign Up</Text>          
-        </TouchableOpacity>
+      <TouchableOpacity
+        disabled={!isEmailValid}
+        style={buttonStyle}
+        onPress={signUp}
+      >
+        <Text style={buttonTextStyle}>Sign Up</Text>
+      </TouchableOpacity>
 
       <View style={stylesLogin.signUpContainer}>
         <Text>Already have an account ?</Text>

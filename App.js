@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import LoginNavigator from "./navigation/LoginNavigator";
 import LoadingPage from "./screens/LoadingPage";
-import TestPage from "./screens/TestPage";
 import ExplorePage from "./screens/ExplorePage";
 import { loadUser, resetUser } from "./utils/localStorage";
 import ExploreNavigator from "./navigation/ExploreNavigator";
