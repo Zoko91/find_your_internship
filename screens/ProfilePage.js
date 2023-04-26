@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useFocusEffect } from "@react-navigation/native";
 import {
   Text,
   View,
@@ -16,6 +17,15 @@ const ProfilePage = ({ navigation, route }) => {
   const [user, setUser] = useState([]);
   console.log("avatar = " + user.avatar);
   const [isLoading, setIsLoading] = useState(true);
+  useFocusEffect(
+    React.useCallback(() => {
+      getUser();
+      return () => {
+        // This code will be executed when the screen loses focus
+        // You can use it to clean up any resources that were allocated in the callback
+      };
+    }, [])
+  );
 
   const getUser = async () => {
     try {
