@@ -17,9 +17,6 @@ import PickerImage from "../components/PickerImage";
 const ProfileShow = ({ navigation, route }) => {
   //Use the user that exists in the previous page here...
   const user = route.params.usertest;
-  // console.log("=====================================");
-  // console.log(user);
-  console.log("Profile show avatar = " + user.avatar);
   const [image, setImage] = useState(user.avatar === null ? null : user.avatar);
 
   const Description = () => {

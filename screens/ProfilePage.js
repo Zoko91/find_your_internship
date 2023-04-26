@@ -15,7 +15,6 @@ import LoadingPage from "./LoadingPage";
 
 const ProfilePage = ({ navigation, route }) => {
   const [user, setUser] = useState([]);
-  console.log("avatar = " + user.avatar);
   const [isLoading, setIsLoading] = useState(true);
   useFocusEffect(
     React.useCallback(() => {
@@ -29,7 +28,9 @@ const ProfilePage = ({ navigation, route }) => {
 
   const getUser = async () => {
     try {
-      const response = await UsersService.findUserById(1);
+      const response = await UsersService.findUserById(
+        route.params.usertest.id
+      );
       setUser(response);
     } catch (error) {
       console.error(error);
@@ -37,7 +38,6 @@ const ProfilePage = ({ navigation, route }) => {
   };
 
   const ProfilePicture = ({ profilePic }) => {
-    console.log("profilePic: ", profilePic);
     return profilePic === null ? (
       <Image
         style={styles.userProfilePicture}

@@ -20,7 +20,7 @@ const ExplorePage = ({ navigation, route }) => {
   const [internships, setInternships] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState({});
-  console.log(route.params.usertest);
+  // console.log(route.params.usertest);
   // const user = route.params.usertest;
 
   const [searchTextTitle, setSearchTextTitle] = useState("");
@@ -105,8 +105,6 @@ const ExplorePage = ({ navigation, route }) => {
   // Composant permettant d'afficher chaque Stage
   const renderInternship = ({ item }) => {
     const backgroundColor = item.id % 2 === 0 ? "#234F52" : "#A029B4";
-    // console.log("item");
-    // console.log(item);
     return (
       <TouchableOpacity
         style={stylesExplorePage.containerInternship}

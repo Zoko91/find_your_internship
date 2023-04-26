@@ -16,7 +16,6 @@ const ProfileInternships = ({ navigation, route }) => {
   const [internships, setInternships] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-
   const [filteredInternships, setFilteredInternships] = useState([]);
 
   const colors = [
@@ -24,14 +23,16 @@ const ProfileInternships = ({ navigation, route }) => {
     "rgba(220,70,70,0.5)",
     "rgba(250,120,30,0.4)",
   ];
-  console.log("Here in Internships: ", route.params.usertest.email);
+  console.log("Here in ProfileInternships: ", route.params.usertest.email);
 
   const getNeededInfos = async () => {
     try {
+      console.log("getNeededInfos");
       const responseInternship =
         await InternshipsService.findInternshipByUserId(
           route.params.usertest.id
         );
+      console.log("Here is the responseInternship: ", responseInternship);
       setInternships(responseInternship);
       setFilteredInternships(responseInternship);
     } catch (error) {
@@ -49,20 +50,10 @@ const ProfileInternships = ({ navigation, route }) => {
   }, [internships]);
 
   useEffect(() => {
-    console.log(
-      "Here are the setFilteredInternships BEFORE: ",
-      filteredInternships
-    );
-
     setFilteredInternships(
       internships.filter((item) =>
         item.title.toLowerCase().includes(searchText.toLowerCase())
       )
-    );
-
-    console.log(
-      "Here are the setFilteredInternships AFTER: ",
-      filteredInternships
     );
   }, [searchText]);
 
