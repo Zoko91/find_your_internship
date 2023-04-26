@@ -14,7 +14,6 @@ import { saveUser } from "../utils/localStorage";
 const ProfileInformations = ({ navigation, route }) => {
   //Use the user that exists in the previous page here...
   user = route.params.usertest;
-  console.log("Here in ProfileInformations: ", user);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

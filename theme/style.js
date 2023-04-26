@@ -249,6 +249,7 @@ const styles = StyleSheet.create({
   workingOn: {
     backgroundColor: "rgba(250,70,90,0.6)",
     height: 15,
+    width: "100%",
     alignItems: "center",
   },
   textWorkInProgress: {
@@ -295,7 +296,7 @@ export const screenOptions = {
 // Use StylesSheet flatten
 export const stylesLogin = StyleSheet.create({
   container: {
-    marginTop: 50,
+    marginTop: vh(10),
     height: "100%",
     alignItems: "center",
   },
@@ -363,7 +364,7 @@ export const stylesLogin = StyleSheet.create({
   },
   signUpContainer: {
     position: "absolute",
-    bottom: 100,
+    bottom: 150,
     justifyContent: "center",
     alignItems: "center",
   },

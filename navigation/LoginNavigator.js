@@ -20,11 +20,7 @@ const LoginNavigator = () => {
         }}
       >
         <LoginStack.Screen name="Login" component={LoginPage} />
-        <LoginStack.Screen
-          name="SignUp"
-          component={SignUpPage}
-          options={{ headerShown: true }}
-        />
+        <LoginStack.Screen name="SignUp" component={SignUpPage} />
         <LoginStack.Screen name="Root" component={RootNavigator} />
       </LoginStack.Navigator>
     </NavigationContainer>
