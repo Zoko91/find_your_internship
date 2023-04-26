@@ -1,5 +1,4 @@
 import React from "react";
-import { screenOptions } from "../theme/style";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import LoginPage from "../screens/LoginPage";

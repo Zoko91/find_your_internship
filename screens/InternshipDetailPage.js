@@ -1,16 +1,5 @@
-import React, { useState, useEffect } from "react";
-import {
-  Text,
-  View,
-  Image,
-  TextInput,
-  FlatList,
-  TouchableOpacity,
-  StyleSheet,
-  ScrollView,
-  SafeAreaView,
-} from "react-native";
-import InternshipsService from "../api/InternshipsService";
+import React, { useEffect } from "react";
+import { Text, View, Image, ScrollView, SafeAreaView } from "react-native";
 import { vh, stylesInternshipDetail } from "../theme/style";
 
 const InternshipDetailPage = ({ navigation, route }) => {

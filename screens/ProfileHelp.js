@@ -1,31 +1,20 @@
-import React, { useState, useEffect, useCallback } from "react";
-import {
-  Text,
-  View,
-  Image,
-  Linking,
-  TextInput,
-  FlatList,
-  Alert,
-  TouchableOpacity,
-} from "react-native";
-import UsersService from "../api/UsersService";
+import React, { useState, useCallback } from "react";
+import { Text, View, Linking, Alert, TouchableOpacity } from "react-native";
 import styles from "../theme/style.js";
 
 const ProfileHelp = ({ navigation, route }) => {
-  //Use the user that exists in the previous page here...
   const [user, setUser] = useState([]);
   console.log("Here in ProfileHelp: ", route.params.usertest.email);
 
   const UserHelp = () => {
+    // --------------------- Explication  ---------------------
+    // Cette fonction permet d'ouvrir l'application mail du téléphone
+
     const url = "mailto:support@example.com";
     const handlePress = useCallback(async () => {
       // Checking if the link is supported for links with custom URL scheme.
       const supported = await Linking.canOpenURL(url);
-
       if (supported) {
-        // Opening the link with some app, if the URL scheme is "http" the web link should be opened
-        // by some browser in the mobile
         await Linking.openURL(url);
       } else {
         Alert.alert(`Don't know how to open this URL: ${url}`);
@@ -35,11 +24,6 @@ const ProfileHelp = ({ navigation, route }) => {
     return (
       <View style={{ flex: 1 }}>
         <View style={{ flex: 7 }}>
-          {/*<View style={styles.workingOn}>*/}
-          {/*  <Text style={styles.textWorkInProgress}>*/}
-          {/*    Work in progress. A/B page*/}
-          {/*  </Text>*/}
-          {/*</View>*/}
           <View>
             <Text style={styles.privacyTitle2}>
               Hi {route.params.usertest.username},

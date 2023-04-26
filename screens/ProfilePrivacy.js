@@ -1,18 +1,10 @@
-import React, { useState, useEffect } from "react";
-import {
-  Text,
-  View,
-  Image,
-  TextInput,
-  FlatList,
-  TouchableOpacity,
-} from "react-native";
-import UsersService from "../api/UsersService";
+import React, { useState } from "react";
+import { Text, View, Image, TouchableOpacity } from "react-native";
 import styles from "../theme/style.js";
 
-const ProfilePrivacy = ({ navigation,route}) => {
-  //Use the user that exists in the previous page here...
-  const [user, setUser] = useState([]);
+const ProfilePrivacy = ({ navigation, route }) => {
+  // Unused: Use the user that exists in the previous page here...
+  // const [user, setUser] = useState([]);
   console.log("Here in ProfilePrivacy: ", route.params.usertest.email);
 
   const ComponentPrivacy = ({ title, description }) => {

@@ -13,7 +13,7 @@ import { saveUser } from "../utils/localStorage";
 
 const ProfileInformations = ({ navigation, route }) => {
   //Use the user that exists in the previous page here...
-  user = route.params.usertest;
+  const user = route.params.usertest;
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,10 +24,12 @@ const ProfileInformations = ({ navigation, route }) => {
     setUsername(text);
   };
 
-  // console.log("Here in ProfileInformations: ", route.params.usertest.email);
-  // console.log(route.params.usertest);
-
   const SaveInformations = async () => {
+    // --------------------- Explication  ---------------------
+    // Cette fonction permet de sauvegarder les informations de l'utilisateur
+    // Elle appelle une méthode PUT du back end. Elle ne modifie que les champs des Inputs
+    // Elle a également besoin de tous les informations obligatoires du User.
+
     const updatedUser = {
       id: user.id,
       username: user.username,
@@ -64,12 +66,10 @@ const ProfileInformations = ({ navigation, route }) => {
         }
       ).then(async (response) => {
         if (response.ok) {
-          // user.username = updatedUser.username;
-          // user.email = updatedUser.email;
-          // user.password = updatedUser.password;
-          // user.mailUpdate = updatedUser.mailUpdate;
-          // user.promoMail = updatedUser.promoMail;
-          // await saveUser(user);
+          // --------------------- Explication  ---------------------
+          // Lorsque les informations sont changées, déconnecte l'utilisateur
+          // pour qu'il puisse se reconnecter avec ses nouvelles informations
+
           Alert.alert(
             "Validé !",
             "Les changements ont bien été pris en compte. Vous allez être déconnecté.",

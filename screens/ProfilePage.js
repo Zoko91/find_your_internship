@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useFocusEffect } from "@react-navigation/native";
-import {
-  Text,
-  View,
-  ScrollView,
-  Image,
-  TextInput,
-  FlatList,
-  TouchableOpacity,
-} from "react-native";
+import { Text, View, ScrollView, Image, TouchableOpacity } from "react-native";
 import UsersService from "../api/UsersService";
 import styles from "../theme/style.js";
 import LoadingPage from "./LoadingPage";
@@ -17,6 +9,9 @@ const ProfilePage = ({ navigation, route }) => {
   const [user, setUser] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useFocusEffect(
+    // --------------------- Explication  ---------------------
+    // Ce hook permet de recharger le composant à chaque fois que l'on arrive sur la page
+    // Très important pour permettre de modifier l'image de profil
     React.useCallback(() => {
       getUser();
       return () => {

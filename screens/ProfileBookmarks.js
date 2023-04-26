@@ -1,14 +1,5 @@
-import React, { useState, useEffect } from "react";
-import {
-  Text,
-  View,
-  Image,
-  TextInput,
-  FlatList,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
-import UsersService from "../api/UsersService";
+import React, { useState } from "react";
+import { Text, View, Image, TouchableOpacity, ScrollView } from "react-native";
 import styles from "../theme/style.js";
 
 const ProfileBookmarks = ({ navigation, route }) => {

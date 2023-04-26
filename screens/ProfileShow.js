@@ -1,13 +1,5 @@
-import React, { useState, useEffect } from "react";
-import {
-  Text,
-  View,
-  Image,
-  TextInput,
-  FlatList,
-  TouchableOpacity,
-} from "react-native";
-import UsersService from "../api/UsersService";
+import React, { useState } from "react";
+import { Text, View, Image } from "react-native";
 import styles from "../theme/style.js";
 import PickerImage from "../components/PickerImage";
 

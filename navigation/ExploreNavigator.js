@@ -1,9 +1,7 @@
 import React from "react";
-import { screenOptions } from "../theme/style";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ExplorePage from "../screens/ExplorePage";
 import InternshipDetailPage from "../screens/InternshipDetailPage";
-import LoginPage from "../screens/LoginPage";
 
 const ExploreStack = createNativeStackNavigator();
 const ExploreNavigator = ({ route }) => {

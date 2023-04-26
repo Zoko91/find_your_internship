@@ -5,8 +5,6 @@ import CompaniesPage from "../screens/CompaniesPage";
 
 const CompaniesStack = createNativeStackNavigator();
 const CompaniesNavigator = ({ route }) => {
-  //console.log("Here in CompaniesNavigator");
-  //console.log(route);
   const { usertest } = route.params;
   return (
     <CompaniesStack.Navigator

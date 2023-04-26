@@ -1,15 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import {
-  Text,
-  View,
-  Image,
-  TextInput,
-  FlatList,
-  TouchableOpacity,
-  StyleSheet,
-  ScrollView,
-  Alert,
-} from "react-native";
+import { Text, View, Image, TouchableOpacity, Alert } from "react-native";
 import InternshipsService from "../api/InternshipsService";
 import UsersService from "../api/UsersService";
 import { InputDisplay } from "../components/InputDisplay";

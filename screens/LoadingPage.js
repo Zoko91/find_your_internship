@@ -1,15 +1,5 @@
-import React, { useState, useEffect } from "react";
-import {
-  Text,
-  View,
-  Image,
-  TextInput,
-  FlatList,
-  TouchableOpacity,
-  StyleSheet,
-  ScrollView,
-  SafeAreaView,
-} from "react-native";
+import React from "react";
+import { Text, View, Image, StyleSheet } from "react-native";
 import { stylesLogin } from "../theme/style.js";
 
 const LoadingPage = ({ navigation, route }) => {

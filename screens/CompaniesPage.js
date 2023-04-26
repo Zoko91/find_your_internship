@@ -3,7 +3,6 @@ import {
   Text,
   View,
   Image,
-  TextInput,
   FlatList,
   TouchableOpacity,
   StyleSheet,
@@ -11,7 +10,6 @@ import {
 } from "react-native";
 import CompanyService from "../api/CompaniesService";
 import { stylesExplorePage, vh, vw } from "../theme/style";
-import InternshipsService from "../api/InternshipsService";
 import LoadingPage from "./LoadingPage.js";
 
 // Constants
@@ -46,7 +44,7 @@ const CompaniesPage = ({ navigation, route }) => {
       );
       let total = 0;
       internships.forEach((internship) => {
-        compensation = JSON.parse(internship.compensation);
+        const compensation = JSON.parse(internship.compensation);
         total = total + compensation;
       });
 

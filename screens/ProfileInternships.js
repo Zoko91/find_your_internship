@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Text,
-  View,
-  Image,
-  TextInput,
-  FlatList,
-  TouchableOpacity,
-} from "react-native";
-import UsersService from "../api/UsersService";
+import { Text, View, Image, TextInput, FlatList } from "react-native";
 import InternshipsService from "../api/InternshipsService";
 import styles from "../theme/style.js";
 
@@ -26,6 +18,10 @@ const ProfileInternships = ({ navigation, route }) => {
   console.log("Here in ProfileInternships: ", route.params.usertest.email);
 
   const getNeededInfos = async () => {
+    // --------------------- Explication  ---------------------
+    // Cette fonction permet de récupérer tous les stages de l'utilisateur et d'instancier la liste des stages filtrés
+    // Cette dernière pourra être modifier en fonction des filtres que l'utilisateur rentre, c'est à partir de cette
+    // Liste qu'est "render" la FlatList
     try {
       console.log("getNeededInfos");
       const responseInternship =

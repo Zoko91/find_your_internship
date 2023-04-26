@@ -3,15 +3,11 @@ import {
   Text,
   View,
   Image,
-  TextInput,
   FlatList,
   TouchableOpacity,
-  StyleSheet,
-  ScrollView,
   SafeAreaView,
 } from "react-native";
 import InternshipsService from "../api/InternshipsService";
-import UsersService from "../api/UsersService";
 import styles, { stylesExplorePage } from "../theme/style.js";
 import LoadingPage from "./LoadingPage.js";
 import Filters from "../components/Filters.js";

@@ -1,17 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
-import {
-  Text,
-  View,
-  Image,
-  TextInput,
-  FlatList,
-  TouchableOpacity,
-  StyleSheet,
-  ScrollView,
-  Alert,
-} from "react-native";
-import InternshipsService from "../api/InternshipsService";
-import UsersService from "../api/UsersService";
+import React, { useState, useEffect } from "react";
+import { Text, View, Image, TouchableOpacity, Alert } from "react-native";
 import { InputDisplay } from "../components/InputDisplay";
 import { stylesLogin } from "../theme/style.js";
 import { loadUser, saveUser } from "../utils/localStorage";
@@ -53,6 +41,12 @@ const LoginPage = ({ navigation }) => {
       setIsConnectionValid(true);
     }
   }, [isConnectionValid]);
+
+  // --------------------- Explication  ---------------------
+  // Fonction qui appelle l'API du serveur ASP .NET
+  // Cette fonction vérifie si l'utilisateur existe avec le bon couple mot de passe/adresse email
+  // Renvoie l'utilisateur si oui puis ce dernier est passé dans la route afin d' l'utiliser sur toutes les pages
+  // Ou renvoie une erreur qui devient une Alert si ces derniers ne sont corrects
 
   const login = async () => {
     try {
