@@ -17,8 +17,6 @@ const ExplorePage = ({navigation, route}) => {
     const [internships, setInternships] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [user, setUser] = useState({});
-    // console.log(route.params.usertest);
-    // const user = route.params.usertest;
 
     const [searchTextTitle, setSearchTextTitle] = useState("");
     const [searchTextCompany, setSearchTextCompany] = useState("");
