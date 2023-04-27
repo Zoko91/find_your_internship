@@ -58,7 +58,7 @@ const ExplorePage = ({navigation, route}) => {
 
     // Composant permettant d'afficher chaque Stage
     const renderInternship = ({item}) => {
-        const backgroundColor = item.grade > 4 ? "#58D68D" : item.grade > 3 ? "#F4D03F" : item.grade > 2 ? "#F5B041" : item.grade > 1 ? "#EC7063" : "#f00";
+        const backgroundColor = item.grade >= 4 ? "#58D68D" : item.grade >= 3 ? "#F4D03F" : item.grade >= 2 ? "#F5B041" : item.grade >= 1 ? "#EC7063" : "#f00";
         return (
             <TouchableOpacity
                 style={stylesExplorePage.containerInternship}
