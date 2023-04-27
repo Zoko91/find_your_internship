@@ -50,7 +50,7 @@ const InternshipDetailPage = ({ navigation, route }) => {
           stylesInternshipDetail.internshipInfosContainer,
         ]}
       >
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <Text style={stylesInternshipDetail.internshipTitle}>
             {internship.title}
           </Text>

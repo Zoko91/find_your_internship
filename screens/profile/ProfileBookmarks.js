@@ -20,7 +20,7 @@ const ProfileBookmarks = ({ navigation, route }) => {
         >
           <Image
             style={{ width: 20, height: 20 }}
-            source={require("../../resources/images/Bookmark.png")}
+            source={require("../../resources/images/BookmarkFilled.png")}
           />
         </TouchableOpacity>
         <View
@@ -72,7 +72,7 @@ const ProfileBookmarks = ({ navigation, route }) => {
         >
           <Image
             style={{ width: 20, height: 20 }}
-            source={require("../../resources/images/Bookmark.png")}
+            source={require("../../resources/images/BookmarkFilled.png")}
           />
         </TouchableOpacity>
         <View
@@ -114,6 +114,11 @@ const ProfileBookmarks = ({ navigation, route }) => {
   const UserBookmarks = () => {
     return (
       <View style={{ flex: 1 }}>
+        <View style={styles.workingOn}>
+          <Text style={styles.textWorkInProgress}>
+            Work in progress. A/B page
+          </Text>
+        </View>
         <View style={styles.halfIntern}>
           <Text>Internships</Text>
           <ScrollView>
