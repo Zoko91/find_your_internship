@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { Text, View, Linking, Alert, TouchableOpacity } from "react-native";
-import styles from "../theme/style.js";
+import styles from "../../theme/style.js";
 
 const ProfileHelp = ({ navigation, route }) => {
   const [user, setUser] = useState([]);

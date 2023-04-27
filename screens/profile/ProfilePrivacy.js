@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Text, View, Image, TouchableOpacity } from "react-native";
-import styles from "../theme/style.js";
+import styles from "../../theme/style.js";
 
 const ProfilePrivacy = ({ navigation, route }) => {
   // Unused: Use the user that exists in the previous page here...
@@ -42,7 +42,7 @@ const ProfilePrivacy = ({ navigation, route }) => {
           >
             <Image
               style={styles.arrowUserSetting}
-              source={require("../resources/images/Chevron.png")}
+              source={require("../../resources/images/Chevron.png")}
             />
           </TouchableOpacity>
           {/* Request your data*/}

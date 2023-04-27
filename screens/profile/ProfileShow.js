@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Text, View, Image } from "react-native";
-import styles from "../theme/style.js";
-import PickerImage from "../components/PickerImage";
+import styles from "../../theme/style.js";
+import PickerImage from "../../components/PickerImage";
 
 // Description of the page:
 // This page is used to show the user's profile, his most recent post and to change his profile picture as well.
@@ -12,13 +12,14 @@ const ProfileShow = ({ navigation, route }) => {
   const [image, setImage] = useState(user.avatar === null ? null : user.avatar);
 
   const Description = () => {
+    useEffect(() => {}, [image]);
     return (
       <View>
         <View style={styles.containerProfile}>
-          {user.avatar === null ? (
+          {image === null ? (
             <Image
               style={styles.profilePicture}
-              source={require("../resources/images/PDP_2.png")}
+              source={require("../../resources/images/PDP_2.png")}
             />
           ) : (
             <Image
@@ -52,19 +53,19 @@ const ProfileShow = ({ navigation, route }) => {
       <View style={styles.post}>
         <Image
           style={styles.iconCompany}
-          source={require("../resources/images/IBM.png")}
+          source={require("../../resources/images/IBM.png")}
         />
         <Text style={{ fontSize: 16 }}>CEO Intern</Text>
         <View style={styles.grade}>
           <Text style={{ fontSize: 16 }}>5.0</Text>
           <Image
             style={styles.iconStar}
-            source={require("../resources/images/star.png")}
+            source={require("../../resources/images/star.png")}
           />
         </View>
         <Image
           style={styles.arrowUserSetting}
-          source={require("../resources/images/Chevron.png")}
+          source={require("../../resources/images/Chevron.png")}
         />
       </View>
     );

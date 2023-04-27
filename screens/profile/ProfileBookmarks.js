@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Text, View, Image, TouchableOpacity, ScrollView } from "react-native";
-import styles from "../theme/style.js";
+import styles from "../../theme/style.js";
 
 const ProfileBookmarks = ({ navigation, route }) => {
   //Use the user that exists in the previous page here...
@@ -20,7 +20,7 @@ const ProfileBookmarks = ({ navigation, route }) => {
         >
           <Image
             style={{ width: 20, height: 20 }}
-            source={require("../resources/images/Bookmark.png")}
+            source={require("../../resources/images/Bookmark.png")}
           />
         </TouchableOpacity>
         <View
@@ -51,7 +51,7 @@ const ProfileBookmarks = ({ navigation, route }) => {
           >
             <Image
               style={styles.arrowUserSetting}
-              source={require("../resources/images/Chevron.png")}
+              source={require("../../resources/images/Chevron.png")}
             />
           </View>
         </TouchableOpacity>
@@ -72,7 +72,7 @@ const ProfileBookmarks = ({ navigation, route }) => {
         >
           <Image
             style={{ width: 20, height: 20 }}
-            source={require("../resources/images/Bookmark.png")}
+            source={require("../../resources/images/Bookmark.png")}
           />
         </TouchableOpacity>
         <View
@@ -103,7 +103,7 @@ const ProfileBookmarks = ({ navigation, route }) => {
           >
             <Image
               style={styles.arrowUserSetting}
-              source={require("../resources/images/Chevron.png")}
+              source={require("../../resources/images/Chevron.png")}
             />
           </View>
         </TouchableOpacity>
@@ -123,13 +123,13 @@ const ProfileBookmarks = ({ navigation, route }) => {
               username="Thomas C."
             />
             <Internship
-              title="Vidangeur de toilettes"
+              title="Employé polyvalent"
               company="KFC"
               username="Joseph B."
             />
             <Image
               style={styles.arrowgif}
-              source={require("../resources/images/arrow.gif")}
+              source={require("../../resources/images/arrow.gif")}
             />
           </ScrollView>
         </View>
@@ -144,7 +144,7 @@ const ProfileBookmarks = ({ navigation, route }) => {
             />
             <Image
               style={styles.arrowgif}
-              source={require("../resources/images/arrow.gif")}
+              source={require("../../resources/images/arrow.gif")}
             />
           </ScrollView>
         </View>

@@ -7,9 +7,9 @@ import {
   NativeModules,
 } from "react-native";
 import Checkbox from "expo-checkbox";
-import styles from "../theme/style.js";
-import InputBloc from "../components/InputBloc";
-import { saveUser } from "../utils/localStorage";
+import styles from "../../theme/style.js";
+import InputBloc from "../../components/InputBloc";
+import { saveUser } from "../../utils/localStorage";
 
 const ProfileInformations = ({ navigation, route }) => {
   //Use the user that exists in the previous page here...

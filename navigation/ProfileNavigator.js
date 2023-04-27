@@ -2,12 +2,12 @@ import React from "react";
 import { screenOptions } from "../theme/style";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ProfilePage from "../screens/ProfilePage";
-import ProfileShow from "../screens/ProfileShow";
-import ProfileInformations from "../screens/ProfileInformations";
-import ProfileInternships from "../screens/ProfileInternships";
-import ProfileBookmarks from "../screens/ProfileBookmarks";
-import ProfilePrivacy from "../screens/ProfilePrivacy";
-import ProfileHelp from "../screens/ProfileHelp";
+import ProfileShow from "../screens/profile/ProfileShow";
+import ProfileInformations from "../screens/profile/ProfileInformations";
+import ProfileInternships from "../screens/profile/ProfileInternships";
+import ProfileBookmarks from "../screens/profile/ProfileBookmarks";
+import ProfilePrivacy from "../screens/profile/ProfilePrivacy";
+import ProfileHelp from "../screens/profile/ProfileHelp";
 
 const ProfileStack = createNativeStackNavigator();
 const ProfileNavigator = ({ route }) => {

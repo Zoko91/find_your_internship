@@ -1,13 +1,11 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ExplorePage from "../screens/ExplorePage";
-import InternshipDetailPage from "../screens/InternshipDetailPage";
+import InternshipDetailPage from "../screens/explore/InternshipDetailPage";
 
 const ExploreStack = createNativeStackNavigator();
 const ExploreNavigator = ({ route }) => {
   const { usertest } = route.params;
-
-  console.log("Route: " + route.params);
 
   return (
     <ExploreStack.Navigator

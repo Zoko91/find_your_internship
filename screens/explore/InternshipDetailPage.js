@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Text, View, Image, ScrollView, SafeAreaView } from "react-native";
-import { vh, stylesInternshipDetail } from "../theme/style";
+import { vh, stylesInternshipDetail } from "../../theme/style";
 
 const InternshipDetailPage = ({ navigation, route }) => {
   const { internship } = route.params;
@@ -36,7 +36,7 @@ const InternshipDetailPage = ({ navigation, route }) => {
           ) : (
             <Image
               style={stylesInternshipDetail.internshipCompanyLogo}
-              source={require("../resources/images/logo.min.white.png")}
+              source={require("../../resources/images/logo.min.white.png")}
             />
           )}
         </View>

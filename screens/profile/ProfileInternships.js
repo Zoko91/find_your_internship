@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, Image, TextInput, FlatList } from "react-native";
-import InternshipsService from "../api/InternshipsService";
-import styles from "../theme/style.js";
+import InternshipsService from "../../api/InternshipsService";
+import styles from "../../theme/style.js";
 
 const ProfileInternships = ({ navigation, route }) => {
   //Use the user that exists in the previous page here...
@@ -63,7 +63,7 @@ const ProfileInternships = ({ navigation, route }) => {
         <View style={styles.filters}>
           <Image
             style={styles.iconLens}
-            source={require("../resources/images/lens.png")}
+            source={require("../../resources/images/lens.png")}
           />
           <TextInput
             value={inputValue}
@@ -118,12 +118,12 @@ const ProfileInternships = ({ navigation, route }) => {
           >
             <Image
               style={{ height: 15, width: 15, marginRight: 5 }}
-              source={require("../resources/images/clock.png")}
+              source={require("../../resources/images/clock.png")}
             />
             <Text style={{ fontSize: 12 }}>{item.year}</Text>
             <Image
               style={{ height: 15, width: 15, marginRight: 5, marginLeft: 15 }}
-              source={require("../resources/images/sablier.png")}
+              source={require("../../resources/images/sablier.png")}
             />
             <Text style={{ fontSize: 12 }}>{item.duration}</Text>
           </View>
@@ -138,7 +138,7 @@ const ProfileInternships = ({ navigation, route }) => {
           <Text>{item.grade}</Text>
           <Image
             style={styles.iconStar}
-            source={require("../resources/images/star.png")}
+            source={require("../../resources/images/star.png")}
           />
         </View>
       </View>

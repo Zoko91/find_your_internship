@@ -50,7 +50,7 @@ const RootNavigator = ({ route, user }) => {
         name="Profile"
         component={ProfileNavigator}
         initialParams={{ usertest: usertest }}
-        options={{ unmountOnBlur: true }}
+        //options={{ unmountOnBlur: true }}
       />
     </Root.Navigator>
   );
