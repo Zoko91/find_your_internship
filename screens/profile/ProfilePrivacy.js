@@ -72,7 +72,7 @@ const ProfilePrivacy = ({ navigation, route }) => {
           description="This will permanently delete your account and your data, in accordation with applicable law."
         />
         <ComponentPrivacy
-          title="Request our privacy guildelines"
+          title="Request our privacy guidelines"
           description="Ask for our deepest secrets. Your data is our money, so we'll be happy to keep it longer. But you can ask for what we're doing with them ;)"
         />
         <View></View>
