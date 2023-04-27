@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import InternshipsService from "../api/InternshipsService";
 import styles, { stylesExplorePage } from "../theme/style.js";
-import LoadingPage from "./LoadingPage.js";
+import LoadingPage from "../components/LoadingPage.js";
 import Filters from "../components/Filters.js";
 
 const ExplorePage = ({ navigation, route }) => {

@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import CompanyService from "../api/CompaniesService";
 import { stylesExplorePage, vh, vw } from "../theme/style";
-import LoadingPage from "./LoadingPage.js";
+import LoadingPage from "../components/LoadingPage.js";
 
 // Constants
 const rootEndpoint =

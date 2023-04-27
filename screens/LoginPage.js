@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, Image, TouchableOpacity, Alert } from "react-native";
-import { InputDisplay } from "./InputDisplay";
+import { InputDisplay } from "../components/InputDisplay";
 import { stylesLogin } from "../theme/style.js";
 import { loadUser, saveUser } from "../utils/localStorage";
 

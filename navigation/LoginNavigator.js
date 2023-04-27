@@ -1,7 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import LoginPage from "../components/LoginPage";
+import LoginPage from "../screens/LoginPage";
 import RootNavigator from "./RootNavigator";
 import SignUpPage from "../screens/SignUpPage";
 import { saveUser } from "../utils/localStorage";

@@ -3,7 +3,7 @@ import { useFocusEffect } from "@react-navigation/native";
 import { Text, View, ScrollView, Image, TouchableOpacity } from "react-native";
 import UsersService from "../api/UsersService";
 import styles from "../theme/style.js";
-import LoadingPage from "./LoadingPage";
+import LoadingPage from "../components/LoadingPage";
 
 const ProfilePage = ({ navigation, route }) => {
   const [user, setUser] = useState([]);
