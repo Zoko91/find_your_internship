@@ -96,6 +96,7 @@ const PickerImage = ({ user, handler }) => {
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
+
     });
 
     if (!result.canceled) {

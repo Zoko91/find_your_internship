@@ -37,7 +37,6 @@ const ExplorePage = ({ navigation, route }) => {
   useEffect(() => {
     getNeededInfos();
   }, []);
-
   useEffect(() => {
     if (internships.length === 0) {
       setIsLoading(false);
@@ -97,7 +96,6 @@ const ExplorePage = ({ navigation, route }) => {
       </View>
     );
   };
-
   // Composant permettant d'afficher chaque Stage
   const renderInternship = ({ item }) => {
     const backgroundColor = item.id % 2 === 0 ? "#234F52" : "#A029B4";
@@ -155,13 +153,11 @@ const ExplorePage = ({ navigation, route }) => {
       <SafeAreaView style={{ flex: 1 }}>
         <Text style={stylesExplorePage.helloHeader}> Hi {user.username}</Text>
         <SafeAreaView style={{ alignItems: "center", flex: 1 }}>
-          <View
-            style={{
+          <View style={{
               flexDirection: "row",
               justifyContent: "space-evenly",
               width: "100%",
-            }}
-          >
+            }}>
             <Filters prompt="Title" handler={setSearchTextTitle} />
             <Filters prompt="Company" handler={setSearchTextCompany} />
           </View>
