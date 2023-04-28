@@ -1,7 +1,7 @@
 const rootEndpoint =
   "https://jbeasse-workadventure.azurewebsites.net/api/UserApi/";
 
-// Model class for a company
+// Model class for a User
 export class User {
   constructor(
     id,

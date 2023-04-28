@@ -50,7 +50,7 @@ const PickerImage = ({ user, handler }) => {
         }
       ).then(async (resp) => {
         user.avatar = newPic;
-        // saveUser(user);
+        // saveUser(user); => AsyncStorage, not implemented yet
 
         if (resp.ok) {
           console.log("Image enregistrée");
@@ -81,8 +81,6 @@ const PickerImage = ({ user, handler }) => {
           },
         }
       );
-      let data = await response.text();
-      console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -96,7 +94,6 @@ const PickerImage = ({ user, handler }) => {
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
-
     });
 
     if (!result.canceled) {
@@ -117,21 +114,3 @@ const PickerImage = ({ user, handler }) => {
 };
 
 export default PickerImage;
-
-const stylesPicker = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#00A",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  button: {
-    alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    color: "#841584",
-    padding: 10,
-    margin: 10,
-    width: 200,
-    height: 50,
-  },
-});

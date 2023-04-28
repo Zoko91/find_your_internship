@@ -22,7 +22,6 @@ const ProfileInternships = ({ navigation, route }) => {
     // Cette dernière pourra être modifier en fonction des filtres que l'utilisateur rentre, c'est à partir de cette
     // Liste qu'est "render" la FlatList
     try {
-      console.log("getNeededInfos");
       const responseInternship =
         await InternshipsService.findInternshipByUserId(
           route.params.usertest.id
@@ -33,7 +32,7 @@ const ProfileInternships = ({ navigation, route }) => {
       console.error(error);
     }
   };
-  
+
   useEffect(() => {
     getNeededInfos();
   }, []);

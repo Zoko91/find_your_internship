@@ -1,9 +1,7 @@
-// Non terminée
-
 const rootEndpoint =
   "https://jbeasse-workadventure.azurewebsites.net/api/InternshipApi/";
 
-// Model class for a Internship
+// Model class for an Internship
 export class Internship {
   constructor(
     id,
@@ -63,7 +61,6 @@ class InternshipService {
       const root = rootEndpoint + "/user/" + id;
       const response = await fetch(root);
       const json = await response.json();
-      console.log("JSON: " + JSON.stringify(json));
       return this.createInternships(json);
     } catch (error) {
       console.error("Error in findInternshipByUserId", error);

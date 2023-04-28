@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { Text, View, Image, TouchableOpacity, Alert } from "react-native";
-import InternshipsService from "../api/InternshipsService";
-import UsersService from "../api/UsersService";
 import { InputDisplay } from "../components/InputDisplay";
 import { stylesLogin, vh } from "../theme/style.js";
 import styles from "../theme/style.js";
@@ -21,7 +19,6 @@ const SignUpPage = ({ navigation }) => {
     setIsEmailValid(emailRegex.test(text));
   };
   const handlePasswordChange = (text) => {
-    //console.log(text);
     setPassword(text);
   };
 

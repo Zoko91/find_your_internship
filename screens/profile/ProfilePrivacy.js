@@ -1,12 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Text, View, Image, TouchableOpacity } from "react-native";
 import styles from "../../theme/style.js";
 
 const ProfilePrivacy = ({ navigation, route }) => {
-  // Unused: Use the user that exists in the previous page here...
-  // const [user, setUser] = useState([]);
-  console.log("Here in ProfilePrivacy: ", route.params.usertest.email);
-
   const ComponentPrivacy = ({ title, description }) => {
     return (
       <View style={{ marginBottom: 30 }}>

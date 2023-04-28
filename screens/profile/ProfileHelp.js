@@ -11,7 +11,6 @@ import styles from "../../theme/style.js";
 
 const ProfileHelp = ({ navigation, route }) => {
   const [user, setUser] = useState([]);
-  console.log("Here in ProfileHelp: ", route.params.usertest.email);
 
   const UserHelp = () => {
     // --------------------- Explication  ---------------------

@@ -32,7 +32,6 @@ const CompaniesPage = ({ navigation, route }) => {
   const [companyAverageCompensation, setCompanyAverageCompensation] = useState(
     {}
   );
-  //console.log("Here in CompaniesPage: ", route.params.usertest.email);
 
   const getIntenshipsInfosForCompany = async (companyId) => {
     try {
@@ -113,7 +112,6 @@ const CompaniesPage = ({ navigation, route }) => {
   };
 
   const companyItem = ({ item }) => {
-    //console.log("item: ", item);
     const img =
       item.logo === null ? companiesPhotos[item.name] : { uri: item.logo };
     return (
@@ -152,7 +150,6 @@ const CompaniesPage = ({ navigation, route }) => {
       2: "Most popular",
       6: "Highest paid",
     };
-    //console.log("item: ", item);
     return (
       <TouchableOpacity style={styles.companyTopBlock}>
         <Image

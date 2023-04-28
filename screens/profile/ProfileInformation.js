@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  Text,
-  View,
-  Alert,
-  TouchableOpacity,
-  NativeModules,
-  ScrollView,
-} from "react-native";
-import Checkbox from "expo-checkbox";
+import { View, Alert, NativeModules } from "react-native";
 import styles from "../../theme/style.js";
 import InputBloc from "../../components/InputBloc";
 import { saveUser } from "../../utils/localStorage";
@@ -53,9 +45,6 @@ const ProfileInformation = ({ navigation, route }) => {
     if (password !== "") {
       updatedUser.password = password;
     }
-    // updatedUser.internships.forEach((internship) => {
-    //   internship.user = updatedUser;
-    // });
 
     try {
       const response = await fetch(
