@@ -4,50 +4,44 @@ import { InputDisplay } from "../components/InputDisplay";
 import { stylesLogin } from "../theme/style.js";
 import { loadUser, saveUser } from "../utils/localStorage";
 import LoadingPage from "../components/LoadingPage";
+import LoginButton from "../components/LoginButton";
 
-const LoginPage = ({ navigation }) => {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isEmailValid, setIsEmailValid] = useState(false);
-  const [isConnectionValid, setIsConnectionValid] = useState(true);
-  const endpoint = "https://jbeasse-workadventure.azurewebsites.net/";
+const LoginPage = ({navigation}) => {
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [isEmailValid, setIsEmailValid] = useState(false);
+    const [isConnectionValid, setIsConnectionValid] = useState(true);
+    const endpoint = "https://jbeasse-workadventure.azurewebsites.net/";
 
-  const handleEmailChange = (text) => {
-    setEmail(text);
-    // regular expression for email format checking
-    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-    setIsEmailValid(emailRegex.test(text));
-  };
-  const handlePasswordChange = (text) => {
-    //console.log(text);
-    setPassword(text);
-  };
-  const navigate = (name, user) => {
-    navigation.navigate(name, { usertest: user });
-  };
+    const handleEmailChange = (text) => {
+        setEmail(text);
+        // regular expression for email format checking
+        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+        setIsEmailValid(emailRegex.test(text));
+    };
+    const handlePasswordChange = (text) => {
+        //console.log(text);
+        setPassword(text);
+    };
+    const navigate = (name, user) => {
+        navigation.navigate(name, {usertest: user});
+    };
 
-  const buttonStyle =
-    isEmailValid && password.length > 0
-      ? stylesLogin.loginButton
-      : stylesLogin.loginButtonDisabled;
+    const [buttonStyle, buttonTextStyle] = isEmailValid && password.length > 0 ? [stylesLogin.loginButton, stylesLogin.loginButtonText] : [stylesLogin.loginButtonDisabled, stylesLogin.loginButtonTextDisabled];
 
-  const buttonTextStyle =
-    isEmailValid && password.length > 0
-      ? stylesLogin.loginButtonText
-      : stylesLogin.loginButtonTextDisabled;
-  useEffect(() => {
-    if (!isConnectionValid) {
-      Alert.alert("Email or password incorrect.");
-      setIsConnectionValid(true);
-    }
-  }, [isConnectionValid]);
+    useEffect(() => {
+        if (!isConnectionValid) {
+            Alert.alert("Email or password incorrect.");
+            setIsConnectionValid(true);
+        }
+    }, [isConnectionValid]);
 
-  // --------------------- Explication  ---------------------
-  // Fonction qui appelle l'API du serveur ASP .NET
-  // Cette fonction vérifie si l'utilisateur existe avec le bon couple mot de passe/adresse email
-  // Renvoie l'utilisateur si oui puis ce dernier est passé dans la route afin d' l'utiliser sur toutes les pages
-  // Ou renvoie une erreur qui devient une Alert si ces derniers ne sont corrects
+    // --------------------- Explication  ---------------------
+    // Fonction qui appelle l'API du serveur ASP .NET
+    // Cette fonction vérifie si l'utilisateur existe avec le bon couple mot de passe/adresse email
+    // Renvoie l'utilisateur si oui puis ce dernier est passé dans la route afin d' l'utiliser sur toutes les pages
+    // Ou renvoie une erreur qui devient une Alert si ces derniers ne sont corrects
 
   const login = async () => {
     try {
@@ -83,23 +77,17 @@ const LoginPage = ({ navigation }) => {
       />
       <Text style={stylesLogin.titleLogIn}>Login to WorkAdventure</Text>
 
-      <InputDisplay type={"email"} handler={handleEmailChange} />
+            <InputDisplay type={"email"} handler={handleEmailChange}/>
 
-      <InputDisplay type={"password"} handler={handlePasswordChange} />
+            <InputDisplay type={"password"} handler={handlePasswordChange}/>
 
-      <TouchableOpacity
-        disabled={!isEmailValid}
-        style={buttonStyle}
-        onPress={login}
-      >
-        <Text style={buttonTextStyle}>Log In</Text>
-      </TouchableOpacity>
+            <LoginButton props={{isEmailValid: isEmailValid, password: password, login: login}}/>
 
-      <View style={stylesLogin.separatorContainer}>
-        <View style={stylesLogin.horizontalBar}></View>
-        <Text style={stylesLogin.horizontalBarText}>Or login with</Text>
-        <View style={stylesLogin.horizontalBar}></View>
-      </View>
+            <View style={stylesLogin.separatorContainer}>
+                <View style={stylesLogin.horizontalBar}></View>
+                <Text style={stylesLogin.horizontalBarText}>Or login with</Text>
+                <View style={stylesLogin.horizontalBar}></View>
+            </View>
 
       <View style={stylesLogin.signUpContainer}>
         <Text>Don't have an account yet ?</Text>

@@ -11,8 +11,10 @@ import Checkbox from "expo-checkbox";
 import styles from "../../theme/style.js";
 import InputBloc from "../../components/InputBloc";
 import { saveUser } from "../../utils/localStorage";
+import HeaderInformation from "../../components/HeaderInformation";
+import Preferences from "../../components/Preferences";
 
-const ProfileInformations = ({ navigation, route }) => {
+const ProfileInformation = ({ navigation, route }) => {
   //Use the user that exists in the previous page here...
   const user = route.params.usertest;
   const [username, setUsername] = useState("");
@@ -25,7 +27,7 @@ const ProfileInformations = ({ navigation, route }) => {
     setUsername(text);
   };
 
-  const SaveInformations = async () => {
+  const saveInformation = async () => {
     // --------------------- Explication  ---------------------
     // Cette fonction permet de sauvegarder les informations de l'utilisateur
     // Elle appelle une méthode PUT du back end. Elle ne modifie que les champs des Inputs
@@ -54,6 +56,7 @@ const ProfileInformations = ({ navigation, route }) => {
     // updatedUser.internships.forEach((internship) => {
     //   internship.user = updatedUser;
     // });
+
     try {
       const response = await fetch(
         "https://jbeasse-workadventure.azurewebsites.net/api/UserApi/" +
@@ -90,55 +93,21 @@ const ProfileInformations = ({ navigation, route }) => {
     }
   };
 
-  const HeaderInformation = () => {
-    return (
-      <View style={styles.headerInformation}>
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-          Edit personal info
-        </Text>
-        <TouchableOpacity onPress={SaveInformations}>
-          <Text style={styles.save}>Save</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  };
-
-  const Preferences = () => {
-    return (
-      <View style={styles.preferences}>
-        <Text style={{ fontSize: 20, fontWeight: "bold" }}>Preferences</Text>
-        <View style={styles.viewcheckbox}>
-          <Checkbox
-            style={styles.checkbox}
-            value={isSetMailUpdates}
-            onValueChange={setIsSetMailUpdates}
-            color={isSetMailUpdates ? "#428A42" : undefined}
-          />
-          <Text style={styles.mailingtext}>Agree to receive mail updates</Text>
-        </View>
-        <View style={styles.viewcheckbox}>
-          <Checkbox
-            style={styles.checkbox}
-            value={isSetPromoMail}
-            onValueChange={setIsSetPromoMail}
-            color={isSetPromoMail ? "#428A42" : undefined}
-          />
-          <Text style={styles.mailingtext}>Promotional mailing list</Text>
-        </View>
-      </View>
-    );
-  };
-
   return (
-    <ScrollView style={{ flex: 1 }}>
-      <HeaderInformation />
+    <View style={{ flex: 1 }}>
+      <HeaderInformation saveInformation={saveInformation} />
       <InputBloc placeholder={"Username"} handler={handleUsername} />
       <InputBloc placeholder={"Email"} handler={setEmail} />
       <InputBloc placeholder={"Password"} handler={setPassword} />
       <View style={styles.fineLine2}></View>
-      <Preferences />
-    </ScrollView>
+      <Preferences
+        setIsSetMailUpdates={setIsSetMailUpdates}
+        isSetMailUpdates={isSetMailUpdates}
+        setIsSetPromoMail={setIsSetPromoMail}
+        isSetPromoMail={isSetPromoMail}
+      />
+    </View>
   );
 };
 
-export default ProfileInformations;
+export default ProfileInformation;

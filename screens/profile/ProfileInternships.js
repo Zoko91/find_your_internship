@@ -33,6 +33,7 @@ const ProfileInternships = ({ navigation, route }) => {
       console.error(error);
     }
   };
+  
   useEffect(() => {
     getNeededInfos();
   }, []);

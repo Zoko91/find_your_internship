@@ -3,7 +3,7 @@ import { screenOptions } from "../theme/style";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ProfilePage from "../screens/ProfilePage";
 import ProfileShow from "../screens/profile/ProfileShow";
-import ProfileInformations from "../screens/profile/ProfileInformations";
+import ProfileInformation from "../screens/profile/ProfileInformation";
 import ProfileInternships from "../screens/profile/ProfileInternships";
 import ProfileBookmarks from "../screens/profile/ProfileBookmarks";
 import ProfilePrivacy from "../screens/profile/ProfilePrivacy";
@@ -31,7 +31,7 @@ const ProfileNavigator = ({ route }) => {
       />
       <ProfileStack.Screen
         name="Informations"
-        component={ProfileInformations}
+        component={ProfileInformation}
         options={{ title: "" }}
         initialParams={{ usertest: usertest }}
       />
