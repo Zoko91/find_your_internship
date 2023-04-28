@@ -363,8 +363,7 @@ export const stylesLogin = StyleSheet.create({
     marginHorizontal: 10,
   },
   signUpContainer: {
-    position: "absolute",
-    bottom: 150,
+    marginTop: 80,
     justifyContent: "center",
     alignItems: "center",
   },
