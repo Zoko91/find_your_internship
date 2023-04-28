@@ -15,7 +15,6 @@ const ProfileInternships = ({ navigation, route }) => {
     "rgba(220,70,70,0.5)",
     "rgba(250,120,30,0.4)",
   ];
-  console.log("Here in ProfileInternships: ", route.params.usertest.email);
 
   const getNeededInfos = async () => {
     // --------------------- Explication  ---------------------
@@ -35,6 +34,7 @@ const ProfileInternships = ({ navigation, route }) => {
       console.error(error);
     }
   };
+  
   useEffect(() => {
     getNeededInfos();
   }, []);
