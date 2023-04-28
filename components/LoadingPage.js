@@ -9,7 +9,6 @@ const LoadingPage = ({ navigation, route }) => {
         style={{ width: 200, height: 200, objectFit: "contain" }}
         source={require("../resources/images/logo_green.png")}
       />
-
       <View style={stylesLogin.signUpContainer}>
         <Text>by</Text>
         <Text style={stylesLogin.signUpLink}>Joseph & Tristan</Text>

@@ -3,6 +3,7 @@ import { Text, View, Image, TouchableOpacity, Alert } from "react-native";
 import { InputDisplay } from "../components/InputDisplay";
 import { stylesLogin } from "../theme/style.js";
 import { loadUser, saveUser } from "../utils/localStorage";
+import LoadingPage from "../components/LoadingPage";
 
 const LoginPage = ({ navigation }) => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -60,8 +61,10 @@ const LoginPage = ({ navigation }) => {
           body: JSON.stringify({ Email: email, Password: password }),
         }
       ).then(async (response) => {
+        setLoggedIn(true);
         if (!response.ok) {
           setIsConnectionValid(false);
+          setLoggedIn(false);
         } else {
           const responseData = await response.json().then((data) => {
             navigate("Root", data);
@@ -72,8 +75,7 @@ const LoginPage = ({ navigation }) => {
       console.error(`Erreur lors de la connexion: ${error.message}`);
     }
   };
-
-  return (
+  return !loggedIn ? (
     <View style={stylesLogin.container}>
       <Image
         style={{ width: 100, height: 100, marginTop: 50, objectFit: "contain" }}
@@ -106,6 +108,8 @@ const LoginPage = ({ navigation }) => {
         </TouchableOpacity>
       </View>
     </View>
+  ) : (
+    <LoadingPage />
   );
 };
 

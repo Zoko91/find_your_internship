@@ -6,8 +6,8 @@ import { saveUser } from "../utils/localStorage";
 
 const PickerImage = ({ user, handler }) => {
   // --------------------- Explication  ---------------------
-  // Composant qui défini le sélecteur d'image qui permet de changer sa Photo de profil
-  const SaveImageToProfile = async (lienImage) => {
+  // Composant qui définit le sélecteur d'image qui permet de changer sa Photo de profil
+  const saveImageToProfile = async (lienImage) => {
     // --------------------- Explication  ---------------------
     // Défini le comportement du bouton caméra qui permet de changer la Photo de profil de l'utilisateur
     // Effectue plusieurs actions importantes:
@@ -61,7 +61,7 @@ const PickerImage = ({ user, handler }) => {
     }
   };
   // Méthode téléversant l'image au backend de notre serveur ASP.NET Core MVC
-  const UploadImage = async (uri) => {
+  const uploadImage = async (uri) => {
     let formData = new FormData();
     formData.append("userId", user.id);
     formData.append("image", {
@@ -92,16 +92,16 @@ const PickerImage = ({ user, handler }) => {
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
     });
 
     if (!result.canceled) {
-      SaveImageToProfile(result.assets[0].uri);
+      saveImageToProfile(result.assets[0].uri);
       handler(result.assets[0].uri);
-      UploadImage(result.assets[0].uri);
+      uploadImage(result.assets[0].uri);
     }
   };
 

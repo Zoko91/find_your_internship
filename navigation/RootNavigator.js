@@ -50,7 +50,7 @@ const RootNavigator = ({ route, user }) => {
         name="Profile"
         component={ProfileNavigator}
         initialParams={{ usertest: usertest }}
-        //options={{ unmountOnBlur: true }}
+        //options={{ unmountOnBlur: true }} // Permet le rechargement de la page au clic sur la tabbar de Profile
       />
     </Root.Navigator>
   );

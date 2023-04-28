@@ -5,6 +5,7 @@ import {
   Alert,
   TouchableOpacity,
   NativeModules,
+  ScrollView,
 } from "react-native";
 import Checkbox from "expo-checkbox";
 import styles from "../../theme/style.js";
@@ -129,14 +130,14 @@ const ProfileInformations = ({ navigation, route }) => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <ScrollView style={{ flex: 1 }}>
       <HeaderInformation />
       <InputBloc placeholder={"Username"} handler={handleUsername} />
       <InputBloc placeholder={"Email"} handler={setEmail} />
       <InputBloc placeholder={"Password"} handler={setPassword} />
       <View style={styles.fineLine2}></View>
       <Preferences />
-    </View>
+    </ScrollView>
   );
 };
 

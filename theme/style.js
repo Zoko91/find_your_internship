@@ -403,7 +403,7 @@ export const stylesInternshipDetail = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     color: "#2B5453",
-    marginTop: vh(6),
+    marginTop: vh(8),
   },
   internshipInfosContainer: {
     marginTop: -vh(10),
