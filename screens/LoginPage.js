@@ -43,39 +43,40 @@ const LoginPage = ({navigation}) => {
     // Renvoie l'utilisateur si oui puis ce dernier est passé dans la route afin d' l'utiliser sur toutes les pages
     // Ou renvoie une erreur qui devient une Alert si ces derniers ne sont corrects
 
-  const login = async () => {
-    try {
-      const response = await fetch(
-        "https://jbeasse-workadventure.azurewebsites.net/api/UserApi/authenticate",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ Email: email, Password: password }),
-        }
-      ).then(async (response) => {
+    const login = async () => {
         setLoggedIn(true);
-        if (!response.ok) {
-          setIsConnectionValid(false);
-          setLoggedIn(false);
-        } else {
-          const responseData = await response.json().then((data) => {
-            navigate("Root", data);
-          });
+        try {
+            const response = await fetch(
+                "https://jbeasse-workadventure.azurewebsites.net/api/UserApi/authenticate",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ Email: email, Password: password }),
+                }
+            ).then(async (response) => {
+
+                if (!response.ok) {
+                    setIsConnectionValid(false);
+                    setLoggedIn(false);
+                } else {
+                    const responseData = await response.json().then((data) => {
+                        navigate("Root", data);
+                    });
+                }
+            });
+        } catch (error) {
+            console.error(`Erreur lors de la connexion: ${error.message}`);
         }
-      });
-    } catch (error) {
-      console.error(`Erreur lors de la connexion: ${error.message}`);
-    }
-  };
-  return !loggedIn ? (
-    <View style={stylesLogin.container}>
-      <Image
-        style={{ width: 100, height: 100, marginTop: 50, objectFit: "contain" }}
-        source={require("../resources/images/logo_green.png")}
-      />
-      <Text style={stylesLogin.titleLogIn}>Login to WorkAdventure</Text>
+    };
+    return !loggedIn ? (
+        <View style={stylesLogin.container}>
+            <Image
+                style={{ width: 100, height: 100, marginTop: 50, objectFit: "contain" }}
+                source={require("../resources/images/logo_green.png")}
+            />
+            <Text style={stylesLogin.titleLogIn}>Login to WorkAdventure</Text>
 
             <InputDisplay type={"email"} handler={handleEmailChange}/>
 
@@ -89,16 +90,16 @@ const LoginPage = ({navigation}) => {
                 <View style={stylesLogin.horizontalBar}></View>
             </View>
 
-      <View style={stylesLogin.signUpContainer}>
-        <Text>Don't have an account yet ?</Text>
-        <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-          <Text style={stylesLogin.signUpLink}>Sign Up</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  ) : (
-    <LoadingPage />
-  );
+            <View style={stylesLogin.signUpContainer}>
+                <Text>Don't have an account yet ?</Text>
+                <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+                    <Text style={stylesLogin.signUpLink}>Sign Up</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
+    ) : (
+        <LoadingPage />
+    );
 };
 
 export default LoginPage;
