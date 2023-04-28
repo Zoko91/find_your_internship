@@ -13,7 +13,7 @@ import { saveUser } from "../../utils/localStorage";
 import HeaderInformation from "../../components/HeaderInformation";
 import Preferences from "../../components/Preferences";
 
-const ProfileInformations = ({ navigation, route }) => {
+const ProfileInformation = ({ navigation, route }) => {
   //Use the user that exists in the previous page here...
   const user = route.params.usertest;
   const [username, setUsername] = useState("");
@@ -94,16 +94,16 @@ const ProfileInformations = ({ navigation, route }) => {
 
   return (
     <View style={{ flex: 1 }}>
-      <HeaderInformation saveInformations={saveInformations}/>
+      <HeaderInformation saveInformation={saveInformation} />
       <InputBloc placeholder={"Username"} handler={handleUsername} />
       <InputBloc placeholder={"Email"} handler={setEmail} />
       <InputBloc placeholder={"Password"} handler={setPassword} />
       <View style={styles.fineLine2}></View>
       <Preferences
-          setIsSetMailUpdates={setIsSetMailUpdates}
-          isSetMailUpdates={isSetMailUpdates}
-          setIsSetPromoMail={setIsSetPromoMail}
-          isSetPromoMail={isSetPromoMail}
+        setIsSetMailUpdates={setIsSetMailUpdates}
+        isSetMailUpdates={isSetMailUpdates}
+        setIsSetPromoMail={setIsSetPromoMail}
+        isSetPromoMail={isSetPromoMail}
       />
     </View>
   );
