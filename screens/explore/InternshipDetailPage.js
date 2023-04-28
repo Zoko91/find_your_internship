@@ -12,6 +12,7 @@ const InternshipDetailPage = ({ navigation, route }) => {
   } else {
     remote = "Yes";
   }
+
   useEffect(() => {
     navigation.setOptions({
       headerStyle: { backgroundColor: route.params.topBarColor },
