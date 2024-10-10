@@ -6,7 +6,7 @@
 <h1 align="center">Work Adventure : Mobile App</h1>
 
 
-<p align="center"> Projet de deuxième année d'école d'ingénieur, en React Native.
+<p align="center"> Projet de deuxième année d'école d'ingénieur, en React Native. (2023)
     <br> 
 </p>
 
@@ -23,51 +23,19 @@ This permits future students to have a concrete idea of what could be expected f
 
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
-These instructions will let you know how to launch the project on your local machine.
-
-### Prerequisites
-First and foremost, you need to make sure that you have dotnet and EntityFramework Core installed on your computer.
+To launch the app simply use these 2 command lines:
 
 ```
-
+npm install
 ```
 
-### Launch the app
-When on the programs directory, you need to launch the app using the method **run**.
+Then:
 
 ```
+npm start
 ```
+**or npm expo start --tunnel** for connections requiring a tunnel
 
-Once the command executed, the terminal will indicate that the software is listening on a certain port
-
-```
-```
-If the navigator doesn't start automatically after **run** execution, you'll have to copy and paste the adress.
-
-In case of the first port not working, you may want to try with the second link.
-<!--
-## 🔧 Running the tests <a name = "tests"></a>
-Explain how to run the automated tests for this system.
-
-### Break down into end to end tests
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-Explain what these tests test and why
-
-```
-Give an example
-```
--->
-<!-- ## 🎈 Usage <a name="usage"></a>
-Add notes about how to use the system. -->
-
-<!-- ## 🚀 Deployment <a name = "deployment"></a>
-Add additional notes about how to deploy this on a live system. -->
 
 ## ⛏️ Built Using <a name = "built_using"></a>
  - [C#](https://dotnet.microsoft.com/en-us/languages/csharp/) - Back-end API  
@@ -75,8 +43,8 @@ Add additional notes about how to deploy this on a live system. -->
 
 
 ## ✍️ Authors <a name = "authors"></a>
-- [@tristangclvs](https://github.com/tristangclvs) - ENSC 2A / Groupe 1
-- [@Zoko91](https://github.com/Zoko91) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ENSC 2A / Groupe 1
+- [@Zoko91](https://github.com/Zoko91) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ENSC 2nd year
+- [@tristangclvs](https://github.com/tristangclvs) - ENSC 2nd year
 
 
 
